@@ -16,11 +16,8 @@ if(isset($_POST)) {
 	if($result->num_rows > 0) {
 		//output data
 		while($row = $result->fetch_assoc()) {
-
 			echo '<option value="'.$row["name"].'" data-id="'.$row["id"].'">'.$row["name"].'</option>';
-
 			}
-			
 	}
  	//Close database connection. Not compulsory but good practice.
  	$conn->close();

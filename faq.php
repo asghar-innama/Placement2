@@ -37,8 +37,7 @@ require_once("db.php");
 
                     <div class="content px-xl-5">
                         <h3>Frequently Asked <strong>Questions</strong></h3>
-                        <p>
-                            Any queries or doubts regarding the<strong> Placement Portal </strong> will be addressed over here students might get confused regarding the placement portal and may have may have queries to be solved.
+                        <p>Any queries or doubts?<p>
                     </div>
 
                     <div class="accordion accordion-flush px-xl-5" id="faqlist">
@@ -47,7 +46,7 @@ require_once("db.php");
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                                     <i class="bi bi-question-circle question-icon"></i>
-                                    What is the objective of this portal ?
+                                    Computer Science ?
                                 </button>
                             </h3>
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">

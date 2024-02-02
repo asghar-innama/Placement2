@@ -1,33 +1,20 @@
 <?php
-
 //To Handle Session Variables on This Page
 session_start();
-
 
 //Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
 ?>
+
 <!DOCTYPE html>
-
 <head>
-
     <title>Placement Portal</title>
-
-
-    <?php
-
-    include 'php/head.php'
-
-    ?>
-
+    <?php include 'php/head.php'    ?>
 </head>
 
-
 <body>
-
     <?php
     include 'php/header.php'
-
     ?>
 
     <!-- ======= F.A.Q Section ======= -->
@@ -41,10 +28,7 @@ require_once("db.php");
 
                     <div class="content px-xl-5">
                         <h3>Frequently Asked <strong>Questions</strong></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                        </p>
+                        <p>Any doubts?</p>
                     </div>
 
                     <div class="accordion accordion-flush px-xl-5" id="faqlist">
@@ -53,7 +37,7 @@ require_once("db.php");
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                                     <i class="bi bi-question-circle question-icon"></i>
-                                    Non consectetur a erat nam at lectus urna duis?
+                                    Computer Science
                                 </button>
                             </h3>
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">

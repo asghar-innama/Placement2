@@ -1,95 +1,34 @@
 <?php
-
 //To Handle Session Variables on This Page
 session_start();
 
-
-//Including Database Connection From db.php file to avoid rewriting in all files
+//Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Home</title>
-
 <head>
-    <?php
-
-    include 'php/head.php'
-
-    ?>
-
-
+    <?php include 'php/head.php'  ?>
 </head>
 
 <body>
-
     <!-- header starts -->
-    <?php
-
-    include 'php/header.php'
-
-    ?>
+    <?php include 'php/header.php'    ?>
     <!-- header ends -->
 
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
             <img src="assets/img/hero-carousel/hero-carousel-3.svg" class="img-fluid animated">
-            <h2>Welcome to <span>JIIT Placement Cell</span></h2>
-            <p>For Your Entire Placement Journey.</p>
+            <h2>Welcome to <span>Placement Cell</span></h2>
+            <p>Focus On What's Ahead</p>
             <div class="d-flex">
                 <a href="login.php" class="btn-get-started scrollto">Login</a>
-
             </div>
         </div>
     </section>
-
     <main id="main">
-
-        <!-- ======= Featured Services Section ======= -->
-        <!-- <section id="featured-services" class="featured-services">
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
-                        <div class="service-item position-relative">
-                            <div class="icon"><i class="bi bi-activity icon"></i></div>
-                            <h4><a href="" class="stretched-link">Login</a></h4>
-                            <p>Students can login using their credentials. </p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
-                        <div class="service-item position-relative">
-                            <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-                            <h4><a href="" class="stretched-link">Register</a></h4>
-                            <p>Register yourself here.</p>
-                        </div>
-                    </div>
-
-        <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
-            <div class="service-item position-relative">
-                <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-                <h4><a href="" class="stretched-link">Look for companies</a></h4>
-                <p>You can search for companies.</p>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
-            <div class="service-item position-relative">
-                <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-                <h4><a href="" class="stretched-link">Apply for Drives</a></h4>
-                <p>Look for eligibilty criteria and apply for companies accordingly.</p>
-            </div>
-        </div><!-- End Service Item -->
-
-        </div>
-
-        </div>
-        </section><!-- End Featured Services Section -->
-
-
-
 
         <!-- ======= Call To Action Section ======= -->
         <section id="cta" class="cta">
@@ -108,10 +47,9 @@ require_once("db.php");
                         </p>
                         <a class="cta-btn align-self-start" href="#">Get Started</a>
                     </div>
-
                     <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
                         <div class="img">
-                            <img src="assets/img/feature-7.jpg" alt="" class="img-fluid">
+                            <img src="" alt="Image 1" class="img-fluid">
                         </div>
                     </div>
 
@@ -159,15 +97,9 @@ require_once("db.php");
                                     Our Placement Portal serves various objectives:
                                 </p>
                                 <ul>
-                                    <li><i class="bi bi-check-circle-fill"></i> Developing the students to meet the Industries recruitment process.
-                                    </li>
-                                    <li><i class="bi bi-check-circle-fill"></i> To motivate students to develop Technical knowledge and soft skills in
-                                        terms of career planning, goal setting.
-                                    </li>
-                                    <li><i class="bi bi-check-circle-fill"></i> To produce world-class professionals who have excellent analytical skills,
-                                        communication skills, team building spirit and ability to work in cross cultural
-                                        environment.</li>
-
+                                    <li><i class="bi bi-check-circle-fill"></i> To provide career guidance about avenues open after graduation.</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Providing resources and training to students to facilitate the career planning process.</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> </li>
                                 </ul>
                             </div>
                             <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -177,16 +109,10 @@ require_once("db.php");
                     </div>
                     <!-- End Tab Content -->
 
-
-
-
-
                     <section id="statistics" class="content-header">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 text-center latest-job margin-bottom-20">
-                                    <h1>Our Statistics</h1>
-                                </div>
+
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-xs-6">
@@ -288,32 +214,14 @@ require_once("db.php");
                                         </div>
                                     </div>
                                 </div>
-                                <!-- ./col -->
                             </div>
                         </div>
                     </section>
                     <!-- ======= F.A.Q Section ======= -->
 
-
     </main><!-- End #main -->
 
-    <!-- ======= Footer ======= -->
-
-    <?php
-
-    include 'php/footer.php';
-    ?>
-
-    <!-- End Footer -->
-
-    <!-- TPO bot -->
-
-
-
-    <!-- tpo bot ends -->
-
-
-
+    <!--=============Footer ======= -->
+    <?php    include 'php/footer.php'; ?>
 </body>
-
 </html>
