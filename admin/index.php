@@ -48,7 +48,7 @@ if (isset($_SESSION['id_admin'])) {
   <div class="login-box " id="sms">
 
     <div class="login-logo text-white">
-      <a style="color:white" href="../index.php">Placement Portal</a>
+      <a style="color:white" href="../index.php">Christ University</a>
     </div>
     <!-- /.login-logo -->
     <div class="bg-gray-900 text-white login-box-body large">

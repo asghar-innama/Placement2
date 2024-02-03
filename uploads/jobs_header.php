@@ -1,7 +1,7 @@
 <!-- Main header -->
 <header class="header">
     <nav class="navbar">
-        <a href="#" class="nav-logo">Placement Portal</a>
+        <a href="#" class="nav-logo">Christ University Placement Portal</a>
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="user/index.php" class="nav-link">Dashboard</a>

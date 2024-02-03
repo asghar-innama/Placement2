@@ -1,17 +1,14 @@
 <!-- Main header -->
 <header class="header">
     <nav class="navbar">
-        <a href="#" class="nav-logo">Placement Portal</a>
+        <a href="#" class="nav-logo">Christ University Placement Portal</a>
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="index.php" class="nav-link">Home</a>
             </li>
-
             <li class="nav-item">
                 <a href="login.php" class="nav-link">Login</a>
             </li>
-
-
             <li class="nav-item">
                 <a href="contact.php" class="nav-link">Contact </a>
             </li>
@@ -43,15 +40,12 @@
     li {
         list-style: none;
     }
-
     a {
         text-decoration: none;
     }
-
     .header {
         border-bottom: 0px solid #E2E8F0;
     }
-
     .navbar {
         display: flex;
         justify-content: space-between;
@@ -150,7 +144,6 @@
 </style>
 
 <!-- js files-->
-
 <script>
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
