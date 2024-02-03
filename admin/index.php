@@ -1,19 +1,15 @@
 <?php
 
 session_start();
-
 if (isset($_SESSION['id_admin'])) {
   header("Location: dashboard.php");
   exit();
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  
   <title>Placement Portal</title>
   <link href="../img/logo.png" rel="icon">
   <!-- Tell the browser to be responsive to screen width -->
@@ -95,7 +91,7 @@ if (isset($_SESSION['id_admin'])) {
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="new-password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">

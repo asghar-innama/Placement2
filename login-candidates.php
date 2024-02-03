@@ -32,45 +32,33 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <!-- Google Font -->
 
   <?php
-
   include 'php/head.php'
-
   ?>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition login-page bg-blue-100 text-white">
-
-
-  <!-- <header> -->
-
-
-
-  <?php
-
-  include 'php/header.php'
-
+  
+<!-- <header> -->
+  <?php  
+  include 'php/header.php'  
   ?>
-
-
 
   <!-- </header> -->
   <div class="login-box hello">
     <div class="login-logo ">
-
       <a href="index.php" style="color:black"><b>Placement Portal</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body bg-blue-200 text-black ">
       <p class="login-box-msg text-2xl text-black">Student Login</p>
-
       <form method="post" action="checklogin.php " class="text-xl">
         <div class="form-group has-feedback">
           <input type="email" id="large" class="form-control" id="email" name="email" placeholder="Email">
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" id="large" class="form-control" id="password" name="password" placeholder="Password">
+          <input type="password" id="large" class="form-control" id="password" name="password" placeholder="Password" autocomplete="new-password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <style>

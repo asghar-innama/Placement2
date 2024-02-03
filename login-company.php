@@ -29,26 +29,18 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-
   <?php
-
   include 'php/head.php'
-
   ?>
 </head>
 
 <body class="hold-transition login-page bg-blue-100 text-white">
 
-
   <?php
-
   include 'php/header.php'
-
   ?>
 
   <div class="login-box content:centre">
@@ -65,7 +57,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" id="large" name="password" class="form-control" placeholder="Password">
+          <input type="password" id="large" name="password" class="form-control" placeholder="Password" autocomplete="new-password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <style>
@@ -153,7 +145,6 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <!-- footer starts -->
 
   <?php
-
   include 'php/footer.php';
   ?>
   <!-- footer ends -->

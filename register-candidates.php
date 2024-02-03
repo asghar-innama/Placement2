@@ -105,7 +105,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               </div>
               <div class="col-md-6 latest-job ">
                 <div class="form-group">
-                  <input class="form-control input-lg" type="password" id="password" name="password" placeholder="Password *" required>
+                  <input class="form-control input-lg" type="password" id="password" name="password" placeholder="Password *" required autocomplete="new-password">
                 </div>
                 <div class="form-group">
                   <input class="form-control input-lg" type="password" id="cpassword" name="cpassword" placeholder="Confirm Password *" required>

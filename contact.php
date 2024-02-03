@@ -36,10 +36,12 @@
     <link rel="stylesheet" href="css/AdminLTE.min.css">
     <link rel="stylesheet" href="css/_all-skins.min.css">
     <link rel="stylesheet" href="assets/css/chat.css">
+
 </head>
 
 <body>
-    <?php    include 'php/header.php' ?>
+    <?php    
+    include 'php/header.php' ?>
     <!-- </header> -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

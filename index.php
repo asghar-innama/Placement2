@@ -10,12 +10,14 @@ require_once("db.php");
 <html lang="en">
 <title>Home</title>
 <head>
-    <?php include 'php/head.php'  ?>
+    <?php 
+    include 'php/head.php'  ?>
 </head>
 
 <body>
     <!-- header starts -->
-    <?php include 'php/header.php'    ?>
+    <?php 
+    include 'php/header.php'    ?>
     <!-- header ends -->
 
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
