@@ -23,7 +23,7 @@ require_once("db.php");
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
             <img src="assets/img/hero-carousel/hero-carousel-3.svg" class="img-fluid animated">
-            <h2>Welcome to <span>Placement Cell</span></h2>
+            <h2>Welcome to<br> <span>Christ Placement Cell</span></h2>
             <p>Focus On What's Ahead</p>
             <div class="d-flex">
                 <a href="login.php" class="btn-get-started scrollto">Login</a>
@@ -43,7 +43,8 @@ require_once("db.php");
                         <p>The Placement Cell plays a crucial role in locating job
                             opportunities for under graduates and post graduates passing out from the college by
                             keeping in touch with reputed firms and industrial establishments.
-                            <br>The placement cell operates round the year to facilitate contacts between companies
+                            <br>
+                            The placement cell operates round the year to facilitate contacts between companies
                             and graduates. The number of students placed through the campus interviews is
                             continuously rising.
                         </p>
@@ -51,7 +52,7 @@ require_once("db.php");
                     </div>
                     <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
                         <div class="img">
-                            <img src="" alt="Image 1" class="img-fluid">
+                            <img src="Placement-Cell.jpg" alt="Image 1" class="img-fluid">
                         </div>
                     </div>
 
