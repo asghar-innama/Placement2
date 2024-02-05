@@ -22,7 +22,7 @@ require_once("db.php");
 
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-            <img src="assets/img/hero-carousel/hero-carousel-3.svg" class="img-fluid animated">
+            <img src="" alt="No image">
             <h2>Welcome to <span>Placement Cell</span></h2>
             <p>Focus On What's Ahead</p>
             <div class="d-flex">
