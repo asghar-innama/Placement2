@@ -22,7 +22,7 @@ require_once("db.php");
 
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-            <img src="assets/img/hero-carousel/hero-carousel-3.svg" class="img-fluid animated">
+            <img src="img/Placement-Cell.jpg" class="img-fluid animated">
             <h2>Welcome to<br> <span>Christ Placement Cell</span></h2>
             <p>Focus On What's Ahead</p>
             <div class="d-flex">
@@ -102,7 +102,8 @@ require_once("db.php");
                                 <ul>
                                     <li><i class="bi bi-check-circle-fill"></i> To provide career guidance about avenues open after graduation.</li>
                                     <li><i class="bi bi-check-circle-fill"></i> Providing resources and training to students to facilitate the career planning process.</li>
-                                    <li><i class="bi bi-check-circle-fill"></i> </li>
+                                    <li><i class="bi bi-check-circle-fill"></i> We seek to reduce manual labor, minimize errors, to create a technology-driven platform that benefits both students and placement authorities.
+</li>
                                 </ul>
                             </div>
                             <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
