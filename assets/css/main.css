@@ -94,6 +94,8 @@ h1, h2, h3, h4, h5, h6 {
 section {
   padding: 60px 0;
   overflow: hidden;
+  color: yellow;
+  background-color: bisque;
 }
 
 .section-header {
@@ -1087,7 +1089,7 @@ section {
 }
 .cta .container {
   padding: 80px;
-  background: rgba(var(--color-secondary-rgb), 0.1);
+  background: red;
   border-radius: 15px;
 }
 @media (max-width: 992px) {
