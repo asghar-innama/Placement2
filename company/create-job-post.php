@@ -41,14 +41,6 @@ require_once("../db.php");
     });
   </script>
 
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -57,13 +49,11 @@ require_once("../db.php");
   <div class="wrapper">
 
     <?php
-
     include 'header.php';
     ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-left: 0px;">
-
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
@@ -111,27 +101,16 @@ require_once("../db.php");
                     <div class="form-group">
                       <input type="text" class="form-control  input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
                     </div>
-
-
-                    <!-- adding image to drive post  -->
-
-
-
-
                     <div class="form-group">
                       <button type="submit" class="btn btn-flat btn-success">Create</button>
                     </div>
                   </div>
                 </form>
               </div>
-
             </div>
           </div>
         </div>
       </section>
-
-
-
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer" style="margin-left: 0px;">
@@ -142,13 +121,10 @@ require_once("../db.php");
     </footer>
 
     <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 
   </div>
   <!-- ./wrapper -->
-
   <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -156,5 +132,4 @@ require_once("../db.php");
   <!-- AdminLTE App -->
   <script src="../js/adminlte.min.js"></script>
 </body>
-
 </html>

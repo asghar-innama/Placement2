@@ -14,12 +14,7 @@ require_once("../db.php");
 //if user Actually clicked Add Post Button
 if (isset($_POST)) {
 
-
-
 	// New way using prepared statements. This is safe from SQL INJECTION. Should consider to update to this method when many people are using this method.
-
-
-
 	$stmt = $conn->prepare("INSERT INTO job_post(id_company, jobtitle, description, minimumsalary, maximumsalary, experience, qualification) VALUES (?,?, ?, ?, ?, ?, ?)");
 
 	$stmt->bind_param("issssss", $_SESSION['id_company'], $jobtitle, $description, $minimumsalary, $maximumsalary, $experience, $qualification);
@@ -42,7 +37,6 @@ if (isset($_POST)) {
 		//If data failed to insert then show that error. Note: This condition should not come unless we as a developer make mistake or someone tries to hack their way in and mess up :D
 		echo "Error ";
 	}
-
 	$stmt->close();
 
 	//THIS IS NOT SAFE FROM SQL INJECTION BUT OK TO USE WITH SMALL TO MEDIUM SIZE AUDIENCE

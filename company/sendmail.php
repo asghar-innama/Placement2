@@ -20,7 +20,6 @@ if ($result->num_rows > 0) {
 
     while ($row = $result->fetch_assoc()) {
 
-
         //the subject
         $sub = "New Drive has been posted.";
         //the message
