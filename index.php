@@ -22,7 +22,7 @@ require_once("db.php");
 
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-            <img src="img/Placement-Cell.jpg" class="img-fluid animated">
+            <img src="img/correct img.png" class="img-fluid animated">
             <h2>Welcome to<br> <span>Christ Placement Cell</span></h2>
             <p>Focus On What's Ahead</p>
             <div class="d-flex">
@@ -44,6 +44,7 @@ require_once("db.php");
                             opportunities for under graduates and post graduates passing out from the college by
                             keeping in touch with reputed firms and industrial establishments.
                             <br>
+                            <br>
                             The placement cell operates round the year to facilitate contacts between companies
                             and graduates. The number of students placed through the campus interviews is
                             continuously rising.
@@ -52,7 +53,7 @@ require_once("db.php");
                     </div>
                     <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
                         <div class="img">
-                            <img src="Placement-Cell.jpg" alt="Image 1" class="img-fluid">
+                            <img src="img/Placement-Cell.jpg" alt="Image 1" class="img-fluid">
                         </div>
                     </div>
 
@@ -95,9 +96,9 @@ require_once("db.php");
                     <div class="tab-pane active show" id="tab-1">
                         <div class="row gy-4">
                             <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-                                <h3>Objectives</h3>
+                                <h3>Aims & Objectives</h3>
                                 <p class="fst-itali">
-                                    Our Placement Portal serves various objectives:
+                                    Our Placement Portal serves various services:
                                 </p>
                                 <ul>
                                     <li><i class="bi bi-check-circle-fill"></i> To provide career guidance about avenues open after graduation.</li>
@@ -107,7 +108,7 @@ require_once("db.php");
                                 </ul>
                             </div>
                             <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                                <img src="assets/img/features-1.svg" alt="" class="img-fluid">
+                                <img src="img/objectives img.png" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>

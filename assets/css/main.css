@@ -94,8 +94,8 @@ h1, h2, h3, h4, h5, h6 {
 section {
   padding: 60px 0;
   overflow: hidden;
-  color: yellow;
-  background-color: bisque;
+  color: black;
+  background-color: white;
 }
 
 .section-header {
@@ -405,7 +405,7 @@ section {
     inset: 0;
     padding: 10px 0;
     margin: 0;
-    background: rgba(var(--color-secondary-rgb), 0.9);
+    background: #8B0000;
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -491,17 +491,19 @@ section {
   margin: 0 0 10px 0;
   font-size: 48px;
   font-weight: 300;
-  color: var(--color-secondary);
-  font-family: var(--font-secondary);
+  color: black;
+  font-family: "Times New Roman", Times, serif;
 }
 .hero-animated h2 span {
-  color: var(--color-primary);
+  color: #8B0000;
 }
 .hero-animated p {
-  color: rgba(var(--color-secondary-rgb), 0.8);
+  color: black;
   margin: 0 0 30px 0;
   font-size: 20px;
   font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+
 }
 .hero-animated .animated {
   margin-bottom: 45px;
@@ -524,14 +526,14 @@ section {
 }
 .hero-animated .btn-get-started {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   display: inline-block;
   padding: 10px 28px;
   border-radius: 4px;
   transition: 0.5s;
   color: var(--color-white);
-  background: var(--color-primary);
-  font-family: var(--font-secondary);
+  background: #8B0000;
+  font-family: "Times New Roman", Times, serif;
 }
 .hero-animated .btn-get-started:hover {
   background: rgba(var(--color-primary-rgb), 0.8);
@@ -1089,7 +1091,7 @@ section {
 }
 .cta .container {
   padding: 80px;
-  background: red;
+  background: #004080;
   border-radius: 15px;
 }
 @media (max-width: 992px) {
@@ -1098,7 +1100,7 @@ section {
   }
 }
 .cta .content h3 {
-  color: var(--color-secondary);
+  color: white;
   font-size: 48px;
   font-weight: 700;
 }
@@ -1117,20 +1119,22 @@ section {
   z-index: -1;
 }
 .cta .content p {
-  color: var(--color-secondary);
+  color: white;
   font-weight: 600;
   font-size: 18px;
+  
 }
 .cta .content .cta-btn {
   color: var(--color-white);
-  font-weight: 500;
+  font-weight: 600;
+  font-family: "Times New Roman", Times, serif;
   font-size: 16px;
   display: inline-block;
   padding: 12px 40px;
   border-radius: 5px;
   transition: 0.5s;
   margin-top: 10px;
-  background: rgba(var(--color-primary-dark-rgb), 0.9);
+  background: #a9d4ff;
 }
 .cta .content .cta-btn:hover {
   background: var(--color-primary);
@@ -1373,7 +1377,8 @@ section {
 .features .tab-pane h3 {
   font-weight: 600;
   font-size: 36px;
-  color: var(--color-secondary);
+  color: black;
+  font-family: "Times New Roman", Times, serif;
 }
 .features .tab-pane ul {
   list-style: none;
@@ -1381,6 +1386,9 @@ section {
 }
 .features .tab-pane ul li {
   padding-bottom: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
+  color: black;
 }
 .features .tab-pane ul i {
   font-size: 24px;
@@ -2745,7 +2753,7 @@ section {
 }
 .footer .footer-legal {
   padding: 30px 0;
-  background: var(--color-secondary-dark);
+  background: #004080;
 }
 .footer .footer-legal .credits {
   padding-top: 4px;

@@ -147,10 +147,11 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 a {
-  color: #3c8dbc;
+  color: #8B0000;
+  font-weight: 600;
 }
 a:hover,
 a:active,
