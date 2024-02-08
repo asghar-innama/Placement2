@@ -16,7 +16,7 @@
 }
 
 a {
-  color: var(--color-links);
+  color: #8B0000;
   text-decoration: none;
 }
 
@@ -175,7 +175,7 @@ section {
   right: 15px;
   bottom: 15px;
   z-index: 995;
-  background: var(--color-primary);
+  background: #8B0000;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -195,6 +195,8 @@ section {
   opacity: 1;
 }
 
+
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -210,10 +212,12 @@ section {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+  color:white;
 }
 .header.sticked {
   background: var(--color-white);
-  box-shadow: 0px 2px 20px rgba(var(--color-secondary-rgb), 0.1);
+  box-shadow: #004080;
+  /*box-shadow: 0px 2px 20px rgba(var(--color-secondary-rgb), 0.1);*/
 }
 .header .logo img {
   max-height: 40px;
@@ -222,7 +226,8 @@ section {
 .header .logo h1 {
   font-size: 32px;
   font-weight: 300;
-  color: var(--color-secondary);
+  color: #004080;
+
   font-family: var(--font-secondary);
 }
 .header .logo h1 span {
@@ -259,6 +264,8 @@ section {
   .navbar ul {
     margin: 0;
     padding: 0;
+    font-weight: 600;
+    color:white;
     display: flex;
     list-style: none;
     align-items: center;
@@ -276,8 +283,7 @@ section {
     padding: 14px 20px;
     font-family: var(--font-secondary);
     font-size: 16px;
-    font-weight: 400;
-    color: rgba(var(--color-secondary-dark-rgb), 0.7);
+    font-weight: 600;
     white-space: nowrap;
     transition: 0.3s;
     position: relative;
@@ -291,6 +297,7 @@ section {
     content: "";
     position: absolute;
     width: 100%;
+    font-weight: 600;
     height: 2px;
     bottom: 0;
     left: 0;
@@ -312,7 +319,7 @@ section {
   }
   .navbar .dropdown a:hover, .navbar .dropdown .active, .navbar .dropdown .active:focus, .navbar .dropdown:hover > a {
     color: var(--color-white);
-    background: var(--color-secondary);
+    background: #004080;
   }
   .navbar .dropdown ul {
     display: block;
@@ -324,7 +331,7 @@ section {
     z-index: 99;
     opacity: 0;
     visibility: hidden;
-    background: var(--color-secondary);
+    background: #004080;
     transition: 0.3s;
   }
   .navbar .dropdown ul li {
@@ -405,7 +412,7 @@ section {
     inset: 0;
     padding: 10px 0;
     margin: 0;
-    background: #8B0000;
+    background: #004080;
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -415,9 +422,9 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 12px 20px;
-    font-size: 16px;
-    font-weight: 500;
-    color: rgba(var(--color-white-rgb), 0.7);
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -1393,7 +1400,7 @@ section {
 .features .tab-pane ul i {
   font-size: 24px;
   margin-right: 4px;
-  color: var(--color-primary);
+  color: #8B0000;
 }
 .features .tab-pane p:last-child {
   margin-bottom: 0;
