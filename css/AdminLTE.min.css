@@ -3274,6 +3274,11 @@ table.text-center th {
 .login-logo a,
 .register-logo a {
   color: #444;
+  font-weight: 300;
+  font-size: 30px;
+  text-align: center;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
 }
 .login-page,
 .register-page {
@@ -3283,7 +3288,10 @@ table.text-center th {
 .register-box {
   width: 360px;
   margin: 7% auto;
+  background: #004080;
+  padding-bottom: 20px; /* Adjust the value as needed */
 }
+
 @media (max-width: 768px) {
   .login-box,
   .register-box {

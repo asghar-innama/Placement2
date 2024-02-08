@@ -47,7 +47,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <!-- </header> -->
   <div class="login-box hello">
     <div class="login-logo ">
-      <a href="index.php" style="color:black"><b>Placement Portal</b></a>
+      <a href="index.php" style="color:black"><b>Student Portal</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body bg-blue-200 text-black ">
