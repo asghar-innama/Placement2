@@ -38,54 +38,20 @@ if (isset($_SESSION['id_admin'])) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition login-page bg-gray-800 text-white">
+<body class="hold-transition login-page bg-white text-black">
 
 
   <?php
   include '../uploads/admin_header.php';
   ?>
-
-  <div class="login-box " id="sms">
-
-    <div class="login-logo text-white">
-      <a style="color:white" href="../index.php">Christ University</a>
+    <div class="login-box hello">
+    <div class="login-logo ">
+    <a href="index.php" style="color:white; font-family: 'Times New Roman', Times, serif; margin-top: 10px;"><b>Admin Portal</b></a>
     </div>
     <!-- /.login-logo -->
-    <div class="bg-gray-900 text-white login-box-body large">
-      <p class="login-box-msg mt-7">Admin Login</p>
-      <style>
-        .large {
-          width: 350px;
-          height: 300px;
-        }
-
-        .small {
-          font-size: small;
-        }
-
-        #footer {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 60px;
-          /* Height of the footer */
-
-        }
-
-
-        @media only screen and (max-width: 768px) {
-          .large {
-            margin: auto;
-
-          }
-
-          .small {
-
-            position: absolute;
-          }
-      </style>
-
-      <form action="checklogin.php" method="post">
+    <div class="login-box-body bg-blue-200 text-black ">
+    <p class="login-box-msg text-3xl" style="color: black; font-weight: bold;">Login</p>
+      <form method="post" action="checklogin.php " class="text-xl">
         <div class="form-group has-feedback">
           <input type="text" class="form-control" name="username" placeholder="Username">
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -94,39 +60,85 @@ if (isset($_SESSION['id_admin'])) {
           <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="new-password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
-        <div class="row">
+        <style>
+          #large {
+            font-size: medium;
+
+
+          }
+        </style>
+        <div class="row ">
+          <div class="col-xs-8">
+            <a href="#">Forgot your password?</a>
+          </div>
           <!-- /.col -->
           <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat" class=" transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">Sign In</button>
+            <button type="submit" class="flex mx-auto mt-6 text-white bg-blue-900 border-0 py-2 px-5 focus:outline-none hover:bg-blue-800 rounded">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
-        <?php
-        //If User Failed To log in then show error message.
-        if (isset($_SESSION['loginError'])) {
-        ?>
-          <div>
-            <p class="text-center">Invalid Email/Password! Try Again!</p>
-          </div>
-        <?php
-          unset($_SESSION['loginError']);
-        }
-        ?>
-
       </form>
+
+      <br>
+
+      <?php
+      //If User have successfully registered then show them this success message
+      //Todo: Remove Success Message without reload?
+      if (isset($_SESSION['registerCompleted'])) {
+      ?>
+        <div>
+          <p id="successMessage" class="text-center">You Have Registered Successfully! Your Account Approval Is Pending By Placement-Officer</p>
+        </div>
+      <?php
+        unset($_SESSION['registerCompleted']);
+      }
+      ?>
+      <?php
+      //If User Failed To log in then show error message.
+      if (isset($_SESSION['loginError'])) {
+      ?>
+        <div>
+          <p class="text-center">Invalid Email/Password! Try Again!</p>
+        </div>
+      <?php
+        unset($_SESSION['loginError']);
+      }
+      ?>
+
+      <?php
+      //If User Failed To log in then show error message.
+      if (isset($_SESSION['userActivated'])) {
+      ?>
+        <div>
+          <p class="text-center">Your Account Is Active. You Can Login</p>
+        </div>
+      <?php
+        unset($_SESSION['userActivated']);
+      }
+      ?>
+
+      <?php
+      //If User Failed To log in then show error message.
+      if (isset($_SESSION['loginActiveError'])) {
+      ?>
+        <div>
+          <p class="text-center"><?php echo $_SESSION['loginActiveError']; ?></p>
+        </div>
+      <?php
+        unset($_SESSION['loginActiveError']);
+      }
+      ?>
+
     </div>
+    <a class="text-xl text-white font-bold ml-4" style="margin-top: 0.5cm; text-decoration: underline;" href="register-candidates.php">Create new account</a>
     <!-- /.login-box-body -->
   </div>
-
-
 
   <div style="margin: bottom 0px; " class="  sm:mt-48 ">
     <footer id="footer" class="text-gray-600 body-font bg-gray-800 border-t-2 border-gray-700 small mb-0 ">
 
       <div class="pt-1 pb-2">
         <ul class="flex  space-x-16 justify-center text-white my-4 ">
-
-          <li><i class="fa fa-copyright" aria-hidden="true"></i>Placement Portal @ 2022</li>
           <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
           <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
           <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
@@ -137,17 +149,14 @@ if (isset($_SESSION['id_admin'])) {
 
 
 
+      <br>
 
       </div>
 
 
     </footer>
 
-
-
-  </div>
   <!-- /.login-box -->
-
 
   <!-- jQuery 3 -->
   <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

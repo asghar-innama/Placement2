@@ -5,7 +5,7 @@
         <ul class="nav-menu">
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link">Dashboard</a>
+                    <a href="index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="../jobs.php" class="nav-link">Notice</a>
@@ -50,7 +50,7 @@
     }
 
     .header {
-        border-bottom: 1px solid #E2E8F0;
+        /* border-bottom: 1px solid #E2E8F0; */
     }
 
     .navbar {
@@ -58,6 +58,8 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 1.5rem;
+        /* background-color: #114f5e; */
+        background-color: #101a1d;
     }
 
     .hamburger {
@@ -72,6 +74,7 @@
         -webkit-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
         background-color: #101010;
+
     }
 
     .nav-menu {
@@ -95,9 +98,12 @@
     }
 
     .nav-logo {
-        font-size: 2.1rem;
-        font-weight: 500;
-        color: #d0cce9;
+    font-size: 30px; /* Increased font size */
+    font-weight: bold; /* Changed to bold */
+    color: white; /* Changed to white */
+    font-family: "Times New Roman", Times, serif; /* Set font family */
+    text-align: left; /* Align the component to the left */
+    
     }
 
     @media only screen and (max-width: 768px) {
@@ -115,6 +121,7 @@
             box-shadow:
                 0 10px 27px rgba(0, 0, 0, 0.05);
             z-index: 10;
+
         }
 
         .nav-menu.active {
