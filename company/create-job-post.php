@@ -3,7 +3,7 @@
 //To Handle Session Variables on This Page
 session_start();
 
-//If user Not logged in then redirect them back to homepage. 
+//If user Not logged in then redirect them back to the homepage. 
 if (empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
@@ -74,7 +74,6 @@ require_once("../db.php");
                     <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
                     <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                   </ul>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -86,20 +85,27 @@ require_once("../db.php");
                     <div class="form-group">
                       <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle" placeholder="Company Name">
                     </div>
-                    <div class="form-group">
-                      <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
-                    </div>
+                    
                     <div class="form-group">
                       <input type="number" class="form-control  input-lg" id="minimumsalary" autocomplete="off" name="minimumsalary" placeholder="CTC" required="">
                     </div>
                     <div class="form-group">
-                      <input type="number" class="form-control  input-lg" id="maximumsalary" name="maximumsalary" placeholder="Eligibility Criteria" required="">
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control  input-lg" id="experience" autocomplete="off" name="experience" placeholder="Role" required="">
+                      <input type="text" class="form-control  input-lg" id="experience" autocomplete="off" name="role" placeholder="Role" required="">
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control  input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
+                    </div>
+                    <div class="form-group">
+                      <input type="number" class="form-control input-lg" id="backlogs" name="backlogs" placeholder="Max Number of Backlogs Allowed" required="">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control input-lg" id="cgpa" name="cgpa" placeholder="CGPA Gained" required="">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control input-lg" id="companyurl" name="companyurl" placeholder="Company URL" required="">
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-flat btn-success">Create</button>
@@ -115,8 +121,6 @@ require_once("../db.php");
     <!-- /.content-wrapper -->
     <footer class="main-footer" style="margin-left: 0px;">
       <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
       </div>
     </footer>
 

@@ -1,23 +1,13 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
-
-//If user Not logged in then redirect them back to homepage. 
-//This is required if user tries to manually enter view-job-post.php in URL.
 if (empty($_SESSION['id_jobpost'])) {
     header("Location: ../index.php");
     exit();
 }
-
-//Including Database Connection From db.php file to avoid rewriting in all files  
 require_once("../db.php");
-
-
-
-
-
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -33,8 +23,6 @@ require_once("../db.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../css/AdminLTE.min.css">
     <link rel="stylesheet" href="../css/_all-skins.min.css">
@@ -55,11 +43,7 @@ require_once("../db.php");
 <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
 
-        <?php
-
-        include 'header.php';
-
-        ?>
+        <?php include 'header.php'; ?>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="margin-left: 0px;">
@@ -89,9 +73,6 @@ require_once("../db.php");
                             </div>
                         </div>
 
-
-
-
                         <div class="col-md-9 bg-white padding-2">
                             <h2>Update Drive</h2>
                             <p>In this section you can change drive details.</p>
@@ -111,31 +92,39 @@ require_once("../db.php");
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Role</label>
-                                                    <input type="text" class="form-control input-lg" name="role" id="role" value="<?php echo $row['experience']; ?>">
+                                                    <input type="text" class="form-control input-lg" name="role" id="role" value="<?php echo $row['role']; ?>">
                                                 </div>
-
                                                 <div class="form-group">
-                                                    <label>Drive Detail</label>
-                                                    <textarea class="form-control input-lg" rows="4" id="description" name="description"><?php echo $row['description']; ?></textarea>
+                                                    <label>Eligibility</label>
+                                                    <input type="text" class="form-control input-lg" name="Eligibility" id="Eligibility" value="<?php echo $row['eligibility']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>CTC</label>
+                                                    <input type="text" class="form-control input-lg" name="CTC" id="CTC" value="<?php echo $row['minimumsalary']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Qualification Required</label>
+                                                    <input type="text" class="form-control input-lg" name="qualification" id="qualification" value="<?php echo $row['qualification']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Company URL</label>
+                                                    <input type="text" class="form-control input-lg" name="companyurl" id="companyurl" value="<?php echo $row['companyurl']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Max Number of Backlogs Allowed</label>
+                                                    <input type="text" class="form-control input-lg" name="backlogs" id="backlogs" value="<?php echo $row['backlogs']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>CGPA Gained</label>
+                                                    <input type="text" class="form-control input-lg" name="cgpa" id="cgpa" value="<?php echo $row['cgpa']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Job Description</label>
+                                                    <textarea class="form-control input-lg" rows="4" name="description" id="description"><?php echo $row['description']; ?></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <button type="submit" name="submit" id="submit" class="btn btn-flat btn-success">Update Profile</button>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6 latest-job ">
-                                                <div class="form-group">
-                                                    <label for="contactno">Eligibility</label>
-                                                    <input type="text" class="form-control input-lg" id="Eligibility" name="Eligibility" placeholder="Eligibility" value="<?php echo $row['maximumsalary']; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="city">CTC</label>
-                                                    <input type="text" class="form-control input-lg" id="CTC" name="CTC" value="<?php echo $row['minimumsalary']; ?>" placeholder="CTC">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="state">Qualification Required</label>
-                                                    <input type="text" class="form-control input-lg" id="qualification" name="qualification" placeholder="qualification" value="<?php echo $row['qualification']; ?>">
-                                                </div>
-
                                             </div>
                                     <?php
                                         }
@@ -143,22 +132,10 @@ require_once("../db.php");
                                     ?>
                                 </form>
                             </div>
-
-
                         </div>
-
-
-
                     </div>
                 </div>
-
             </section>
-
-
-
-
-
-
         </div>
         <!-- /.content-wrapper -->
 
@@ -168,12 +145,9 @@ require_once("../db.php");
                 reserved.
             </div>
         </footer>
-
-        <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
+         <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. -->
         <div class="control-sidebar-bg"></div>
-
     </div>
     <!-- ./wrapper -->
 
@@ -185,7 +159,5 @@ require_once("../db.php");
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../js/adminlte.min.js"></script>
-
 </body>
-
 </html>

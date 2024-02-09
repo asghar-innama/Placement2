@@ -14,8 +14,6 @@ if (empty($_SESSION['id_jobpost'])) {
 require_once("../db.php");
 
 if (isset($_POST['submit'])) {
-
-
     $companyname = mysqli_real_escape_string($conn, $_POST['companyname']);
     $role = mysqli_real_escape_string($conn, $_POST['role']);
     $CTC = mysqli_real_escape_string($conn, $_POST['CTC']);
@@ -23,8 +21,7 @@ if (isset($_POST['submit'])) {
     $Eligibility = mysqli_real_escape_string($conn, $_POST['Eligibility']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
 
-
-    $sql = "UPDATE job_post SET jobtitle='$companyname', experience='$role', minimumsalary='$CTC', qualification='$qualification', maximumsalary='$Eligibility',  description='$description' where id_jobpost='$_SESSION[id_jobpost] '";
+    $sql = "UPDATE job_post SET jobtitle='$companyname', role='$role', minimumsalary='$CTC', eligibility='$Eligibility', qualification='$qualification',   description='$description' where id_jobpost='$_SESSION[id_jobpost] '";
 
     if ($conn->query($sql) === TRUE) {
         // $_SESSION['name'] = $companyname;
@@ -40,6 +37,5 @@ if (isset($_POST['submit'])) {
     //redirect them back to dashboard page if they didn't click update button
     header("Location: updatedrive.php");
     exit();
-
     exit();
 }
