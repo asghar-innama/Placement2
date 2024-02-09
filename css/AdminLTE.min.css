@@ -3270,6 +3270,7 @@ table.text-center th {
   text-align: center;
   margin-bottom: 25px;
   font-weight: 300;
+  margin-top: 20px; /* Adding a top margin of 20px */
 }
 .login-logo a,
 .register-logo a {
@@ -3289,7 +3290,7 @@ table.text-center th {
   width: 360px;
   margin: 7% auto;
   background: #004080;
-  padding-bottom: 20px; /* Adjust the value as needed */
+  padding-bottom: 10px; /* Adjust the value as needed */
 }
 
 @media (max-width: 768px) {
@@ -3303,7 +3304,7 @@ table.text-center th {
 .register-box-body {
   background: #fff;
   padding: 20px;
-  border-top: 0;
+  border-top: 60px; /* Adjust the value as needed */
   color: #666;
 }
 .login-box-body .form-control-feedback,

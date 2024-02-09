@@ -4,7 +4,7 @@
         <a href="#" class="nav-logo">Christ University Placement Portal</a>
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="user/index.php" class="nav-link">Dashboard</a>
+                <a href="user/index.php" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
                 <a href="user/resume.php" class="nav-link">Create Resume</a>
@@ -49,11 +49,10 @@
 
     a {
         text-decoration: none;
-        left: 0px;
     }
 
     .header {
-        border-bottom: 1px solid #E2E8F0;
+        /* border-bottom: 1px solid #E2E8F0; */
     }
 
     .navbar {
@@ -61,6 +60,8 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 1.5rem;
+        /* background-color: #114f5e; */
+        background-color: #101a1d;
     }
 
     .hamburger {
@@ -104,7 +105,7 @@
     color: white; /* Changed to white */
     font-family: "Times New Roman", Times, serif; /* Set font family */
     text-align: left; /* Align the component to the left */
-
+    
     }
 
     @media only screen and (max-width: 768px) {

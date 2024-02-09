@@ -46,11 +46,11 @@ if (isset($_SESSION['id_admin'])) {
   ?>
     <div class="login-box hello">
     <div class="login-logo ">
-      <a href="index.php" style="color:white; font-family: 'Times New Roman', Times, serif;" ><b>Placement Portal</b></a>
+    <a href="index.php" style="color:white; font-family: 'Times New Roman', Times, serif; margin-top: 10px;"><b>Admin Portal</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body bg-blue-200 text-black ">
-    <p class="login-box-msg text-2xl" style="color: black; font-weight: bold;">Admin Login</p>
+    <p class="login-box-msg text-3xl" style="color: black; font-weight: bold;">Login</p>
       <form method="post" action="checklogin.php " class="text-xl">
         <div class="form-group has-feedback">
           <input type="text" class="form-control" name="username" placeholder="Username">
@@ -73,7 +73,7 @@ if (isset($_SESSION['id_admin'])) {
           </div>
           <!-- /.col -->
           <div class="col-xs-4">
-            <button type="submit" class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">Sign In</button>
+            <button type="submit" class="flex mx-auto mt-6 text-white bg-blue-900 border-0 py-2 px-5 focus:outline-none hover:bg-blue-800 rounded">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -130,7 +130,7 @@ if (isset($_SESSION['id_admin'])) {
       ?>
 
     </div>
-    <a class="text-xl text-white font-bold" href="register-candidates.php">Create new account</a>
+    <a class="text-xl text-white font-bold ml-4" style="margin-top: 0.5cm; text-decoration: underline;" href="register-candidates.php">Create new account</a>
     <!-- /.login-box-body -->
   </div>
 
