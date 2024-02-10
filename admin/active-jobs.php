@@ -90,7 +90,7 @@ require_once("../db.php");
                       </thead>
                       <tbody>
                         <?php
-                        $sql = "SELECT job_post.*, company.companyname FROM job_post INNER JOIN company ON job_post.id_company=company.id_company";
+                        $sql = "SELECT * FROM job_post";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                           $i = 0;
@@ -98,14 +98,11 @@ require_once("../db.php");
                         ?>
                             <tr>
                               <td><?php echo $row['jobtitle']; ?></td>
-
                               <td><?php echo date("d-M-Y", strtotime($row['createdat'])); ?></td>
                               <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
                               <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
                             </tr>
                         <?php
-
-                            // $_SESSION['id_jobpost'] = $row['id_jobpost'];
                           }
                         }
                         ?>
@@ -163,12 +160,7 @@ require_once("../db.php");
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="learningfromscratch.online">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
-    </footer>
+
 
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed

@@ -41,9 +41,7 @@ require_once("../db.php");
     <div class="wrapper">
 
         <?php
-
         include 'header.php';
-
         ?>
 
         <!-- Content Wrapper. Contains page content -->
@@ -69,23 +67,14 @@ require_once("../db.php");
                                                 <th>Subject</th>
                                                 <th>Notice</th>
                                                 <th>Attachment</th>
-
-
-
                                                 <th>Date and Time</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
-
                                             <?php
-
                                             $sql = "SELECT * FROM notice where audience='All Students'";
-
                                             $result = $conn->query($sql);
-
                                             if ($result->num_rows > 0) {
-
                                                 // output data of each row
                                                 while ($row = $result->fetch_assoc()) {
                                             ?>
@@ -96,49 +85,23 @@ require_once("../db.php");
                                                     <?php } else { ?>
                                                         <td>No Resume Uploaded</td>
                                                     <?php } ?>
-
                                                     <td><?php echo $row['date']; ?></td>
-
-
                                                     </tr><?php
-
                                                         }
-                                                    }
-
-                                                            ?>
-
-
+                                                    }?>
                                         </tbody>
-                                        <tfoot>
-
-                                        </tfoot>
                                     </table>
                                 </div>
                                 <!-- /.box-body -->
                             </div>
                         </div>
-                        <div class="col-md-2">
-
-                        </div>
-
                     </div>
                 </div>
         </div>
         </section>
-
-
     </div>
     <!-- /.content-wrapper -->
-
-    <footer class="main-footer" style="margin-left: 0px;">
-        <div class="text-center">
-            <strong>Copyright &copy; 2022 <a href="#">Placement Portal</a>.</strong> All rights
-            reserved.
-        </div>
-    </footer>
-
 </body>
-
 </html>
 
 <style>

@@ -7,7 +7,7 @@
                 <a href="index.php" class="nav-link">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="notice.php" class="nav-link">Notice</a>
+                <a href="../admin/postnotice.php" class="nav-link">Post Notice</a>
             </li>
 
             <li class="nav-item">

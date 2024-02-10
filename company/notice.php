@@ -53,14 +53,12 @@ require_once("../db.php");
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
-
                         </div>
                         <div class="col-md-8 bg-white padding-2">
                             <div class="box box-primary">
                                 <div class="box-header with-border">
                                     <h3 id="heading" class="box-title">Posted Notice</h3>
                                 </div>
-
                                 <!-- /.box-header -->
                                 <div class="box-body">
                                     <table id="example1" class="table table-bordered table-striped">
@@ -69,48 +67,32 @@ require_once("../db.php");
                                                 <th>Subject</th>
                                                 <th>Notice</th>
                                                 <th>Attachment</th>
-
-
-
                                                 <th>Date and Time</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
-
-                                            <?php
-
-                                            $sql = "SELECT * FROM notice ";
-
-                                            $result = $conn->query($sql);
-
-                                            if ($result->num_rows > 0) {
-
-                                                // output data of each row
-                                                while ($row = $result->fetch_assoc()) {
-                                            ?>
-                                                    <td><?php echo $row['subject']; ?></td>
-                                                    <td><?php echo $row['notice']; ?></td>
-                                                    <?php if ($row['resume'] != '') { ?>
-                                                        <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Notice'; ?>"><i class="fa fa-file"></i></a></td>
-                                                    <?php } else { ?>
-                                                        <td>No Resume Uploaded</td>
-                                                    <?php } ?>
-
-                                                    <td><?php echo $row['date']; ?></td>
-
-
-                                                    </tr><?php
-
-                                                        }
-                                                    }
-
-                                                            ?>
-
-
+                                        
+                                        <?php
+                                        $sql = "SELECT * FROM notice ";
+                                        $result = $conn->query($sql);
+                                        if ($result->num_rows > 0) {
+                                            // output data of each row
+                                            while ($row = $result->fetch_assoc()) {
+                                        ?>
+                                                <td><?php echo $row['subject']; ?></td>
+                                                <td><?php echo $row['notice']; ?></td>
+                                                <?php if ($row['resume'] != '') { ?>
+                                                <td><a href="uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Notice'; ?>"><i class="fa fa-file"></i></a></td>
+                                                <?php } else { ?>
+                                                    <td>No Resume Uploaded</td>
+                                                <?php } ?>
+                                                <td><?php echo $row['date']; ?></td>
+                                                </tr>
+                                                <?php    
+                                                }
+                                                }?>
                                         </tbody>
                                         <tfoot>
-
                                         </tfoot>
                                     </table>
                                 </div>

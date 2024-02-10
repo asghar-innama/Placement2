@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 
 
     //Folder where you want to save your resume. THIS FOLDER MUST BE CREATED BEFORE TRYING
-    $folder_dir = "../uploads/resume/";
+    $folder_dir = "uploads/resume/";
 
     //Getting Basename of file. So if your file location is Documents/New Folder/myResume.pdf then base name will return myResume.pdf
     $base = basename($_FILES['resume']['name']);
@@ -36,35 +36,19 @@ if (isset($_POST['submit'])) {
 
     //We check if file is saved to our temp location or not.
     if (file_exists($_FILES['resume']['tmp_name'])) {
-
-
-
-
         move_uploaded_file(
             $_FILES["resume"]["tmp_name"],
             $filename
         );
     }
-
-
-
-
     $hash = md5(uniqid());
-
-
-
-
-
-
     $sql = "INSERT INTO notice(subject,notice,audience,resume, hash,`date`) VALUES ('$subject','$notice','$audience','$file', '$hash',now())";
-
     if ($conn->query($sql) === TRUE) {
         include 'sendmail.php';
         header("Location: postnotice.php");
         exit();
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -96,12 +80,8 @@ if (isset($_POST['submit'])) {
 
 <body class="hold-transition skin-green sidebar-mini">
     <?php
-
     include 'header.php';
     ?>
-
-
-
     <div class="row">
         <div class="col-xs-6 responsive">
             <section>
@@ -116,9 +96,7 @@ if (isset($_POST['submit'])) {
                         <h4><strong> Post a new notice</strong></h4>
                     </div>
                     <div>
-
                         <input id="subject" placeholder="Subject" type="text" name="subject" style="margin:auto">
-
                     </div>
 
                     <div id="file" class="form-group">
@@ -153,19 +131,11 @@ if (isset($_POST['submit'])) {
                     </div><br>
                     <div>
                     </div>
-
-
                 </form>
-
-
         </div>
         </section>
 
-
-
         <div class="col-xs-5 responsive2 ">
-
-
             <div class="box box-primary ">
                 <div class="box-header with-border">
                     <h3 class="box-title">Posted Notice</h3>
@@ -178,27 +148,17 @@ if (isset($_POST['submit'])) {
                             <tr>
                                 <th>Subject</th>
                                 <th>Notice</th>
-
                                 <th>Audience</th>
-
                                 <th>File</th>
-
                                 <th>Date and Time</th>
                                 <th>Delete</th>
-
-
-
                             </tr>
                         </thead>
                         <tbody>
 
-
                             <?php
-
                             $sql = "SELECT * FROM notice";
-
                             $result = $conn->query($sql);
-
                             if ($result->num_rows > 0) {
 
                                 // output data of each row
@@ -208,7 +168,7 @@ if (isset($_POST['submit'])) {
                                     <td><?php echo $row['notice']; ?></td>
                                     <td><?php echo $row['audience']; ?></td>
                                     <?php if ($row['resume'] != '') { ?>
-                                        <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Notice'; ?>"><i class="fa fa-file"></i></a></td>
+                                        <td><a href="uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Notice'; ?>"><i class="fa fa-file"></i></a></td>
                                     <?php } else { ?>
                                         <td>No Resume Uploaded</td>
                                     <?php } ?>
@@ -218,38 +178,16 @@ if (isset($_POST['submit'])) {
                                     </tr><?php
 
                                         }
-                                    }
-
-                                            ?>
-
-
+                                    }?>
                         </tbody>
-                        <tfoot>
-
-                        </tfoot>
                     </table>
                 </div>
                 <!-- /.box-body -->
             </div>
-
         </div>
-
     </div>
-
-
-    <footer class="main-footer" style="margin:auto;margin-bottom: 0px; padding:15px;
-  width: 100%;
-  height: 50px; position:absolute; background-color:#1f0a0a; color:white">
-        <div class="text-center">
-            <strong>Copyright &copy; 2022 Placement Portal</strong> All rights
-            reserved.
-        </div>
-    </footer>
-
 </body>
-
 </html>
-
 
 <style>
     body {

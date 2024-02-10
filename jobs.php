@@ -96,17 +96,11 @@ require_once("db.php");
               }
 
               ?>
-
-
               <div id="target-content">
-
               </div>
               <div class="text-center">
                 <ul class="pagination text-center" id="pagination"></ul>
               </div>
-
-
-
             </div>
             <div class="col-md-1">
             </div>
@@ -121,8 +115,6 @@ require_once("db.php");
 
     <footer class="main-footer" style="margin-left: 0px;">
       <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="learningfromscratch.online">Placement Portal</a>.</strong> All rights
-        reserved.
       </div>
     </footer>
 

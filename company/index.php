@@ -46,7 +46,6 @@ require_once("../db.php");
   <div class="wrapper">
 
     <?php
-
     include 'header.php';
     ?>
 
@@ -91,7 +90,7 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Job Posted</span>
                       <?php
-                      $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]'";
+                      $sql = "SELECT * FROM job_post WHERE id_jobpost='$_SESSION[id_company]'";
                       $result = $conn->query($sql);
 
                       if ($result->num_rows > 0) {

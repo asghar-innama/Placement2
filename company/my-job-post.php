@@ -91,10 +91,11 @@ require_once("../db.php");
                       <thead>
                         <th>Drive name</th>
                         <th>View</th>
+                        <th>Delete</th>
                       </thead>
                       <tbody>
                         <?php
-                        $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]'";
+                        $sql = "SELECT * FROM job_post";
                         $result = $conn->query($sql);
 
                         //If Job Post exists then display details of post
@@ -104,6 +105,7 @@ require_once("../db.php");
                             <tr>
                               <td><?php echo $row['jobtitle']; ?></td>
                               <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
+                              <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
                             </tr>
                         <?php
                           }
@@ -125,13 +127,6 @@ require_once("../db.php");
 
     </div>
     <!-- /.content-wrapper -->
-
-    <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
-    </footer>
 
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed

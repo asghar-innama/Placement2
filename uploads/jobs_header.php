@@ -6,6 +6,7 @@
             <li class="nav-item">
                 <a href="user/index.php" class="nav-link">Home</a>
             </li>
+            
             <li class="nav-item">
                 <a href="user/notice.php" class="nav-link">Notice</a>
             </li>

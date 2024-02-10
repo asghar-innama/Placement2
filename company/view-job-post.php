@@ -79,7 +79,7 @@ require_once("../db.php");
                             <div class="row margin-top-20">
                                 <div class="col-md-12">
                                     <?php
-                                    $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]' AND id_jobpost='$_GET[id]'";
+                                    $sql = "SELECT * FROM job_post WHERE id_jobpost='$_GET[id]'";
                                     $result = $conn->query($sql);
 
                                     //If Job Post exists then display details of post
