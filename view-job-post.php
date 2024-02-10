@@ -3,7 +3,6 @@
 //To Handle Session Variables on This Page
 session_start();
 
-
 //Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
 ?>
@@ -27,12 +26,6 @@ require_once("db.php");
   <link rel="stylesheet" href="css/_all-skins.min.css">
   <!-- Custom -->
   <link rel="stylesheet" href="css/custom.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -44,17 +37,14 @@ require_once("db.php");
     <?php
     include 'uploads/jobs_header.php'
     ?>
-
-
     <div class="content-wrapper" style="margin-left: 0px;">
 
       <?php
-
-      $sql = "SELECT * FROM job_post INNER JOIN company ON job_post.id_company=company.id_company WHERE id_jobpost='$_GET[id]'";
+      $sql = "SELECT * FROM job_post  WHERE id_jobpost='$_GET[id]'";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          $_SESSION['id_company'] = $row['id_company'];
+          //$_SESSION['id_company'] = $row['id_company'];
 
       ?>
 
@@ -72,7 +62,11 @@ require_once("db.php");
                   <div class="clearfix"></div>
                   <hr>
                   <div>
-                    <p><span class="margin-right-10"><i class="fa fa-location-arrow text-green"> Role: </i> <?php echo $row['experience']; ?> </span><span class="margin-right-10"> <i class="fa fa-money text-green"> CTC:</i> <?php echo "Rs " . $row['minimumsalary'] . "    "; ?></span> <span class="margin-right-10"><i class="fa fa-calendar text-green"> Drive Date:</i> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><span class="margin-right-10"><i class="fa fa-location-calendar text-green"> Eligibility: </i> <?php echo $row['maximumsalary'] . "%"; ?> </span></p>
+                    <p>
+                      <span class="margin-right-10"><i class="fa fa-location-arrow text-green"> Role: </i> <?php echo $row['role']; ?> </span>
+                      <span class="margin-right-10"> <i class="fa fa-money text-green"> CTC:</i> <?php echo "Rs " . $row['minimumsalary'] . "    "; ?></span> 
+                      <span class="margin-right-10"><i class="fa fa-calendar text-green"> Drive Date:</i> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br>
+                      <span class="margin-right-10"><i class="fa fa-location-calendar text-green"> Eligibility: </i> <?php echo $row['eligibility']; ?> </span></p>
                     <!-- Years Experience -->
                   </div>
                   <div>
@@ -98,18 +92,8 @@ require_once("db.php");
         }
       }
       ?>
-
-
-
     </div>
     <!-- /.content-wrapper -->
-
-    <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="learningfromscratch.online">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
-    </footer>
 
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
@@ -126,17 +110,12 @@ require_once("db.php");
   <!-- AdminLTE App -->
   <script src="js/adminlte.min.js"></script>
 
-
-
 </body>
-
 </html>
 
 <script src="js/sweetalert.js"></script>
-
 <?php
 if (isset($_SESSION['status'])  && $_SESSION['status'] != '') {
-
 ?>
 
   <script>
@@ -144,8 +123,6 @@ if (isset($_SESSION['status'])  && $_SESSION['status'] != '') {
   </script>
 
 <?php
-
   unset($_SESSION['status']);
 }
-
 ?>

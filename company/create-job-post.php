@@ -90,10 +90,13 @@ require_once("../db.php");
                       <input type="number" class="form-control  input-lg" id="minimumsalary" autocomplete="off" name="minimumsalary" placeholder="CTC" required="">
                     </div>
                     <div class="form-group">
+                      <input type="text" class="form-control  input-lg" id="eligibility" autocomplete="off" name="eligibility" placeholder="Eligibility" required="">
+                    </div>
+                    <div class="form-group">
                       <input type="text" class="form-control  input-lg" id="experience" autocomplete="off" name="role" placeholder="Role" required="">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control  input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
+                      <textarea  class="form-control input-lg" rows="5" id="qualification" name="qualification" placeholder="Qualification Required" required=""></textarea>
                     </div>
                     <div class="form-group">
                       <input type="number" class="form-control input-lg" id="backlogs" name="backlogs" placeholder="Max Number of Backlogs Allowed" required="">

@@ -7,15 +7,11 @@ if (empty($_SESSION['id_user'])) {
     header("Location: index.php");
     exit();
 }
-
 //Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../db.php");
 
 //If user Actually clicked apply button
 if (isset($_GET)) {
-
-
-
     $sql = "SELECT * from users WHERE id_user='$_SESSION[id_user]' ";
     $result1 = $conn->query($sql);
 
@@ -25,16 +21,14 @@ if (isset($_GET)) {
         $total = ($sum / 4);
         $course1 = $row1['qualification'];
     }
-
-
-    $sql = "SELECT maximumsalary, qualification FROM job_post WHERE id_jobpost='$_GET[id]'";
+    $sql = "SELECT eligibility, qualification FROM job_post WHERE id_jobpost='$_GET[id]'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $eligibility = $row['maximumsalary'];
+        $eligibility = $row['eligibility'];
         $course2 = $row['qualification'];
-        if ($total >= $eligibility) {
+        if ($row1['ug'] >= $eligibility) {
             if ($course1 == $course2) {
                 header("Location: ../view-job-post.php?id=$_GET[id]");
                 $_SESSION['status'] = "You are eligible for this drive, apply if you are interested.";

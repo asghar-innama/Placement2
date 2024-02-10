@@ -16,7 +16,7 @@ $sql = "SELECT * FROM apply_job_post WHERE id_user='$_SESSION[id_user]' AND id_j
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
-  $sql1 = "SELECT * FROM job_post INNER JOIN company ON job_post.id_company=company.id_company WHERE id_jobpost='$_GET[id]'";
+  $sql1 = "SELECT * FROM job_post  id_jobpost='$_GET[id]'";
   $result1 = $conn->query($sql1);
   if ($result1->num_rows > 0) {
     $row = $result1->fetch_assoc();
