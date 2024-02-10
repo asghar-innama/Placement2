@@ -14,7 +14,7 @@
                     <a href="settings.php" class="nav-link">Settings</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../logout.php" class="nav-link">Log Out</a>
+                    <a href="logout.php" class="nav-link">Log Out</a>
                 </li>
             </ul>
             <div class="hamburger">
