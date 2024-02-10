@@ -11,6 +11,9 @@
                     <a href="../jobs.php" class="nav-link">Notice</a>
                 </li>
                 <li class="nav-item">
+                <a href="user/resume.php" class="nav-link">Create Resume</a>
+                </li>
+                <li class="nav-item">
                     <a href="settings.php" class="nav-link">Settings</a>
                 </li>
                 <li class="nav-item">
