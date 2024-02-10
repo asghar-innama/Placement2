@@ -27,7 +27,7 @@ if(isset($_POST)) {
 
 			if($row['active'] == '0') {
 				$_SESSION['loginActiveError'] = "Your Account Is Not Active. Check Your Email.";
-		 		header("Location: login-candidates.php");
+		 		header("Location: index.php");
 				exit();
 			} else if($row['active'] == '1') { 
 
@@ -48,7 +48,7 @@ if(isset($_POST)) {
 			} else if($row['active'] == '2') { 
 
 				$_SESSION['loginActiveError'] = "Your Account Is Deactivated. Contact Admin To Reactivate.";
-		 		header("Location: login-candidates.php");
+		 		header("Location: index.php");
 				exit();
 			}
 

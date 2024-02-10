@@ -97,7 +97,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <!-- /.login-logo -->
     <div class="login-box-body bg-blue-200 text-black ">
     <p class="login-box-msg text-3xl" style="color: black; font-weight: bold;">Login</p>
-      <form method="post" action="checklogin.php " class="text-xl">
+      <form method="post" action="checkcompanylogin.php " class="text-xl">
         <div class="form-group has-feedback">
           <input type="email" id="large" name="email" class="form-control" placeholder="Email">
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
