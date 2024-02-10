@@ -169,7 +169,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       ?>
 
     </div>
-    <a class="text-xl text-white font-bold ml-4" style="margin-top: 0.5cm; text-decoration: underline;" href="register-candidates.php">Create new account</a>
+    <a class="text-xl text-white font-bold ml-4" style="margin-top: 0.5cm; text-decoration: underline;" href="register-company.php">Create new account</a>
     <!-- /.login-box-body -->
   </div>
 
