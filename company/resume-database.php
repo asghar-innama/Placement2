@@ -61,7 +61,7 @@ require_once("../db.php");
             <div class="col-md-3">
               <div class="box box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                  <h3 class="box-title">Welcome <b>Placement Official</b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
@@ -142,10 +142,7 @@ require_once("../db.php");
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
+      
     </footer>
 
     <!-- /.control-sidebar -->

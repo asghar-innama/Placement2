@@ -1,5 +1,4 @@
 <?php
-
 //To Handle Session Variables on This Page
 session_start();
 
@@ -39,13 +38,82 @@ require_once("../db.php");
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .profile-form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .profile-form h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .profile-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .profile-form label {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .profile-form input[type="text"],
+    .profile-form input[type="email"],
+    .profile-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+      font-size: 16px;
+      margin-top: 5px;
+      transition: border-color 0.3s;
+    }
+
+    .profile-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .profile-form input[type="text"]:focus,
+.profile-form input[type="email"]:focus,
+.profile-form textarea:focus {
+  border-color: #8B0000;
+  border-width: 2px; /* Increase border thickness */
+}
+
+    .profile-form button {
+  width: 25%;
+  margin: 0 auto; /* Center the button horizontally */
+  display: block; /* Ensure the button takes full width */
+  padding: 15px;
+  background-color: #8B0000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+
+    .profile-form button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
     <?php
-
     include 'header.php';
     ?>
 
@@ -58,7 +126,7 @@ require_once("../db.php");
             <div class="col-md-3">
               <div class="box box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                  <h3 class="box-title">Welcome <b>Placement Official</b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
@@ -77,99 +145,101 @@ require_once("../db.php");
               </div>
             </div>
             <div class="col-md-9 bg-white padding-2">
-              <h2><i>Co-Ordinator Profile</i></h2>
-              <p>In this section you can change your details</p>
-              <div class="row">
-                <form action="update-company.php" method="post" enctype="multipart/form-data">
-                  <?php
-                  $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
-                  $result = $conn->query($sql);
+              <div class="profile-form">
+                <h2><i>Placement-Official Profile</i></h2>
+                <p>In this section you can change your details</p>
+                <div class="row">
+                  <form action="update-company.php" method="post" enctype="multipart/form-data">
+                    <?php
+                    $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
+                    $result = $conn->query($sql);
 
-                  if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                  ?>
-                      <div class="col-md-6 latest-job ">
-                        <div class="form-group">
-                          <label>Cell Member - Name</label>
-                          <input type="text" class="form-control input-lg" name="companyname" value="<?php echo $row['companyname']; ?>" required="">
+                    if ($result->num_rows > 0) {
+                      while ($row = $result->fetch_assoc()) {
+                    ?>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="companyname">Company Name</label>
+                            <input type="text" class="form-control" name="companyname" value="<?php echo $row['companyname']; ?>" required="">
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label>Website</label>
-                          <input type="text" class="form-control input-lg" name="website" value="<?php echo $row['website']; ?>" required="">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="text" class="form-control" name="website" value="<?php echo $row['website']; ?>" required="">
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label for="email">Email address</label>
-                          <input type="email" class="form-control input-lg" id="email" placeholder="Email" value="<?php echo $row['email']; ?>" readonly>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" value="<?php echo $row['email']; ?>" required="">
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <textarea class="form-control input-lg" rows="4" name="aboutme"><?php echo $row['aboutme']; ?></textarea>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="aboutme">About Me</label>
+                            <textarea class="form-control" name="aboutme" rows="4"><?php echo $row['aboutme']; ?></textarea>
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <button type="submit" class="btn btn-flat btn-success">Update Profile</button>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="contactno">Contact Number</label>
+                            <input type="text" class="form-control" name="contactno" value="<?php echo $row['contactno']; ?>">
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-md-6 latest-job ">
-                        <div class="form-group">
-                          <label for="contactno">Contact Number</label>
-                          <input type="text" class="form-control input-lg" id="contactno" name="contactno" placeholder="Contact Number" value="<?php echo $row['contactno']; ?>">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="city" value="<?php echo $row['city']; ?>">
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label for="city">City</label>
-                          <input type="text" class="form-control input-lg" id="city" name="city" value="<?php echo $row['city']; ?>" placeholder="city">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" name="state" value="<?php echo $row['state']; ?>">
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label for="state">State</label>
-                          <input type="text" class="form-control input-lg" id="state" name="state" placeholder="state" value="<?php echo $row['state']; ?>">
-                        </div>
-                        <div class="form-group">
-                          <label>Change Profile</label>
-                          <input type="file" name="image" class="btn btn-default">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="logo">Company Logo</label>
+                            <input type="file" name="logo" class="form-control">
+                          </div>
                           <?php if ($row['logo'] != "") { ?>
                             <img src="../uploads/logo/<?php echo $row['logo']; ?>" class="img-responsive" style="max-height: 200px; max-width: 200px;">
                           <?php } ?>
                         </div>
-                      </div>
-                  <?php
+                    <?php
+                      }
                     }
-                  }
-                  ?>
-                </form>
-              </div>
-              <?php if (isset($_SESSION['uploadError'])) { ?>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <?php echo $_SESSION['uploadError']; ?>
-                  </div>
+                    ?>
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-success btn-lg">Update Profile</button>
+                    </div>
+                  </form>
                 </div>
-              <?php unset($_SESSION['uploadError']);
-              } ?>
-
+                <?php if (isset($_SESSION['uploadError'])) { ?>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <?php echo $_SESSION['uploadError']; ?>
+                    </div>
+                  </div>
+                <?php unset($_SESSION['uploadError']);
+                } ?>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-
-
     </div>
     <!-- /.content-wrapper -->
-
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
     </footer>
-
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
-
   </div>
   <!-- ./wrapper -->
-
   <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->

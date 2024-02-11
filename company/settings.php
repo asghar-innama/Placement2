@@ -58,7 +58,7 @@ if (empty($_SESSION['id_company'])) {
             <div class="col-md-3">
               <div class="box box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                  <h3 class="box-title">Welcome <b>Placement Official</b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
@@ -76,11 +76,21 @@ if (empty($_SESSION['id_company'])) {
                 </div>
               </div>
             </div>
+
             <div class="col-md-9 bg-white padding-2">
               <h2><i>Account Settings</i></h2>
               <p>In this section you can change your name and account password</p>
               <div class="row">
                 <div class="col-md-6">
+                <form action="update-name.php" method="post">
+                    <div class="form-group">
+                      <label>Your Name (Full Name)</label>
+                      <input class="form-control input-lg" name="name" type="text">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-flat btn-primary btn-lg">Change Name</button>
+                    </div>
+                  </form>
                   <form id="changePassword" action="change-password.php" method="post">
                     <div class="form-group">
                       <input id="password" class="form-control input-lg" type="password" name="password" autocomplete="off" placeholder="Password" required>
@@ -94,24 +104,6 @@ if (empty($_SESSION['id_company'])) {
                     <div id="passwordError" class="color-red text-center hide-me">
                       Password Mismatch!!
                     </div>
-                  </form>
-                </div>
-                <div class="col-md-6">
-                  <form action="update-name.php" method="post">
-                    <div class="form-group">
-                      <label>Your Name (Full Name)</label>
-                      <input class="form-control input-lg" name="name" type="text">
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-flat btn-primary btn-lg">Change Name</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <br>
-              <br>
-              <div class="row">
-                <div class="col-md-6">
                   <form action="deactivate-account.php" method="post">
                     <label><input type="checkbox" required> I Want To Deactivate My Account</label>
                     <button class="btn btn-danger btn-flat btn-lg">Deactivate My Account</button>
@@ -130,10 +122,7 @@ if (empty($_SESSION['id_company'])) {
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
+      
     </footer>
 
     <!-- /.control-sidebar -->

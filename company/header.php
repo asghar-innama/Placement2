@@ -1,7 +1,7 @@
 <!-- Main header -->
 <header class="header">
     <nav class="navbar">
-        <a href="#" class="nav-logo">Placement Portal</a>
+        <a href="#" class="nav-logo">Christ University Placement Portal</a>
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="index.php" class="nav-link">Dashboard</a>
@@ -52,6 +52,7 @@
 
     .header {
         border-bottom: 1px solid #E2E8F0;
+        background-color: #101a1d;
     }
 
     .navbar {
@@ -59,7 +60,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 1.5rem;
-        background-color: #2d2a2e;
+        background-color: #101a1d;;
     }
 
     .hamburger {
@@ -104,7 +105,9 @@
     font-family: "Times New Roman", Times, serif; /* Set font family */
     text-align: left; /* Align the component to the left */
     }
-
+    a.nav-logo {
+        text-align: left; /* Align the component to the left */
+    }
     @media only screen and (max-width: 768px) {
         .nav-menu {
             position: fixed;

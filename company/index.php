@@ -57,9 +57,10 @@ require_once("../db.php");
           <div class="row">
             <div class="col-md-3">
               <div class="box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-                </div>
+              <div class="box-header with-border">
+                <h3 class="box-title">Welcome <b>Placement Official</b></h3>
+              </div>
+
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -75,9 +76,9 @@ require_once("../db.php");
                 </div>
               </div>
             </div>
-            <div class="col-md-9 bg-white padding-2">
+            <div class="col-md-9 bg-white padding-2" style="background-color: white; font-family: 'Times New Roman', Times, serif; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: black;">
+    <!-- Your content goes here -->
 
-              <h3>Overview</h3>
               <div class="alert alert-info alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <i class="icon fa fa-info"></i> In this dashboard you are able to change your account settings, post and manage your jobs. Got a question? Do not hesitate to drop us a mail.
@@ -85,7 +86,7 @@ require_once("../db.php");
 
               <div class="row">
                 <div class="col-md-6">
-                  <div class="info-box bg-c-yellow">
+                  <div class="info-box bg-c-white">
                     <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
                     <div class="info-box-content">
                       <span class="info-box-text">Job Posted</span>
@@ -105,7 +106,7 @@ require_once("../db.php");
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="info-box bg-c-yellow">
+                  <div class="info-box bg-c-white">
                     <span class="info-box-icon bg-green"><i class="ion ion-ios-browsers"></i></span>
                     <div class="info-box-content">
                       <span class="info-box-text">Application For Jobs</span>

@@ -69,7 +69,9 @@
 	padding: 2%;
 }
 .bg-white {
-	background-color:#fbfbfb;
+	/*background-color: #9dc9f5; light blue*/
+	/*background-color: #529de8; dark blue*/
+	background-color: #004080; 
 	margin-left: 0%;
 }
 .margin-right-10 {
@@ -91,11 +93,21 @@
 
 /* my css  */
 
- .box {
 
- 	font-size: medium;
- 	font-family: sans-serif;
- }
+.box {
+		position: relative;
+		border-radius: 5px;
+		background: black;
+		margin-bottom: 20px;
+		width: 100%;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly increased shadow */
+		transition: all 0.3s ease; /* Add transition for smooth effect */
+	}
+	
+.box:hover {
+	transform: translateY(-2px); /* Add a slight lift on hover */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
 
 
  li {
