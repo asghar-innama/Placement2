@@ -147,7 +147,6 @@ require_once("../db.php");
             <div class="col-md-9 bg-white padding-2">
               <div class="profile-form">
                 <h2><i>Placement-Official Profile</i></h2>
-                <p>In this section you can change your details</p>
                 <div class="row">
                   <form action="update-company.php" method="post" enctype="multipart/form-data">
                     <?php
@@ -159,7 +158,7 @@ require_once("../db.php");
                     ?>
                         <div class="col-md-12">
                           <div class="form-group">
-                            <label for="companyname">Company Name</label>
+                            <label for="companyname">Name</label>
                             <input type="text" class="form-control" name="companyname" value="<?php echo $row['companyname']; ?>" required="">
                           </div>
                         </div>
@@ -201,7 +200,7 @@ require_once("../db.php");
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">
-                            <label for="logo">Company Logo</label>
+                            <label for="logo">Insert your Profile image </label>
                             <input type="file" name="logo" class="form-control">
                           </div>
                           <?php if ($row['logo'] != "") { ?>
