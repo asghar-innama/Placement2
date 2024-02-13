@@ -86,8 +86,8 @@ require_once("../db.php");
     .profile-form input[type="text"]:focus,
 .profile-form input[type="email"]:focus,
 .profile-form textarea:focus {
-  border-color: #8B0000;
-  border-width: 2px; /* Increase border thickness */
+  border-color: #45a049;
+  border-width: 3px; /* Increase border thickness */
 }
 
     .profile-form button {

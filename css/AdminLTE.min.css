@@ -145,14 +145,32 @@ h3 {
   /* You can also add more styling such as color, font-size, etc. */
 }
 
-h1, h2, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h2
+{
   font-family: "Times New Roman", Times, serif;
-  font-weight: bold; /* Add font-weight for emphasis */
-  font-style: italic; /* Add font-style for italic */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle text-shadow */
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2em; /* Increased font size by 2 times */
+}
+
+h1,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   color: black;
-  text-decoration: underline; /* Add underline */
-  /* You can also add more styling such as color, font-size, etc. */
+  font-size: 2em; /* Increased font size by 2 times */
 }
 
 a {
@@ -2555,7 +2573,7 @@ a:focus {
   margin: 0;
   text-align: left;
   margin: 5px;
-  color: black; /* Text color matching your theme */
+  color: white; /* Text color matching your theme */
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  /* Adjusted shadow */
   text-decoration: none;
   font-weight: bold;
@@ -2564,7 +2582,8 @@ a:focus {
   display: block;
   padding: 10px; /* Adjusted padding */
   border-radius: 5px;
-  background-color: #c9e5f9; /* Use hexadecimal background color */
+  background-color: #8B0000; /* Use hexadecimal background color */
+  /*background-color: #c9e5f9; /* Use hexadecimal background color */
   cursor: pointer;
 }
 .nav-stacked > li.active > a,
@@ -2768,7 +2787,7 @@ a:focus {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  border-top: 1px solid #f4f4f4;
+  border-top: 0px solid #8B0000;
 }
 .table > thead > tr > th {
   border-bottom: 2px solid #f4f4f4;

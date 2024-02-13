@@ -71,8 +71,9 @@
 .bg-white {
 	/*background-color: #9dc9f5; light blue*/
 	/*background-color: #529de8; dark blue*/
-	background-color: #004080; 
+	background-color: black; 
 	margin-left: 0%;
+	color: white;
 }
 .margin-right-10 {
 	margin-right: 10px;

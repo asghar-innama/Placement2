@@ -43,6 +43,75 @@ require_once("../db.php");
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .profile-form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .profile-form h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .profile-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .profile-form label {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .profile-form input[type="text"],
+    .profile-form input[type="email"],
+    .profile-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+      font-size: 16px;
+      margin-top: 5px;
+      transition: border-color 0.3s;
+    }
+
+    .profile-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .profile-form input[type="text"]:focus,
+    .profile-form input[type="email"]:focus,
+    .profile-form textarea:focus {
+      border-color: #45a049;
+      border-width: 3px; /* Increase border thickness */
+    }
+
+    .profile-form button {
+      width: 25%;
+      margin: 0 auto; /* Center the button horizontally */
+      display: block; /* Ensure the button takes full width */
+      padding: 15px;
+      background-color: #8B0000;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+
+    .profile-form button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -78,43 +147,45 @@ require_once("../db.php");
               </div>
             </div>
             <div class="col-md-9 bg-white padding-2">
-              <h2>Post a new Drive</h2>
-              <div class="row">
-                <form method="post" action="addpost.php">
-                  <div class="col-md-12 latest-job ">
-                    <div class="form-group">
-                      <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle" placeholder="Company Name">
+              <div class="profile-form">
+                <h2><i>Post a new Drive</i></h2>
+                <div class="row">
+                  <form method="post" action="addpost.php">
+                    <div class="col-md-12 latest-job ">
+                      <div class="form-group">
+                        <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle" placeholder="Company Name">
+                      </div>
+                      
+                      <div class="form-group">
+                        <input type="number" class="form-control  input-lg" id="minimumsalary" autocomplete="off" name="minimumsalary" placeholder="CTC" required="">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control  input-lg" id="eligibility" autocomplete="off" name="eligibility" placeholder="Eligibility" required="">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control  input-lg" id="experience" autocomplete="off" name="role" placeholder="Role" required="">
+                      </div>
+                      <div class="form-group">
+                        <textarea  class="form-control input-lg" rows="5" id="qualification" name="qualification" placeholder="Qualification Required" required=""></textarea>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" class="form-control input-lg" id="backlogs" name="backlogs" placeholder="Max Number of Backlogs Allowed" required="">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control input-lg" id="cgpa" name="cgpa" placeholder="CGPA Gained" required="">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control input-lg" id="companyurl" name="companyurl" placeholder="Company URL" required="">
+                      </div>
+                      <div class="form-group">
+                        <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg">Create</button>
+                      </div>
                     </div>
-                    
-                    <div class="form-group">
-                      <input type="number" class="form-control  input-lg" id="minimumsalary" autocomplete="off" name="minimumsalary" placeholder="CTC" required="">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control  input-lg" id="eligibility" autocomplete="off" name="eligibility" placeholder="Eligibility" required="">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control  input-lg" id="experience" autocomplete="off" name="role" placeholder="Role" required="">
-                    </div>
-                    <div class="form-group">
-                      <textarea  class="form-control input-lg" rows="5" id="qualification" name="qualification" placeholder="Qualification Required" required=""></textarea>
-                    </div>
-                    <div class="form-group">
-                      <input type="number" class="form-control input-lg" id="backlogs" name="backlogs" placeholder="Max Number of Backlogs Allowed" required="">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control input-lg" id="cgpa" name="cgpa" placeholder="CGPA Gained" required="">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control input-lg" id="companyurl" name="companyurl" placeholder="Company URL" required="">
-                    </div>
-                    <div class="form-group">
-                      <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-flat btn-success">Create</button>
-                    </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
