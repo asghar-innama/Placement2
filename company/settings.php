@@ -78,7 +78,7 @@ if (empty($_SESSION['id_company'])) {
             </div>
 
             <div class="col-md-9 bg-white padding-2">
-              <h2><i>Account Settings</i></h2>
+              <h4><i>Account Settings</i></h4>
               <p>In this section you can change your name and account password</p>
               <div class="row">
                 <div class="col-md-6">

@@ -151,12 +151,19 @@ h2
   font-weight: bold;
   font-style: italic;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: black;
+  font-size: 2em; /* Increased font size by 2 times */
+}
+h4
+{
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   color: white;
   font-size: 2em; /* Increased font size by 2 times */
 }
-
 h1,
-h4,
 h5,
 h6,
 .h1,
@@ -1964,10 +1971,10 @@ a:focus {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top: 1px solid #f4f4f4;
-  padding: 10px;
-  background-color: #fff;
+  border-bottom-left-radius: 0px;
+  border-top: 3px solid white;
+  padding: 20px;
+  background-color: black;
 }
 .chart-legend {
   margin: 10px 0;
@@ -2204,6 +2211,7 @@ a:focus {
   display: block;
   font-weight: bold;
   font-size: 18px;
+  color: black;
 }
 .progress-description,
 .info-box-text {
@@ -2212,6 +2220,7 @@ a:focus {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: black;
 }
 .info-box-text {
   text-transform: uppercase;
@@ -2787,7 +2796,11 @@ a:focus {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  border-top: 0px solid #8B0000;
+  border-top: 0px solid white;
+  color:#8B0000;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
 }
 .table > thead > tr > th {
   border-bottom: 2px solid #f4f4f4;

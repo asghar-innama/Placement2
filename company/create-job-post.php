@@ -58,6 +58,7 @@ require_once("../db.php");
       margin-top: 0;
       margin-bottom: 20px;
       font-size: 24px;
+      color:black;
     }
 
     .profile-form .form-group {
@@ -66,7 +67,8 @@ require_once("../db.php");
 
     .profile-form label {
       font-weight: bold;
-      font-size: 18px;
+      font-size: 14px;
+      color: black;
     }
 
     .profile-form input[type="text"],
@@ -153,32 +155,41 @@ require_once("../db.php");
                   <form method="post" action="addpost.php">
                     <div class="col-md-12 latest-job ">
                       <div class="form-group">
-                        <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle" placeholder="Company Name">
+                        <label for="jobtitle">Company Name:</label>
+                        <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle">
                       </div>
                       
                       <div class="form-group">
-                        <input type="number" class="form-control  input-lg" id="minimumsalary" autocomplete="off" name="minimumsalary" placeholder="CTC" required="">
+                        <label for="minimumsalary">CTC:</label>
+                        <input type="number" class="form-control  input-lg" id="minimumsalary" autocomplete="off" name="minimumsalary" required="">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control  input-lg" id="eligibility" autocomplete="off" name="eligibility" placeholder="Eligibility" required="">
+                        <label for="eligibility">Eligibility:</label>
+                        <input type="text" class="form-control  input-lg" id="eligibility" autocomplete="off" name="eligibility" required="">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control  input-lg" id="experience" autocomplete="off" name="role" placeholder="Role" required="">
+                        <label for="experience">Role:</label>
+                        <input type="text" class="form-control  input-lg" id="experience" autocomplete="off" name="role" required="">
                       </div>
                       <div class="form-group">
-                        <textarea  class="form-control input-lg" rows="5" id="qualification" name="qualification" placeholder="Qualification Required" required=""></textarea>
+                        <label for="qualification">Qualification Required:</label>
+                        <textarea  class="form-control input-lg" rows="5" id="qualification" name="qualification" required=""></textarea>
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control input-lg" id="backlogs" name="backlogs" placeholder="Max Number of Backlogs Allowed" required="">
+                        <label for="backlogs">Max Number of Backlogs Allowed:</label>
+                        <input type="number" class="form-control input-lg" id="backlogs" name="backlogs" required="">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control input-lg" id="cgpa" name="cgpa" placeholder="CGPA Gained" required="">
+                        <label for="cgpa">CGPA Gained:</label>
+                        <input type="text" class="form-control input-lg" id="cgpa" name="cgpa" required="">
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control input-lg" id="companyurl" name="companyurl" placeholder="Company URL" required="">
+                        <label for="companyurl">Company URL:</label>
+                        <input type="text" class="form-control input-lg" id="companyurl" name="companyurl" required="">
                       </div>
                       <div class="form-group">
-                        <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
+                        <label for="description">Job Description:</label>
+                        <textarea class="form-control input-lg" id="description" name="description"></textarea>
                       </div>
                       <div class="form-group">
                         <button type="submit" class="btn btn-success btn-lg">Create</button>

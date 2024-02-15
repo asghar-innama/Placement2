@@ -75,7 +75,6 @@ require_once("../db.php");
                     <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
                     <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                   </ul>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -86,10 +85,6 @@ require_once("../db.php");
                     <div class="box box-primary">
                       <div class="box-header with-border">
                         <h3 class="box-title" style="margin-bottom: 20px;">Mailbox</h3>
-                        <div class="pull-right">
-                          <a href="create-mail.php" class="btn btn-warning btn-flat"><i class="fa fa-envelope"></i> Create</a>
-                        </div>
-                        <!-- /.box-tools -->
                       </div>
                       <!-- /.box-header -->
                       <div class="box-body no-padding">
@@ -129,7 +124,9 @@ require_once("../db.php");
                         <!-- /.mail-box-messages -->
                       </div>
                       <!-- /.box-body -->
-
+                      <div class="box-footer">
+                        <a href="create-mail.php" class="btn btn-warning btn-flat"><i class="fa fa-envelope"></i> Create</a>
+                      </div>
                     </div>
                     <!-- /. box -->
                   </div>

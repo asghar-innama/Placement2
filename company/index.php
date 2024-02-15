@@ -76,7 +76,7 @@ require_once("../db.php");
                 </div>
               </div>
             </div>
-            <div class="col-md-9 bg-white padding-2" style="background-color: white; font-family: 'Times New Roman', Times, serif; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: black;">
+            <div class="col-md-9 bg-black padding-2" style="background-color: white; font-family: 'Times New Roman', Times, serif; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: black;">
     <!-- Your content goes here -->
 
               <div class="alert alert-info alert-dismissible">

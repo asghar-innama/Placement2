@@ -54,6 +54,7 @@ require_once("../db.php");
       margin-top: 0;
       margin-bottom: 20px;
       font-size: 24px;
+      color: black;
     }
 
     .profile-form .form-group {
@@ -62,7 +63,8 @@ require_once("../db.php");
 
     .profile-form label {
       font-weight: bold;
-      font-size: 18px;
+      font-size: 14px;
+      color: black;
     }
 
     .profile-form input[type="text"],

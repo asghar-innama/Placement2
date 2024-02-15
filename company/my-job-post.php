@@ -87,7 +87,7 @@ require_once("../db.php");
               </div>
             </div>
             <div class="col-md-9 bg-white padding-2">
-              <h2>Posted Drives</h2>
+              <h4>Posted Drives</h4>
               <p>In this section you can view all job posts created by you.</p>
               <div class="row margin-top-20">
                 <div class="col-md-12">
