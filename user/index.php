@@ -84,7 +84,7 @@ require_once("../db.php");
 
 
 
-              <h2>Applied Drives</h2>
+              <h4>Applied Drives</h4>
               <p>Below you will find job roles you have applied for</p>
 
               <?php
@@ -139,10 +139,7 @@ require_once("../db.php");
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="learningfromscratch.online">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
+      
     </footer>
 
     <!-- /.control-sidebar -->

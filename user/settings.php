@@ -75,8 +75,9 @@ require_once("../db.php");
                 </div>
               </div>
             </div>
+            
             <div class="col-md-9 bg-white padding-2">
-              <h2>Change Password</h2>
+              <h4>Change Password</h4>
               <p>Type in new password that you want to use</p>
               <div class="row">
                 <div class="col-md-6">
@@ -94,12 +95,12 @@ require_once("../db.php");
                       Password Mismatch!!
                     </div>
                   </form>
-                </div>
-                <div class="col-md-6">
+                  <div class="col-md-6">
                   <form action="deactivate-account.php" method="post">
                     <label><input type="checkbox" required> I Want To Deactivate My Account</label>
                     <button type="submit" class="btn btn-danger btn-flat btn-lg">Deactivate My Account</button>
                   </form>
+                </div>
                 </div>
               </div>
 
@@ -114,10 +115,7 @@ require_once("../db.php");
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
+      
     </footer>
 
     <!-- /.control-sidebar -->

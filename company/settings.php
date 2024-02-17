@@ -58,7 +58,7 @@ if (empty($_SESSION['id_company'])) {
             <div class="col-md-3">
               <div class="box box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b>Placement Official</b></h3>
+                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
