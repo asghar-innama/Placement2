@@ -56,7 +56,7 @@ require_once("../db.php");
                         <div class="col-md-8 bg-white padding-2">
                             <div class="box box-primary">
                                 <div class="box-header with-border">
-                                    <h3 id="heading" class="box-title">Posted Notice</h3>
+                                    <h4>Posted Notice</h4>
                                 </div>
 
                                 <!-- /.box-header -->

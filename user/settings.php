@@ -95,12 +95,10 @@ require_once("../db.php");
                       Password Mismatch!!
                     </div>
                   </form>
-                  <div class="col-md-6">
                   <form action="deactivate-account.php" method="post">
                     <label><input type="checkbox" required> I Want To Deactivate My Account</label>
                     <button type="submit" class="btn btn-danger btn-flat btn-lg">Deactivate My Account</button>
                   </form>
-                </div>
                 </div>
               </div>
 

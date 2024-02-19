@@ -84,7 +84,7 @@ require_once("../db.php");
                   <div class="col-md-12">
                     <div class="box box-primary">
                       <div class="box-header with-border">
-                        <h3 class="box-title" style="margin-bottom: 20px;">Mailbox</h3>
+                        <h4 class="box-title" style="margin-bottom: 20px;">Mailbox</h4>
                       </div>
                       <!-- /.box-header -->
                       <div class="box-body no-padding">

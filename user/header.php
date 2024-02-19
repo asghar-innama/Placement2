@@ -53,14 +53,15 @@
     }
 
     .header {
-        border-bottom: 1px solid #E2E8F0;
+        border-bottom: 0px solid #004080;
     }
 
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 1.5rem;
+        padding: 2rem 3.5rem;
+        background-color: #042444;
     }
 
     .hamburger {

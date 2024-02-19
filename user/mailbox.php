@@ -42,6 +42,26 @@ require_once("../db.php");
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  <style>
+    /* my css from first page */
+
+    .box {
+      font-size: medium;
+      font-family: sans-serif;
+    }
+
+    li {
+      color: aqua;
+    }
+
+    @media only screen and (max-width: 989px) {
+      .box {
+        margin: auto;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -81,10 +101,7 @@ require_once("../db.php");
                   <div class="col-md-12">
                     <div class="box box-primary">
                       <div class="box-header with-border">
-                        <h3 class="box-title" style="margin-bottom: 20px;">Mailbox</h3>
-                        <div class="pull-right">
-                          <a href="create-mail.php" class="btn btn-warning btn-flat"><i class="fa fa-envelope"></i> Create</a>
-                        </div>
+                        <h4 class="box-title" style="margin-bottom: 20px;">Mailbox</h4>
                         <!-- /.box-tools -->
                       </div>
                       <!-- /.box-header -->
@@ -126,6 +143,11 @@ require_once("../db.php");
                       </div>
                       <!-- /.box-body -->
 
+                      <!-- Move the button to the bottom -->
+                      <div class="box-footer">
+                        <a href="create-mail.php" class="btn btn-warning btn-flat"><i class="fa fa-envelope"></i> Create</a>
+                      </div>
+
                     </div>
                     <!-- /. box -->
                   </div>
@@ -139,16 +161,11 @@ require_once("../db.php");
         </div>
       </section>
 
-
-
     </div>
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-    
     </footer>
-
-
 
   </div>
   <!-- ./wrapper -->
@@ -170,26 +187,3 @@ require_once("../db.php");
 </body>
 
 </html>
-
-<style>
-  /* my css  */
-
-  .box {
-
-    font-size: medium;
-    font-family: sans-serif;
-  }
-
-
-  li {
-    color: aqua;
-  }
-
-
-  @media only screen and (max-width: 989px) {
-    .box {
-      margin: auto;
-      text-align: center;
-    }
-  }
-</style>
