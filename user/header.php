@@ -60,7 +60,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem 3.5rem;
+        padding: 2rem 1.5rem;
         background-color: #042444;
     }
 
