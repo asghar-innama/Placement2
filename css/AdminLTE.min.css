@@ -1885,7 +1885,7 @@ a:focus {
 }
 
 .box-header.with-border {
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 0px solid #f4f4f4;
 }
 .collapsed-box .box-header.with-border {
   border-bottom: none;
@@ -1894,6 +1894,7 @@ a:focus {
 .box-header > .glyphicon,
 .box-header > .ion,
 .box-header .box-title {
+  padding-bottom: 10px;
   display: inline-block;
   font-size: 18px;
   margin: 0;

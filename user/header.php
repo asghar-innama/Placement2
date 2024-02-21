@@ -62,6 +62,7 @@
         align-items: center;
         padding: 2rem 1.5rem;
         background-color: #042444;
+        border-radius: 0px;
     }
 
     .hamburger {
