@@ -70,7 +70,7 @@ if ($result->num_rows == 0) {
             <div class="col-md-3">
               <div class="box box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                  <h3 class="box-title">Welcome <b style = "color:white;"><?php echo $_SESSION['name']; ?></b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
@@ -101,7 +101,7 @@ if ($result->num_rows == 0) {
                     while ($row = $result->fetch_assoc()) {
                   ?>
                       <div class="pull-left">
-                        <h2><b><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></b></h2>
+                        <h2><b style = "color:white;"><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></b></h2>
                       </div>
                       <div class="pull-right">
                         <a href="job-applications.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -114,13 +114,11 @@ if ($result->num_rows == 0) {
                         echo '<br>';
                         echo 'City: ' . $row['city'];
                         echo '<br>';
+                        
                         if ($row['resume'] != "") {
                           echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-info" download="Resume">Download Resume</a>';
                         }
-                        echo '<br>';
-                        echo '<br>';
-                        echo '<br>';
-                        echo '<br>';
+                        
                         ?>
                         <div class="row">
                           <div class="col-md-3 pull-right">
@@ -210,10 +208,7 @@ if ($result->num_rows == 0) {
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
+      
     </footer>
 
     <!-- /.control-sidebar -->

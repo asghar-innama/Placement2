@@ -54,28 +54,10 @@ require_once("../db.php");
 
 <body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
+  <?php
 
-    <header class="main-header">
-
-      <!-- Logo -->
-      <a href="index.php" class="logo logo-bg">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>J</b>P</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Placement</b> Portal</span>
-      </a>
-
-      <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-
-          </ul>
-        </div>
-      </nav>
-    </header>
-
+    include 'header.php';
+    ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-left: 0px;">
 
@@ -151,10 +133,7 @@ require_once("../db.php");
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
+      
     </footer>
 
 

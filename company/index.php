@@ -58,9 +58,13 @@ require_once("../db.php");
             <div class="col-md-3">
               <div class="box box-solid">
               <div class="box-header with-border">
-                <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                <div style="text-align: center;">
+                  <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+               </div>
               </div>
-
+                <div class="box-header with-border">
+                    <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>

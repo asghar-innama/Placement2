@@ -54,7 +54,7 @@ require_once("db.php");
                 <div class="class col-md-2"></div>
                 <div class="col-md-8 bg-white padding-2">
                   <div class="pull-left mx-32">
-                    <h2><b><?php echo $row['jobtitle']; ?></b></h2>
+                    <h2><b style= "color:white;"><?php echo $row['jobtitle']; ?></b></h2>
                   </div>
                   <div class="pull-right">
                     <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -63,10 +63,10 @@ require_once("db.php");
                   <hr>
                   <div>
                     <p>
-                      <span class="margin-right-10"><i class="fa fa-location-arrow text-green"> Role: </i> <?php echo $row['role']; ?> </span>
+                      <span class="margin-right-10"><i class="fa fa-location-arrow text-green"> Role: </i> <?php echo $row['experience']; ?> </span>
                       <span class="margin-right-10"> <i class="fa fa-money text-green"> CTC:</i> <?php echo "Rs " . $row['minimumsalary'] . "    "; ?></span> 
                       <span class="margin-right-10"><i class="fa fa-calendar text-green"> Drive Date:</i> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br>
-                      <span class="margin-right-10"><i class="fa fa-location-calendar text-green"> Eligibility: </i> <?php echo $row['eligibility']; ?> </span></p>
+                      <span class="margin-right-10"><i class="fa fa-location-calendar text-green"> Eligibility: </i> <?php echo $row['qualification']; ?> </span></p>
                     <!-- Years Experience -->
                   </div>
                   <div>

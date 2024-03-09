@@ -1,7 +1,7 @@
 <!-- Main header -->
 <header class="header">
     <nav class="navbar">
-        <a href="#" class="nav-logo">Christ University</a>
+        <a href="#" class="nav-logo">Christ University Placement Portal</a>
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="index.php" class="nav-link">Dashboard</a>
@@ -17,7 +17,7 @@
                 <a href="placed.php" class="nav-link">Placed Students</a>
             </li>
             <li class="nav-item">
-                <a href="../logout.php" class="nav-link">Log Out</a>
+                <a href="../logout.php" class="nav-link">Logout</a>
             </li>
         </ul>
 
@@ -51,18 +51,20 @@
 
     a {
         text-decoration: none;
+        left: 0px;
     }
 
     .header {
-        border-bottom: 1px solid #E2E8F0;
+        border-bottom: 0px solid #004080;
     }
 
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 1.5rem;
-        background-color: #2d2a2e;
+        padding: 2rem 1.5rem;
+        background-color: #042444;
+        border-radius: 0px;
     }
 
     .hamburger {
@@ -101,12 +103,13 @@
     }
 
     .nav-logo {
-    font-size: 30px; /* Increased font size */
+        font-size: 30px; /* Increased font size */
     font-weight: bold; /* Changed to bold */
     color: white; /* Changed to white */
     font-family: "Times New Roman", Times, serif; /* Set font family */
     text-align: left; /* Align the component to the left */
-}
+    }
+
     @media only screen and (max-width: 768px) {
         .nav-menu {
             position: fixed;

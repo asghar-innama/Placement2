@@ -16,7 +16,7 @@
                 <a href="../jobs.php" class="nav-link">Active Drives</a>
             </li>
             <li class="nav-item">
-                <a href="../logout.php" class="nav-link">Log Out</a>
+                <a href="../logout.php" class="nav-link">Logout</a>
             </li>
         </ul>
         <div class="hamburger">

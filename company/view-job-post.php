@@ -58,7 +58,7 @@ require_once("../db.php");
                         <div class="col-md-3">
                             <div class="box box-solid">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                                    <h3 class="box-title">Welcome <b style = "color:white;"><?php echo $_SESSION['name']; ?></b></h3>
                                 </div>
                                 <div class="box-body no-padding">
                                     <ul class="nav nav-pills nav-stacked">
@@ -92,7 +92,7 @@ require_once("../db.php");
                                             //echo $_SESSION['id_jobpost'];
                                     ?>
                                             <div class="pull-left">
-                                                <h2><b><?php echo $row['jobtitle']; ?></b></h2>
+                                                <h2><b style="color:white;"><?php echo $row['jobtitle']; ?></b></h2>
                                             </div>
                                             <div class="pull-right">
                                                 <a href="my-job-post.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -100,17 +100,14 @@ require_once("../db.php");
                                             <div class="clearfix"></div>
                                             <hr>
                                             <div>
-                                            <h5>
-                                                <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['role']."    &nbsp &nbsp &nbsp &nbsp &nbsp"; ?> </span>
-                                                <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp &nbsp &nbsp   "; ?></span>
-                                                <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br><br>
-                                                <span class="heading-text"><i class="fa fa-solid fa-list-check"></i> Eligibility: </span> <?php echo $row['eligibility']; ?> </span><br><br>
+                                            <p style="color:white;">
+                                                <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['experience']."    &nbsp &nbsp &nbsp"; ?> </span>
+                                                <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp  "; ?></span>
+                                                <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])). "&nbsp &nbsp &nbsp"; ?></span>
+                                                <span class="heading-text"><i class="fa fa-solid fa-list-check"></i> Eligibility: </span> <?php echo $row['maximumsalary']."% &nbsp &nbsp"; ?> </span>
                                                 <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification']."&nbsp &nbsp &nbsp &nbsp"; ?></span>
-                                                <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Max Number of Backlogs Allowed:</span> <?php echo $row['backlogs']."&nbsp &nbsp &nbsp &nbsp"; ?></span>
-                                                <span class="heading-text"> <i class="fa fa-solid fa-check text-green"></i>  Min CGPA Required:</span> <?php echo $row['cgpa']; ?></span><br><br>
-                                                <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Company URL: <a href="<?php echo $row['companyurl']; ?>" target="_blank"><?php echo $row['companyurl']; ?></a></span>
-                                            </h5>
-                                            </div><br>
+                                        </p>
+                                            </div>
                                             <div>
                                                 <h4><strong>Job Description</strong></h4>
                                                 <p><?php echo stripslashes($row['description']); ?></p>

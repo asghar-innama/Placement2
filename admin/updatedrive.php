@@ -75,7 +75,7 @@ require_once("../db.php");
 
 
                         <div class="col-md-8 bg-white padding-2">
-                            <h2>Update Drive</h2>
+                            <h2 style = "color:white;" >Update Drive</h2>
                             <p>In this section you can change drive details.</p>
                             <div class="row">
                                 <form action="updatedrive1.php" method="post" enctype="multipart/form-data">
@@ -149,10 +149,7 @@ require_once("../db.php");
         <!-- /.content-wrapper -->
 
         <footer class=" main-footer" style="margin-left: 0px;">
-            <div class="text-center">
-                <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-                reserved.
-            </div>
+            
         </footer>
 
         <!-- /.control-sidebar -->

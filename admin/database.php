@@ -61,7 +61,7 @@ require_once("../db.php");
                             <a href="export.php"><button type="submit1" name='export_excel_btn' class="btn btn-primary">Export to Excel</button></a>
 
                             <button type="submit1" onclick="sortTable()" name='export_excel_btn' style="margin-left: 8px;" class="btn btn-success">Sort Data</button>
-                            <h3 style="text-align: center;"> Student applications for various companies</h3>
+                            <h3 style="text-align: center; color:black;"> Student applications for various companies</h3>
                             <?php
 
                             $sql1 = "SELECT distinct jobtitle FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company=2";
@@ -224,10 +224,7 @@ require_once("../db.php");
     <footer class="main-footer" style="margin:auto;bottom: 0;
   width: 100%;
   height: 50px; position:absolute; background-color:#1f0a0a; color:white">
-        <div class="text-center">
-            <strong>Copyright &copy; 2022 Placement Portal</strong> All rights
-            reserved.
-        </div>
+        
     </footer>
 
     <!-- /.control-sidebar -->

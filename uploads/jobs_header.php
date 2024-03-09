@@ -14,7 +14,7 @@
                 <a href="jobs.php" class="nav-link">Active Drives</a>
             </li>
             <li class="nav-item">
-                <a href="logout.php" class="nav-link">Log Out</a>
+                <a href="logout.php" class="nav-link">Logout</a>
             </li>
         </ul>
         <div class="hamburger">
@@ -57,9 +57,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 1.5rem;
-        /* background-color: #114f5e; */
-        background-color: #101a1d;
+        padding: 2rem 1.5rem;
+        background-color: #042444;
+        border-radius: 0px;
     }
 
     .hamburger {

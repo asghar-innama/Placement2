@@ -40,18 +40,23 @@
     li {
         list-style: none;
     }
+
     a {
         text-decoration: none;
+        left: 0px;
     }
+
     .header {
-        border-bottom: 0px solid #E2E8F0;
+        border-bottom: 0px solid #004080;
     }
+
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 1.5rem;
-        background-color: #114f5e;
+        padding: 2rem 1.5rem;
+        background-color: #042444;
+        border-radius: 0px;
     }
 
     .hamburger {

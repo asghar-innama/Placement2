@@ -8,16 +8,16 @@
                     <a href="index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../jobs.php" class="nav-link">Notice</a>
+                    <a href="index.php" class="nav-link">Notice</a>
                 </li>
                 <li class="nav-item">
                 <a href="user/resume.php" class="nav-link">Create Resume</a>
                 </li>
                 <li class="nav-item">
-                    <a href="settings.php" class="nav-link">Settings</a>
+                    <a href="index.php" class="nav-link">Settings</a>
                 </li>
                 <li class="nav-item">
-                    <a href="logout.php" class="nav-link">Log Out</a>
+                    <a href="logout.php" class="nav-link">Logout</a>
                 </li>
             </ul>
             <div class="hamburger">

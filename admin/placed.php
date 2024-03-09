@@ -61,8 +61,8 @@ require_once("../db.php");
 
 
                     <div class="col md-4">
-                        <h3 style="text-align: center;">Placed Students list </h3>
-                        <h3>Filters</h3>
+                        <h3 style="text-align: center; color:black; ">Placed Students list </h3>
+                        <h3 style = "color:black;">Filters</h3>
                         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
                         <!-- <button onclick="sortTable()">Sort</button> -->
                         <a href="export1.php"><button type="submit1" name='export_excel_btn' class="btn btn-primary">Export to Excel</button></a>
@@ -159,10 +159,7 @@ require_once("../db.php");
     <footer class="main-footer" style="margin:auto;bottom: 0;
   width: 100%;
   height: 50px; position:absolute; background-color:#1f0a0a; color:white">
-        <div class="text-center">
-            <strong>Copyright &copy; 2022 Placement Portal</strong> All rights
-            reserved.
-        </div>
+        
     </footer>
 
     <!-- /.control-sidebar -->

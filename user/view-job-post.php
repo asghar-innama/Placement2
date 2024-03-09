@@ -16,7 +16,7 @@ $sql = "SELECT * FROM apply_job_post WHERE id_user='$_SESSION[id_user]' AND id_j
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
-  $sql1 = "SELECT * FROM job_post  id_jobpost='$_GET[id]'";
+  $sql1 = "SELECT * FROM job_post WHERE id_jobpost='$_GET[id]'";
   $result1 = $conn->query($sql1);
   if ($result1->num_rows > 0) {
     $row = $result1->fetch_assoc();
@@ -77,7 +77,7 @@ if ($result->num_rows > 0) {
             <div class="col-md-2"></div>
             <div class="col-md-8 bg-white padding-2">
               <div class="pull-left">
-                <h2><b><?php echo $row['jobtitle']; ?></b></h2>
+                <h2><b style="color:white;"><?php echo $row['jobtitle']; ?></b></h2>
               </div>
               <div class="pull-right">
                 <a href="index.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -103,10 +103,7 @@ if ($result->num_rows > 0) {
     <!-- /.content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      <div class="text-center">
-        <strong>Copyright &copy; 2022 <a href="scsit@Davv">Placement Portal</a>.</strong> All rights
-        reserved.
-      </div>
+      
     </footer>
 
 
