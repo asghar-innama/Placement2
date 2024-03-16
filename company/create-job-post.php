@@ -180,7 +180,7 @@ require_once("../db.php");
                         <input type="number" class="form-control input-lg" id="backlogs" name="backlogs" required="">
                       </div>
                       <div class="form-group">
-                        <label for="cgpa">CGPA Gained:</label>
+                        <label for="cgpa">Min CGPA</label>
                         <input type="text" class="form-control input-lg" id="cgpa" name="cgpa" required="">
                       </div>
                       <div class="form-group">

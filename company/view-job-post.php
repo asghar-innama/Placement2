@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (empty($_SESSION['id_company'])) {
@@ -37,28 +36,24 @@ require_once("../db.php");
   
     <style>
         .heading-text {
-        font-weight: bold;
-    }
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
-
-        <?php
-        include 'header.php';
-        ?>
+        <?php include 'header.php'; ?>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="margin-left: 0px;">
-
             <section id="candidates" class="content-header">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="box box-solid">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">Welcome <b style = "color:white;"><?php echo $_SESSION['name']; ?></b></h3>
+                                    <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                                 </div>
                                 <div class="box-body no-padding">
                                     <ul class="nav nav-pills nav-stacked">
@@ -79,7 +74,7 @@ require_once("../db.php");
                             <div class="row margin-top-20">
                                 <div class="col-md-12">
                                     <?php
-                                    $sql = "SELECT * FROM job_post WHERE id_jobpost='$_GET[id]'";
+                                    $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]' AND id_jobpost='$_GET[id]'";
                                     $result = $conn->query($sql);
 
                                     //If Job Post exists then display details of post
@@ -92,7 +87,7 @@ require_once("../db.php");
                                             //echo $_SESSION['id_jobpost'];
                                     ?>
                                             <div class="pull-left">
-                                                <h2><b style="color:white;"><?php echo $row['jobtitle']; ?></b></h2>
+                                                <h2><b><?php echo $row['jobtitle']; ?></b></h2>
                                             </div>
                                             <div class="pull-right">
                                                 <a href="my-job-post.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -100,14 +95,17 @@ require_once("../db.php");
                                             <div class="clearfix"></div>
                                             <hr>
                                             <div>
-                                            <p style="color:white;">
-                                                <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['experience']."    &nbsp &nbsp &nbsp"; ?> </span>
-                                                <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp  "; ?></span>
-                                                <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])). "&nbsp &nbsp &nbsp"; ?></span>
-                                                <span class="heading-text"><i class="fa fa-solid fa-list-check"></i> Eligibility: </span> <?php echo $row['maximumsalary']."% &nbsp &nbsp"; ?> </span>
-                                                <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification']."&nbsp &nbsp &nbsp &nbsp"; ?></span>
-                                        </p>
-                                            </div>
+                                                <h5>
+                                                    <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['role'] . " &nbsp &nbsp &nbsp &nbsp &nbsp"; ?> </span>
+                                                    <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp &nbsp &nbsp   "; ?></span>
+                                                    <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br><br>
+                                                    <span class="heading-text"><i class="fa fa-solid fa-list-check"></i> Eligibility: </span> <?php echo $row['eligibility']; ?> </span><br><br>
+                                                    <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span>
+                                                    <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Max Number of Backlogs Allowed:</span> <?php echo $row['backlogs'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span>
+                                                    <span class="heading-text"> <i class="fa fa-solid fa-check text-green"></i> Min CGPA Required:</span> <?php echo $row['cgpa']; ?></span><br><br>
+                                                    <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Company URL: <a href="<?php echo $row['companyurl']; ?>" target="_blank"><?php echo $row['companyurl']; ?></a></span>
+                                                </h5>
+                                            </div><br>
                                             <div>
                                                 <h4><strong>Job Description</strong></h4>
                                                 <p><?php echo stripslashes($row['description']); ?></p>
@@ -121,16 +119,12 @@ require_once("../db.php");
                                     ?>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
         <!-- /.content-wrapper -->
-
-        
 
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
@@ -149,4 +143,5 @@ require_once("../db.php");
     <!-- AdminLTE App -->
     <script src="../js/adminlte.min.js"></script>
 </body>
+
 </html>
