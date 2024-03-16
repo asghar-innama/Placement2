@@ -111,20 +111,14 @@ require_once("../db.php");
                                         if ($result->num_rows > 0) {
 
                                             while ($row = $result->fetch_assoc()) {
-
-
                                         ?>
                                                 <tr>
                                                     <td><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td>
                                                     <td><?php echo $row['email']; ?></td>
                                                     <td><?php echo $row['jobtitle']; ?></td>
-                                                    <td><?php echo $row['experience']; ?></td>
+                                                    <td><?php echo $row['role']; ?></td>
                                                     <td><?php echo $row['minimumsalary']; ?></td>
-
-
                                                 </tr>
-
-
                                         <?php
 
                                             }
@@ -140,12 +134,7 @@ require_once("../db.php");
 
                 </div>
 
-
-
                 <!-- <div class="col-md-2 ">
-
-
-
                     </div> -->
         </div>
     </div>

@@ -87,37 +87,45 @@ require_once("../db.php");
                                         while ($row = $result->fetch_assoc()) {
                                     ?>
                                             <div class="col-md-6 latest-job ">
-                                                <div class="form-group">
+                                            <div class="form-group">
                                                     <label>Company Name</label>
                                                     <input type="text" class="form-control input-lg" name="companyname" id="companyname" value="<?php echo $row['jobtitle']; ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Role</label>
-                                                    <input type="text" class="form-control input-lg" name="role" id="role" value="<?php echo $row['experience']; ?>">
+                                                    <input type="text" class="form-control input-lg" name="role" id="role" value="<?php echo $row['role']; ?>">
                                                 </div>
-
                                                 <div class="form-group">
-                                                    <label>Drive Detail</label>
-                                                    <textarea class="form-control input-lg" rows="4" id="description" name="description"><?php echo $row['description']; ?></textarea>
+                                                    <label>Eligibility</label>
+                                                    <input type="text" class="form-control input-lg" name="Eligibility" id="Eligibility" value="<?php echo $row['eligibility']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>CTC</label>
+                                                    <input type="text" class="form-control input-lg" name="CTC" id="CTC" value="<?php echo $row['minimumsalary']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Qualification Required</label>
+                                                    <input type="text" class="form-control input-lg" name="qualification" id="qualification" value="<?php echo $row['qualification']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Company URL</label>
+                                                    <input type="text" class="form-control input-lg" name="companyurl" id="companyurl" value="<?php echo $row['companyurl']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Max Number of Backlogs Allowed</label>
+                                                    <input type="text" class="form-control input-lg" name="backlogs" id="backlogs" value="<?php echo $row['backlogs']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>CGPA Gained</label>
+                                                    <input type="text" class="form-control input-lg" name="cgpa" id="cgpa" value="<?php echo $row['cgpa']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Job Description</label>
+                                                    <textarea class="form-control input-lg" rows="4" name="description" id="description"><?php echo $row['description']; ?></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <button type="submit" name="submit" id="submit" class="btn btn-flat btn-success">Update Profile</button>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6 latest-job ">
-                                                <div class="form-group">
-                                                    <label for="contactno">Eligibility</label>
-                                                    <input type="text" class="form-control input-lg" id="Eligibility" name="Eligibility" placeholder="Eligibility" value="<?php echo $row['maximumsalary']; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="city">CTC</label>
-                                                    <input type="text" class="form-control input-lg" id="CTC" name="CTC" value="<?php echo $row['minimumsalary']; ?>" placeholder="CTC">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="state">Qualification Required</label>
-                                                    <input type="text" class="form-control input-lg" id="qualification" name="qualification" placeholder="qualification" value="<?php echo $row['qualification']; ?>">
-                                                </div>
-
                                             </div>
                                     <?php
                                         }

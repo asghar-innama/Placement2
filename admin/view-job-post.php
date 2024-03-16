@@ -14,7 +14,7 @@ require_once("../db.php");
 
 
 
-$sql1 = "SELECT * FROM job_post INNER JOIN company ON job_post.id_company=company.id_company WHERE id_jobpost='$_GET[id]'";
+$sql1 = "SELECT * FROM job_post WHERE id_jobpost='$_GET[id]'";
 $result1 = $conn->query($sql1);
 if ($result1->num_rows > 0) {
   $row = $result1->fetch_assoc();
@@ -50,6 +50,18 @@ if ($result1->num_rows > 0) {
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style>
+        .heading-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        .details{
+            font-size: 20px;
+            font-weight: bold;
+            color:white;
+        }
+    </style>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -79,8 +91,16 @@ if ($result1->num_rows > 0) {
               <div class="clearfix"></div>
               <hr>
               <div>
-                <p><span class="margin-right-10"><i class="fa fa-location-arrow text-green"> Role: </i> <?php echo $row['experience']; ?> </span><span class="margin-right-10"> <i class="fa fa-money text-green"> CTC:</i> <?php echo "Rs " . $row['minimumsalary'] . "    "; ?></span> <span class="margin-right-10"><i class="fa fa-calendar text-green"> Drive Date:</i> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><span class="margin-right-10"><i class="fa fa-location-calendar text-green"> Eligibility: </i> <?php echo $row['maximumsalary'] . "%"; ?> </span></p>
-                <!-- Years Experience -->
+              <h5 class="details">
+                <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['role'] . " &nbsp &nbsp &nbsp &nbsp &nbsp"; ?> </span>
+                <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp &nbsp &nbsp   "; ?></span>
+                <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br><br>
+                <span class="heading-text"><i class="fa fa-solid fa-check text-green"></i> Eligibility: </span> <?php echo $row['eligibility']." % aggregate &nbsp &nbsp &nbsp"; ?> </span>
+                <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span>
+                <span class="heading-text"> <i class="fa fa-solid fa-check text-green"></i> Min CGPA Required:</span> <?php echo $row['cgpa']; ?></span><br><br>
+                <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Max Number of Backlogs Allowed:</span> <?php echo $row['backlogs'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span><br><br>
+                <span class="heading-text" style="font-size:18px;"><i class="fa fa-solid fa-check text-green"> </i> Company URL: <?php echo $row['companyurl']; ?></a></span>
+            </h5>
               </div>
               <div>
                 <?php echo stripcslashes($row['description']); ?>
