@@ -19,8 +19,8 @@ if ($result->num_rows > 0) {
     <!-- You can include any other formatting or styling here -->
     <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right" style=" color:black;">₹<?php echo $row['minimumsalary']; ?>/Year</span></h4>
     <div class="attachment-text">
-      <div><strong>Role: <?php echo $row['experience']; ?></strong></div>
-      <!-- Add more details as needed -->
+      <div><strong>Role: <?php echo $row['role']; ?></strong></div>
+      <div>Company: <?php echo $row['companyurl']; ?></div>
     </div>
   </div>
 <?php
