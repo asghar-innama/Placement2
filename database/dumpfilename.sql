@@ -157,163 +157,127 @@ INSERT INTO `countries` VALUES (1,'AF','Afghanistan',93),(2,'AL','Albania',355),
 UNLOCK TABLES;
 
 --
+--
 -- Table structure for table `job_post`
 --
 
-DROP TABLE IF EXISTS `job_post`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `job_post` (
-  `id_jobpost` int(11) NOT NULL AUTO_INCREMENT,
-  `id_company` int(11) NOT NULL,
+  `id_jobpost` int(11) NOT NULL,
   `jobtitle` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `minimumsalary` varchar(255) NOT NULL,
-  `maximumsalary` varchar(255) NOT NULL,
-  `experience` varchar(255) NOT NULL,
+  `eligibility` varchar(100) NOT NULL,
+  `role` varchar(255) NOT NULL,
   `qualification` varchar(255) NOT NULL,
   `createdat` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id_jobpost`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `backlogs` int(100) NOT NULL DEFAULT 0,
+  `cgpa` decimal(8,2) NOT NULL DEFAULT 2.45,
+  `companyurl` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `job_post`
 --
 
-LOCK TABLES `job_post` WRITE;
-/*!40000 ALTER TABLE `job_post` DISABLE KEYS */;
-INSERT INTO `job_post` VALUES (1,2,'Accenture','Accenture plc is an Ireland-based multinational professional services company that specializes in information technology (IT) services and consulting. A Fortune Global 500 company, it reported revenues of $50.53 billion in 2021. Accenture\'s current clients include 91 of the Fortune Global 100 and more than three-quarters of the Fortune Global 500.\r\n\r\nJulie Sweet has served as CEO of Accenture since 1 September 2019.\r\n\r\nIt has been incorporated in Dublin, Ireland, since 2009.','650000','65','Software Engineer','MCA','2022-05-05 09:16:08'),(3,2,'Quantiphi','Cognizant is an American multinational information technology services and consulting company. It is headquartered in Teaneck, New Jersey, United States. Cognizant is part of the NASDAQ-100 and trades under CTSH. It was founded as an in-house technology unit of Dun & Bradstreet in 1994,[5] and started serving external clients in 1996.[5]\r\n\r\nAfter a series of corporate re-organizations there was an initial public offering in 1998.[6]\r\n\r\nCognizant had a period of fast growth during the 2000s and became a Fortune 500 company in 2011; as of 2021, it is ranked 185.[7]','450000','80','Software Engineer','MCA','2022-05-07 11:57:52'),(4,2,'Cognizant','<p>Drive till 24 may</p>','750000','50','Software Engineer','MCA','2022-05-20 04:32:53'),(5,2,'Capgemeni','<p>Till 30 May</p>','550000','60','Analyst','MCA','2022-05-20 04:36:46'),(8,2,'Oracle','','11000000','65','ASE','MCA','2022-05-22 15:09:55');
-/*!40000 ALTER TABLE `job_post` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `job_post` (`id_jobpost`, `jobtitle`, `description`, `minimumsalary`, `eligibility`, `role`, `qualification`, `createdat`, `backlogs`, `cgpa`, `companyurl`) VALUES
+(1, 'Accenture', 'Accenture plc is an Ireland-based multinational professional services company that specializes in information technology (IT) services and consulting. A Fortune Global 500 company, it reported revenues of $50.53 billion in 2021. Accenture\'s current clients include 91 of the Fortune Global 100 and more than three-quarters of the Fortune Global 500.\r\n\r\nJulie Sweet has served as CEO of Accenture since 1 September 2019.\r\n\r\nIt has been incorporated in Dublin, Ireland, since 2009.', '650000', '65', 'Software Engineer', 'MCA', '2022-05-05 09:16:08', 0, 3.00, 'https://www.accenture.com/us-en/careers/explore-careers/area-of-interest/journey-to-accenture'),
+(3, 'Quantiphi', 'Cognizant is an American multinational information technology services and consulting company. It is headquartered in Teaneck, New Jersey, United States. Cognizant is part of the NASDAQ-100 and trades under CTSH. It was founded as an in-house technology unit of Dun & Bradstreet in 1994,[5] and started serving external clients in 1996.[5]\r\n\r\nAfter a series of corporate re-organizations there was an initial public offering in 1998.[6]\r\n\r\nCognizant had a period of fast growth during the 2000s and became a Fortune 500 company in 2011; as of 2021, it is ranked 185.[7]', '450000', '80', 'Software Engineer', 'MCA', '2022-05-07 11:57:52', 0, 3.00, ''),
+(4, 'Cognizant', '<p>Drive till 24 may</p>', '750000', '50', 'Software Engineer', 'MCA', '2022-05-20 04:32:53', 0, 3.00, ''),
+(5, 'Capgemeni', '<p>Till 30 May</p>', '550000', '60', 'Analyst', 'MCA', '2022-05-20 04:36:46', 0, 3.00, ''),
+(8, 'Oracle', '', '11000000', '65', 'ASE', 'MCA', '2022-05-22 15:09:55', 0, 3.00, '');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `mailbox`
 --
 
-DROP TABLE IF EXISTS `mailbox`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mailbox` (
-  `id_mailbox` int(11) NOT NULL AUTO_INCREMENT,
+  `id_mailbox` int(11) NOT NULL,
   `id_fromuser` int(11) NOT NULL,
   `fromuser` varchar(255) NOT NULL,
   `id_touser` int(11) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id_mailbox`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `mailbox`
---
-
-LOCK TABLES `mailbox` WRITE;
-/*!40000 ALTER TABLE `mailbox` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mailbox` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `notice`
 --
 
-DROP TABLE IF EXISTS `notice`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `notice` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `subject` varchar(250) NOT NULL,
   `notice` varchar(255) DEFAULT NULL,
   `audience` varchar(255) DEFAULT NULL,
   `resume` varchar(250) DEFAULT NULL,
   `hash` varchar(255) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notice`
 --
 
-LOCK TABLES `notice` WRITE;
-/*!40000 ALTER TABLE `notice` DISABLE KEYS */;
-INSERT INTO `notice` VALUES (23,'Placement Result for Accenture','Narendra Kumar','All Students','0',NULL,'2022-05-10 12:53:43'),(24,'Placement Result for Cognizant','Amit','Co-ordinators','0',NULL,'2022-05-10 12:54:06'),(33,'Amit','sss','All Students','628a5c81308f3.','1b01d853966c8ed5fe8afa9a1ac05800','2022-05-22 21:23:37');
-/*!40000 ALTER TABLE `notice` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `notice` (`id`, `subject`, `notice`, `audience`, `resume`, `hash`, `date`) VALUES
+(23, 'Placement Result for Accenture', 'Narendra Kumar', 'All Students', '0', NULL, '2022-05-10 12:53:43'),
+(24, 'Placement Result for Cognizant', 'Amit', 'Co-ordinators', '0', NULL, '2022-05-10 12:54:06'),
+(33, 'Amit', 'sss', 'All Students', '628a5c81308f3.', '1b01d853966c8ed5fe8afa9a1ac05800', '2022-05-22 21:23:37');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `placed`
 --
 
-DROP TABLE IF EXISTS `placed`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `placed` (
-  `pid` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
   `sname` varchar(100) NOT NULL,
   `semail` varchar(100) NOT NULL,
   `cname` varchar(100) NOT NULL,
   `role` varchar(100) NOT NULL,
   `ctc` varchar(100) NOT NULL,
-  `gender` varchar(100) NOT NULL,
-  PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `gender` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `placed`
 --
 
-LOCK TABLES `placed` WRITE;
-/*!40000 ALTER TABLE `placed` DISABLE KEYS */;
-INSERT INTO `placed` VALUES (1,'arjun','arjun@gmail.com','Quantiphi','ML Engineer','850000',''),(2,'sharan','sharan@gmail.com','Cognizant','SE','650000',''),(3,'narendra','narendra@gmail.com','Accenture','ASE','450000','');
-/*!40000 ALTER TABLE `placed` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `placed` (`pid`, `sname`, `semail`, `cname`, `role`, `ctc`, `gender`) VALUES
+(1, 'arjun', 'arjun@gmail.com', 'Quantiphi', 'ML Engineer', '850000', ''),
+(2, 'sharan', 'sharan@gmail.com', 'Cognizant', 'SE', '650000', ''),
+(3, 'narendra', 'narendra@gmail.com', 'Accenture', 'ASE', '450000', '');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `reply_mailbox`
 --
 
-DROP TABLE IF EXISTS `reply_mailbox`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reply_mailbox` (
-  `id_reply` int(11) NOT NULL AUTO_INCREMENT,
+  `id_reply` int(11) NOT NULL,
   `id_mailbox` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `usertype` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id_reply`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `reply_mailbox`
---
-
-LOCK TABLES `reply_mailbox` WRITE;
-/*!40000 ALTER TABLE `reply_mailbox` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reply_mailbox` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `states`
 --
 
-DROP TABLE IF EXISTS `states`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `states` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `country_id` int(11) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4121 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `country_id` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `states`
