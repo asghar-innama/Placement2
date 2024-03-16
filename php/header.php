@@ -5,14 +5,14 @@
          <nav id="navbar" class="navbar">
              <ul>
                  <li><a class="nav-link scrollto" href="index.php">Home</a></li>
-                 <li class="dropdown"><a href="login.php"><span>Login</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                 <li class="dropdown"><a href="login.php"><span style="color:#0d6efd;" >Login</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                      <ul>
                          <li><a href="admin/index.php">Admin Login</a></li>
                          <li><a href="login-candidates.php">Student Login</a></li>
                          <li><a href="login-company.php">Placement Cell</a></li>
                      </ul>
                  </li>
-                 <li class="dropdown"><a href="login.php"><span>Register</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                 <li class="dropdown"><a href="login.php"><span style="color:#0d6efd;" >Register</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                      <ul>
                          <!-- <li><a href="admin/index.php">Admin</a></li> -->
                          <li><a href="register-candidates.php">Students</a></li>

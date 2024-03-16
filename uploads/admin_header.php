@@ -57,9 +57,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 1.5rem;
-        /* background-color: #114f5e; */
-        background-color: #101a1d;
+        padding: 2rem 1.5rem;
+        background-color: #042444;
+        border-radius: 0px;
     }
 
     .hamburger {
@@ -153,6 +153,7 @@
         transform: translateY(-8px) rotate(-45deg);
     }
 </style>
+
 
 <!-- js files-->
 
