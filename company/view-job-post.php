@@ -106,9 +106,9 @@ require_once("../db.php");
                                                     <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['role'] . " &nbsp &nbsp &nbsp &nbsp &nbsp"; ?> </span>
                                                     <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp &nbsp &nbsp   "; ?></span>
                                                     <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br><br>
-                                                    <span class="heading-text"><i class="fa fa-solid fa-check text-green"></i> Eligibility: </span> <?php echo $row['eligibility']." % aggregate &nbsp &nbsp &nbsp"; ?> </span>
-                                                    <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span>
-                                                    <span class="heading-text"> <i class="fa fa-solid fa-check text-green"></i> Min CGPA Required:</span> <?php echo $row['cgpa']; ?></span><br><br>
+                                                    <span class="heading-text"><i class="fa fa-solid fa-check text-green"></i> Eligibility: </span> <?php echo $row['eligibility']."% aggregate &nbsp &nbsp &nbsp"; ?> </span>
+                                                    <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification']; ?></span><br><br>
+                                                    <span class="heading-text"> <i class="fa fa-solid fa-check text-green"></i> Min CGPA Required:</span> <?php echo $row['cgpa']."&nbsp &nbsp"; ?></span>
                                                     <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Max Number of Backlogs Allowed:</span> <?php echo $row['backlogs'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span><br><br>
                                                     <span class="heading-text" style="font-size:18px;"><i class="fa fa-solid fa-check text-green"> </i> Company URL: <?php echo $row['companyurl']; ?></a></span>
                                                 </h5>

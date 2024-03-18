@@ -21,8 +21,11 @@ if (isset($_POST['submit'])) {
     $Eligibility = mysqli_real_escape_string($conn, $_POST['Eligibility']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $url =  mysqli_real_escape_string($conn, $_POST['companyurl']);
+    $cgpa =  mysqli_real_escape_string($conn, $_POST['cgpa']);
+    $backlogs =  mysqli_real_escape_string($conn, $_POST['backlogs']);
 
-    $sql = "UPDATE job_post SET jobtitle='$companyname', role='$role', minimumsalary='$CTC', eligibility='$Eligibility', qualification='$qualification',   description='$description', companyurl='$url' where id_jobpost='$_SESSION[id_jobpost] '";
+
+    $sql = "UPDATE job_post SET jobtitle='$companyname', role='$role', minimumsalary='$CTC', eligibility='$Eligibility', qualification='$qualification',   description='$description', companyurl='$url', cgpa='$cgpa', backlogs='$backlogs' where id_jobpost='$_SESSION[id_jobpost] '";
 
     if ($conn->query($sql) === TRUE) {
         // $_SESSION['name'] = $companyname;
