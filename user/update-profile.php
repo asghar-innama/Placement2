@@ -32,41 +32,37 @@ if (isset($_POST)) {
 
 	$uploadOk = true;
 
-	if (isset($_FILES)) {
-
+	if (isset($_FILES)) 
+	{
 		$folder_dir = "../uploads/resume/";
-
 		$base = basename($_FILES['resume']['name']);
-
 		$resumeFileType = pathinfo($base, PATHINFO_EXTENSION);
-
 		$file = uniqid() . "." . $resumeFileType;
-
 		$filename = $folder_dir . $file;
-
 		if (file_exists($_FILES['resume']['tmp_name'])) {
-
-			if ($resumeFileType == "pdf") {
-
+			if ($resumeFileType == "pdf") 
+			{
 				if ($_FILES['resume']['size'] < 500000) { // File size is less than 5MB
-
 					move_uploaded_file($_FILES["resume"]["tmp_name"], $filename);
-				} else {
+				} 
+				
+				else {
 					$_SESSION['uploadError'] = "Wrong Size. Max Size Allowed : 5MB";
 					header("Location: edit-profile.php");
 					exit();
 				}
-			} else {
+			} 
+			else 
+			{
 				$_SESSION['uploadError'] = "Wrong Format. Only PDF Allowed";
 				header("Location: edit-profile.php");
 				exit();
 			}
 		}
-	} else {
+	} 
+	else {
 		$uploadOk = false;
 	}
-
-
 
 	//Update User Details Query
 	$sql = "UPDATE users SET firstname='$firstname', lastname='$lastname', address='$address', city='$city', state='$state', contactno='$contactno', qualification='$qualification', stream='$stream', skills='$skills', aboutme='$aboutme', Hsc='$Hsc', Ssc='$Ssc', UG='$UG', PG='$PG'";
@@ -82,7 +78,8 @@ if (isset($_POST)) {
 		//If data Updated successfully then redirect to dashboard
 		header("Location: index.php");
 		exit();
-	} else {
+	} 
+	else {
 		echo "Error " . $sql . "<br>" . $conn->error;
 	}
 	//Close database connection. Not compulsory but good practice.

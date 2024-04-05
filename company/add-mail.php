@@ -13,6 +13,7 @@ require_once("../db.php");
 if(isset($_POST)) {
 	$to  = $_POST['to'];
 
+	//inserting the mysqli real escape string to remove the string used for sql injection purpose
 	$subject = mysqli_real_escape_string($conn, $_POST['subject']);
 	$message = mysqli_real_escape_string($conn, $_POST['description']);
 

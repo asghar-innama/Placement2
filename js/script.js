@@ -48,132 +48,103 @@ function addNewSfield() {
 }
 
 // generating cv
+document.getElementById("generateCVBtn").addEventListener("click", generateCV);
+
+function generatePDF() {
+    const pdf = new jsPDF();
+
+    // Capture the CV template div as an image using html2canvas
+    html2canvas(document.getElementById('cv-template')).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+        pdf.save('resume.pdf'); // Save the PDF file
+    });
+}
 
 function generateCV() {
-    // console.log("Adding new field");
     let nameField = document.getElementById("nameField").value;
-    
-    let nameT1 = document.getElementById("nameT1")
+    let contactField = document.getElementById("contactField").value;
+    let addressField = document.getElementById("addressField").value;
+    let emailField = document.getElementById("emailField").value;
+    let fbField = document.getElementById("fbField").value;
+    let instaField = document.getElementById("instaField").value;
+    let linkedField = document.getElementById("linkedField").value;
+    let objectiveField = document.getElementById("objectiveField").value;
 
-    nameT1.innerHTML = nameField;
-
-    // direct
-
+    // Setting Name
+    document.getElementById("nameT1").innerHTML = nameField;
     document.getElementById("nameT2").innerHTML = nameField;
 
-    // contact
+    // Contact
+    document.getElementById("contactT").innerHTML = contactField;
 
-    document.getElementById("contactT").innerHTML = document.getElementById("contactField").value;
+    // Address
+    document.getElementById("addressT").innerHTML = addressField;
 
-    // address 
-    
-    document.getElementById("addressT").innerHTML = document.getElementById("addressField").value;
+    // Links
+    document.getElementById("emailT").innerHTML = emailField;
+    document.getElementById("fbT").innerHTML = fbField;
+    document.getElementById("instaT").innerHTML = instaField;
+    document.getElementById("linkedT").innerHTML = linkedField;
 
-    // links
-document.getElementById("emailT").innerHTML = document.getElementById("emailField").value;
-    document.getElementById("fbT").innerHTML = document.getElementById("fbField").value;
-    document.getElementById("instaT").innerHTML = document.getElementById("instaField").value;
-    document.getElementById("linkedT").innerHTML = document.getElementById("linkedField").value;
+    // Objective
+    document.getElementById("objectiveT").innerHTML = objectiveField;
 
-    // objective
-
-    document.getElementById("objectiveT").innerHTML = document.getElementById("objectiveField").value;
-    
-    // skills
-
+    // Skills
     let skills = document.getElementsByClassName("sField");
-
-    let str = "";
-
-    for (let e of skills)
-    {
-        //Remember here back quote are used. 
-
-        str = str + `<li> ${e.value} </li>`;
+    let strSkills = "";
+    for (let skill of skills) {
+        strSkills += `<li>${skill.value}</li>`;
     }
-    document.getElementById("sT").innerHTML = str;
-
-
-
-
+    document.getElementById("sT").innerHTML = strSkills;
 
     // Work Experience
-
     let wes = document.getElementsByClassName("weField");
-
-    let str1 = "";
-
-    for (let e of wes)
-    {
-        //Remember here back quote are used. 
-
-        str1 = str1 + `<li> ${e.value} </li>`;
+    let strWE = "";
+    for (let we of wes) {
+        strWE += `<li>${we.value}</li>`;
     }
-    document.getElementById("weT").innerHTML = str1;
+    document.getElementById("weT").innerHTML = strWE;
 
-
-        // skills
-
-    let skills1 = document.getElementsByClassName("eqfield");
-
-    let str2 = "";
-
-    for (let e of skills1)
-    {
-        //Remember here back quote are used. 
-
-        str2 = str2 + `<li> ${e.value} </li>`;
+    // Education Qualifications
+    let eqs = document.getElementsByClassName("eqField");
+    let strEQ = "";
+    for (let eq of eqs) {
+        strEQ += `<li>${eq.value}</li>`;
     }
-    document.getElementById("eqT").innerHTML = str2;
+    document.getElementById("eqT").innerHTML = strEQ;
 
-
-    // code for setting up the image
-
-
-
+    // Image
     let file = document.getElementById("imageField").files[0];
-    // console.log(file);
-
-    let reader = new FileReader()
+    let reader = new FileReader();
     if (file) {
         reader.readAsDataURL(file);
-        console.log("success1");
     }
-    
-    // adding a listener 
-    reader.onloadend = function () { 
+    reader.onloadend = function () {
         document.getElementById("imgT").src = reader.result;
     };
-    console.log("success2");
 
-    // changing the css property of cv-form
-
+    // Show CV template, hide form
     document.getElementById("cv-form").style.display = "none";
     document.getElementById("cv-template").style.display = "block";
- console.log("success3");
 }
 
 function previewFile() {
-  const preview = document.querySelector('img');
-  const file = document.querySelector('input[type=file]').files[0];
-  const reader = new FileReader();
+    const preview = document.querySelector('img');
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
 
-  reader.addEventListener("load", function () {
-    // convert image file to base64 string
-    preview.src = reader.result;
-  }, false);
+    reader.addEventListener("load", function () {
+        preview.src = reader.result;
+    }, false);
 
-  if (file) {
-    reader.readAsDataURL(file);
-  }
+    if (file) {
+        reader.readAsDataURL(file);
+    }
 }
-
-
-// printing cv 
 
 function printCV() {
     window.print();
-    
 }
 
    

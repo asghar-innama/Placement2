@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
     $description = mysqli_real_escape_string($conn, $_POST['description']);
 
 
-    $sql = "UPDATE job_post SET jobtitle='$companyname', experience='$role', minimumsalary='$CTC', qualification='$qualification', maximumsalary='$Eligibility',  description='$description' where id_jobpost='$_SESSION[id_jobpost] '";
+    $sql = "UPDATE job_post SET jobtitle='$companyname', role='$role', minimumsalary='$CTC', qualification='$qualification', eligibility='$Eligibility',  description='$description' where id_jobpost='$_SESSION[id_jobpost] '";
 
     if ($conn->query($sql) === TRUE) {
         // $_SESSION['name'] = $companyname;

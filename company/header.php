@@ -101,10 +101,10 @@
 
     .nav-logo {
         font-size: 30px; /* Increased font size */
-    font-weight: bold; /* Changed to bold */
-    color: white; /* Changed to white */
-    font-family: "Times New Roman", Times, serif; /* Set font family */
-    text-align: left; /* Align the component to the left */
+        font-weight: bold; /* Changed to bold */
+        color: white; /* Changed to white */
+        font-family: "Times New Roman", Times, serif; /* Set font family */
+        text-align: left; /* Align the component to the left */
     }
 
     @media only screen and (max-width: 768px) {

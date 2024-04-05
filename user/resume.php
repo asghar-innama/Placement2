@@ -188,7 +188,7 @@ require_once("../db.php");
                     </div>
                 </div>
                 <div class="container text-center mt-3 mb-5">
-                    <button onclick="generateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+                <button onclick="generatePDF()" class="btn btn-primary">Generate PDF</button>
                 </div>
             </div>
         </div>
@@ -265,6 +265,8 @@ require_once("../db.php");
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="../js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@ if (empty($_SESSION['id_company'])) {
 require_once("../db.php");
 
 if (isset($_POST['jobtitle'])) {
-    // New way using prepared statements
+    // New way using prepared statements to prevent SQL Ijection attacks
     $stmt = $conn->prepare("INSERT INTO job_post (jobtitle, minimumsalary, eligibility, role, qualification, backlogs, cgpa, companyurl, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     // Fixing the first parameter of bind_param() to match the number of placeholders

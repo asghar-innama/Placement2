@@ -1,13 +1,13 @@
 <?php
 
-session_start();
+    session_start();
 
-if (empty($_SESSION['id_company'])) {
-    header("Location: ../index.php");
-    exit();
-}
+    if (empty($_SESSION['id_company'])) {
+        header("Location: ../index.php");
+        exit();
+    }
 
-require_once("../db.php");
+    require_once("../db.php");
 ?>
 <!DOCTYPE html>
 <html>

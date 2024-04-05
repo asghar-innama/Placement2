@@ -86,11 +86,7 @@ require_once("../db.php");
               </div>
 
               <?php
-
-
               $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company='$_SESSION[id_company]'";
-
-
               $result = $conn->query($sql);
               // echo "$result->num_rows";
               // $_SESSION[id_company]

@@ -13,9 +13,6 @@ require_once("db.php");
 
 //If user Actually clicked apply button
 if (isset($_GET)) {
-
-
-
 	$sql = "SELECT * from users WHERE id_user='$_SESSION[id_user]' ";
 	$result1 = $conn->query($sql);
 
@@ -25,8 +22,6 @@ if (isset($_GET)) {
 		$total = ($sum / 4);
 		$course1 = $row1['qualification'];
 	}
-
-
 	$sql = "SELECT maximumsalary, qualification FROM job_post WHERE id_jobpost='$_GET[id]'";
 	$result = $conn->query($sql);
 
@@ -42,13 +37,10 @@ if (isset($_GET)) {
 			}
 		}
 	}
-
 	// for checking the eligibility & course criteria 
-
 	if ($total >= $eligibility) {
 		if ($course1 == $course2) {
 			// check for status 
-
 
 			// 1. Check if user has already applied for the Drive post or not. If not then add his details to apply_job_post table.
 			$sql1 = "SELECT * FROM apply_job_post WHERE id_user='$_SESSION[id_user]' AND id_jobpost='$_GET[id]'";
@@ -82,8 +74,6 @@ if (isset($_GET)) {
 				header("Location: view-job-post.php?id=$_GET[id]");
 				$_SESSION['status'] = "You have already applied for this Drive.";
 				$_SESSION['status_code'] = "success";
-
-
 				exit();
 			}
 		} else {
@@ -93,8 +83,6 @@ if (isset($_GET)) {
 			$_SESSION['status_code'] = "success";
 		}
 	} else {
-
-
 		header("Location: view-job-post.php?id=$_GET[id]");
 		$_SESSION['status'] = "You are not eligible for this drive due to the overall percentage criteria. Update your marks in your profile, if you think you are eligible.";
 		$_SESSION['status_code'] = "success";
