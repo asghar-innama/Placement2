@@ -117,45 +117,6 @@ require_once("../db.php");
         </div>
       </section>
 
-      <div class="modal modal-success fade" id="modal-success">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Job Title</h4>
-            </div>
-            <div class="modal-body">
-              <h3><b>Created On</b></h3>
-              <p>24/04/2017</p>
-              <br>
-              <h3><b>Company Name</b></h3>
-              <p>XYX Private Limited</p>
-              <br>
-              <h3><b>Company Email</b></h3>
-              <p>test@test.com</p>
-              <br>
-              <h3><b>Location</b></h3>
-              <p>India</p>
-              <br>
-              <h3><b>Application Message</b></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
 
     </div>
     <!-- /.content-wrapper -->

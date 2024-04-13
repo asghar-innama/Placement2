@@ -1,26 +1,15 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
 
-//If user Not logged in then redirect them back to homepage. 
-//This is required if user tries to manually enter view-job-post.php in URL.
 if (empty($_SESSION['id_jobpost'])) {
     header("Location: ../index.php");
     exit();
 }
-
-//Including Database Connection From db.php file to avoid rewriting in all files  
 require_once("../db.php");
-
-
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,13 +30,6 @@ require_once("../db.php");
     <!-- Custom -->
     <link rel="stylesheet" href="../css/custom.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -56,9 +38,7 @@ require_once("../db.php");
     <div class="wrapper">
 
         <?php
-
         include 'header.php';
-
         ?>
 
         <!-- Content Wrapper. Contains page content -->
@@ -70,10 +50,6 @@ require_once("../db.php");
                         <div class="col-md-2">
 
                         </div>
-
-
-
-
                         <div class="col-md-8 bg-white padding-2">
                             <h2 style = "color:white;" >Update Drive</h2>
                             <p>In this section you can change drive details.</p>
@@ -133,36 +109,19 @@ require_once("../db.php");
                                     ?>
                                 </form>
                             </div>
-
                             <div class="col-md-2">
-
                             </div>
                         </div>
-
-
-
-
-
                     </div>
                 </div>
-
             </section>
-
-
-
-
-
-
         </div>
-        <!-- /.content-wrapper -->
 
         <footer class=" main-footer" style="margin-left: 0px;">
             
         </footer>
 
         <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
 
     </div>
@@ -176,7 +135,5 @@ require_once("../db.php");
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../js/adminlte.min.js"></script>
-
 </body>
-
 </html>

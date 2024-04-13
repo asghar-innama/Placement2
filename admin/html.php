@@ -1,22 +1,32 @@
-<?php // opening php tags
+<?php
+session_start();
+require_once("../db.php");
+$sql = "SELECT * FROM users";
 
-session_start()
-// adding database file
-require_once(Placement_portal.php);
+// Prepare the statement
+$stmt = $conn->prepare($sql);
 
-$sql = "select * from users";
+// Check if the statement was prepared successfully
+if ($stmt) {
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-$result = $conn -> query($sql)
-
-if ($result->num_rows>0)
-{
-while ($result->fetch_assoc()){
-
-echo "echo $row['Name'];
+    // Check if there are rows returned
+    if ($result->num_rows > 0) {
+        // Fetch the rows as associative array
+        while ($row = $result->fetch_assoc()) {
+            // Output the value of the 'Name' column for each row
+            echo $row['Name'];
+        }
+    } else {
+        echo "No records found";
+    }
+    // Close the statement
+    $stmt->close();
+} else {
+    // Handle statement preparation error
+    echo "Error preparing statement: " . $conn->error;
 }
-
-
-}
-
-
-?> // closing php tags
+// Close the connection
+$conn->close();
+?>

@@ -1,34 +1,36 @@
 <?php
-
-
-//To Handle Session Variables on This Page
 session_start();
 
-//If user Not logged in then redirect them back to homepage. 
-//This is required if user tries to manually enter view-job-post.php in URL.
 if (empty($_SESSION['id_admin'])) {
     header("Location: index.php");
     exit();
 }
+
 require_once("../db.php");
 
-$sql = "select * from users  ";
+$sql = "SELECT firstname, lastname, email FROM users WHERE active = 1";
+$stmt = $conn->prepare($sql);
+if ($stmt) {
+    $stmt->execute();
+    $stmt->bind_result($firstname, $lastname, $email);
 
-$result = $conn->query($sql);
+    // Loop through each user
+    while ($stmt->fetch()) {
+        // Compose the email
+        $subject = "New Notice has been posted.";
+        $message = "Dear $firstname $lastname,\n\n";
+        $message .= "The TPO has posted a new notice on the placement portal. ";
+        $message .= "Please log in to your profile on the placement portal to check the notice.\n\n";
+        $message .= "Regards,\nPlacement Cell";
 
-if ($result->num_rows > 0) {
-
-    while ($row = $result->fetch_assoc()) {
-
-
-        //the subject
-        $sub = "New Notice has been posted.";
-        //the message
-        $msg = "The TPO has posted a new notice on the placement portal. Go to your profile on placement portal to check the notice.";
-        //recipient email here
-        $str = $row['email'];
-        $rec = "$str";
-        //send email
-        mail($rec, $sub, $msg);
+        mail($email, $subject, $message);
     }
+    $stmt->close();
+} else {
+    echo "Error preparing statement: " . $conn->error;
 }
+ini_set("SMTP", "your_smtp_server");
+ini_set("smtp_port", "25");
+ini_set("sendmail_from", "your_email_address");
+$conn->close();
+?>

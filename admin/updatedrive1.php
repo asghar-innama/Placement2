@@ -14,32 +14,33 @@ if (empty($_SESSION['id_jobpost'])) {
 require_once("../db.php");
 
 if (isset($_POST['submit'])) {
+    // Prepare and bind SQL statement with prepared statement
+    $sql = "UPDATE job_post SET jobtitle=?, role=?, minimumsalary=?, qualification=?, eligibility=?, description=?, cgpa=?, backlogs=? WHERE id_jobpost=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssdssssii", $companyname, $role, $CTC, $qualification, $Eligibility, $description, $cgpa, $backlogs, $_SESSION['id_jobpost']);
 
-
+    // Escape user inputs for security (optional if using prepared statements)
     $companyname = mysqli_real_escape_string($conn, $_POST['companyname']);
     $role = mysqli_real_escape_string($conn, $_POST['role']);
     $CTC = mysqli_real_escape_string($conn, $_POST['CTC']);
     $qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
     $Eligibility = mysqli_real_escape_string($conn, $_POST['Eligibility']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $cgpa = mysqli_real_escape_string($conn, $_POST['cgpa']);
+    $backlogs = mysqli_real_escape_string($conn, $_POST['backlogs']);
 
-
-    $sql = "UPDATE job_post SET jobtitle='$companyname', role='$role', minimumsalary='$CTC', qualification='$qualification', eligibility='$Eligibility',  description='$description' where id_jobpost='$_SESSION[id_jobpost] '";
-
-    if ($conn->query($sql) === TRUE) {
-        // $_SESSION['name'] = $companyname;
-        //If data Updated successfully then redirect to dashboard
-        header("Location: active-jobs.php");
+    // Execute the update statement
+    if ($stmt->execute()) {
+        // Redirect with success message
+        header("Location: active-jobs.php?success=1");
         exit();
     } else {
-        echo "Error ";
-        //Close database connection. Not compulsory but good practice.
-        $conn->close();
+        // Redirect with error message
+        header("Location: active-jobs.php?error=" . urlencode($conn->error));
+        exit();
     }
 } else {
-    //redirect them back to dashboard page if they didn't click update button
+    // Redirect back if form not submitted
     header("Location: active-jobs.php");
-    exit();
-
     exit();
 }

@@ -1,6 +1,4 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
 
 if (empty($_SESSION['id_admin'])) {
@@ -8,14 +6,15 @@ if (empty($_SESSION['id_admin'])) {
   exit();
 }
 
-
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../db.php");
 
+// Prepare statement for selecting job post
+$sql1 = "SELECT * FROM job_post WHERE id_jobpost = ?";
+$stmt1 = $conn->prepare($sql1);
+$stmt1->bind_param("i", $_GET['id']); // Bind the parameter
+$stmt1->execute();
+$result1 = $stmt1->get_result();
 
-
-$sql1 = "SELECT * FROM job_post WHERE id_jobpost='$_GET[id]'";
-$result1 = $conn->query($sql1);
 if ($result1->num_rows > 0) {
   $row = $result1->fetch_assoc();
 }
@@ -41,13 +40,6 @@ if ($result1->num_rows > 0) {
   <link rel="stylesheet" href="../css/_all-skins.min.css">
   <!-- Custom -->
   <link rel="stylesheet" href="../css/custom.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <style>
@@ -68,7 +60,6 @@ if ($result1->num_rows > 0) {
   <div class="wrapper">
 
     <?php
-
     include 'header.php';
     ?>
 
@@ -119,23 +110,16 @@ if ($result1->num_rows > 0) {
       <?php
       $_SESSION['id_jobpost'] = $row['id_jobpost'];
       ?>
-
-
     </div>
-    <!-- /.content-wrapper -->
+    <!--content-wrapper -->
 
     <footer class="main-footer" style="margin-left: 0px;">
-      
     </footer>
 
     <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 
   </div>
-  <!-- ./wrapper -->
-
   <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -143,5 +127,4 @@ if ($result1->num_rows > 0) {
   <!-- AdminLTE App -->
   <script src="../js/adminlte.min.js"></script>
 </body>
-
 </html>

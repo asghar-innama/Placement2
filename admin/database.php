@@ -87,19 +87,10 @@ require_once("../db.php");
                                     </select>
                                     <input name="submit" type="submit" value="Submit">
                                     <form method="POST" action=""></form>
-
-
                             </form>
-
-
                             </form>
-
-
                             <?php
-
                             if (isset($_POST['submit'])) {
-
-
                                 $option = mysqli_real_escape_string($conn, $_POST['company']);
 
                                 // echo $_SESSION['option'];
@@ -171,10 +162,7 @@ require_once("../db.php");
 
 
                                                                     </tr>
-
-
                                                     <?php
-
                                                                 }
                                                             }
                                                         }
@@ -185,9 +173,6 @@ require_once("../db.php");
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             <?php
 
                             }
@@ -196,28 +181,14 @@ require_once("../db.php");
                         </div>
                     </div>
 
-
-
-
-
                     <!-- Yah unplaced ki list aaeygi + eligiblity k hisab se ek filter bhi aaeyga + result k liye kuch karna hai +
                     mail wali chij dalni hai -->
-
-
-
-
                 </div>
                 <!-- <div class="col-md- ">
-
-
-
                     </div> -->
         </div>
     </div>
     </section>
-
-
-
     </div>
     <!-- /.content-wrapper -->
 
@@ -226,7 +197,6 @@ require_once("../db.php");
   height: 50px; position:absolute; background-color:#1f0a0a; color:white">
         
     </footer>
-
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->

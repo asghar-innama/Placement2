@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 if (empty($_SESSION['id_admin'])) {
   header("Location: index.php");
   exit();
@@ -92,8 +91,10 @@ require_once("../db.php");
                       </thead>
                       <tbody>
                         <?php
-                        $sql = "SELECT * FROM company";
-                        $result = $conn->query($sql);
+                        $sql = "SELECT name, email, contactno, city, state, country, active, id_company FROM company";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
                         ?>

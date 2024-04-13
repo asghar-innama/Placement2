@@ -1,56 +1,68 @@
 <?php
-
-//To Handle Session Variables on This Page
-
-
 session_start();
 
+if (empty($_SESSION['id_admin'])) {
+    header("Location: index.php");
+    exit();
+}
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../db.php");
-
-
 
 if (isset($_POST['submit'])) {
 
-    // they take values using name attribute 
+    // Sanitize and retrieve form data
     $subject = $_POST['subject'];
     $notice = $_POST['input'];
     $audience = $_POST['audience'];
 
-
-    //Folder where you want to save your resume. THIS FOLDER MUST BE CREATED BEFORE TRYING
+    // Folder where you want to save your resume
     $folder_dir = "uploads/resume/";
 
-    //Getting Basename of file. So if your file location is Documents/New Folder/myResume.pdf then base name will return myResume.pdf
+    // Getting basename of file
     $base = basename($_FILES['resume']['name']);
 
-    //This will get us extension of your file. So myResume.pdf will return pdf. If it was resume.doc then this will return doc.
+    // Getting file extension
     $resumeFileType = pathinfo($base, PATHINFO_EXTENSION);
 
-    //Setting a random non repeatable file name. Uniqid will create a unique name based on current timestamp. We are using this because no two files can be of same name as it will overwrite.
+    // Setting a random non-repeatable file name
     $file = uniqid() . "." . $resumeFileType;
 
-    //This is where your files will be saved so in this case it will be uploads/resume/newfilename
+    // File location
     $filename = $folder_dir . $file;
 
-    //We check if file is saved to our temp location or not.
+    // Move uploaded file to the destination folder
     if (file_exists($_FILES['resume']['tmp_name'])) {
-        move_uploaded_file(
-            $_FILES["resume"]["tmp_name"],
-            $filename
-        );
+        move_uploaded_file($_FILES["resume"]["tmp_name"], $filename);
     }
+
+    // Generating a hash
     $hash = md5(uniqid());
-    $sql = "INSERT INTO notice(subject,notice,audience,resume, hash,`date`) VALUES ('$subject','$notice','$audience','$file', '$hash',now())";
-    if ($conn->query($sql) === TRUE) {
+
+    // SQL statement with placeholders
+    $sql = "INSERT INTO notice(subject, notice, audience, resume, hash, `date`) VALUES (?, ?, ?, ?, ?, now())";
+
+    // Prepare the statement
+    $stmt = $conn->prepare($sql);
+
+    // Bind parameters
+    $stmt->bind_param("sssss", $subject, $notice, $audience, $file, $hash);
+
+    // Execute the statement
+    if ($stmt->execute()) {
         include 'sendmail.php';
         header("Location: postnotice.php");
         exit();
+    } else {
+        echo "Error: " . $conn->error;
     }
+
+    // Close the statement
+    $stmt->close();
 }
+
 ?>
 
+<!-- HTML form -->
 <!DOCTYPE html>
 <html>
 
@@ -59,29 +71,20 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Placement Portal</title>
 
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
     <link rel="stylesheet" href="css/AdminLTE.min.css">
     <link rel="stylesheet" href="css/_all-skins.min.css">
-    <!-- Custom -->
     <link rel="stylesheet" href="css/custom.css">
-
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
-    <?php
-    include 'header.php';
-    ?>
+    <?php include 'header.php'; ?>
     <div class="row">
         <div class="col-xs-6 responsive">
             <section>
@@ -91,7 +94,7 @@ if (isset($_POST['submit'])) {
                     New Notice Successfully added
                 </div>
 
-                <form class="centre " action="" method="POST">
+                <form class="centre" action="" method="POST" enctype="multipart/form-data">
                     <div>
                         <h4><strong> Post a new notice</strong></h4>
                     </div>
@@ -100,13 +103,6 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div id="file" class="form-group">
-                        <style>
-                            #file {
-                                margin-left: 40px;
-                                margin-top: 20px;
-                            }
-                        </style>
-                        <!-- <label style="color: red;">Attachment</label> -->
                         <input type="file" name="resume" class="btn btn-flat btn-primary">
                     </div>
 
@@ -116,24 +112,19 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div class="form-group text-center option">
-                        <label>Audience </label>
+                        <label>Audience</label>
                         <select class="form-control select2 select2-hidden-accessible" style="width: 100%" tabindex="-1" aria-hidden="true" class="input" name="audience">
-
                             <option class="option" value="All Students">All Students</option>
                             <option class="option" value="Co-ordinators">Co-ordinators</option>
-
-
                         </select>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-primary btn-sm" id="submit" name="submit" type=" submit1">NOTIFY</button>
-
+                        <button class="btn btn-primary btn-sm" id="submit" name="submit" type="submit">NOTIFY</button>
                     </div><br>
-                    <div>
-                    </div>
+                    <div></div>
                 </form>
+            </section>
         </div>
-        </section>
 
         <div class="col-xs-5 responsive2 ">
             <div class="box box-primary ">
@@ -141,7 +132,6 @@ if (isset($_POST['submit'])) {
                     <h3 class="box-title">Posted Notice</h3>
                 </div>
 
-                <!-- /.box-header -->
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -155,34 +145,31 @@ if (isset($_POST['submit'])) {
                             </tr>
                         </thead>
                         <tbody>
-
-                            <?php
+                        <?php
+                            // Selecting records from the notice table
                             $sql = "SELECT * FROM notice";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
-
-                                // output data of each row
                                 while ($row = $result->fetch_assoc()) {
                             ?>
                                     <td><?php echo $row['subject']; ?></td>
                                     <td><?php echo $row['notice']; ?></td>
                                     <td><?php echo $row['audience']; ?></td>
                                     <?php if ($row['resume'] != '') { ?>
-                                        <td><a href="uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Notice'; ?>"><i class="fa fa-file"></i></a></td>
+                                        <td><a href="uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Resume_' . $row['id'] . '.pdf'; ?>"><i class="fa fa-file"></i></a></td>
                                     <?php } else { ?>
                                         <td>No Resume Uploaded</td>
                                     <?php } ?>
                                     <td><?php echo $row['date']; ?></td>
-
                                     <td><a id="delete" href="deletenotice.php?id=<?php echo $row['id']; ?>"><i class="fa fa-trash"></i></a></td>
-                                    </tr><?php
-
-                                        }
-                                    }?>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
-                <!-- /.box-body -->
             </div>
         </div>
     </div>
@@ -209,12 +196,8 @@ if (isset($_POST['submit'])) {
 
 
     }
-
     #subject {
-
         width: 86%;
-
-
     }
 
     .option {
@@ -229,13 +212,9 @@ if (isset($_POST['submit'])) {
         border-radius: 5px;
         background-color: white;
         text-align: center;
-
-
     }
 
     .button {
-
-
         background-color: #3e79c8;
 
         /* Green */
@@ -276,7 +255,6 @@ if (isset($_POST['submit'])) {
             height: 60%;
             width: 60%;
             margin: auto;
-
         }
 
         .option {
@@ -289,9 +267,6 @@ if (isset($_POST['submit'])) {
             height: 80%;
             width: 60%;
             margin: auto;
-
         }
-
-
     }
 </style>

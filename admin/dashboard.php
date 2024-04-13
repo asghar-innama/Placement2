@@ -82,13 +82,12 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Co-Ordinators</span>
                       <?php
-                      $sql = "SELECT * FROM company WHERE active='1'";
-                      $result = $conn->query($sql);
-                      if ($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
+                      $sql = "SELECT COUNT(*) as total FROM company WHERE active='1'";
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $totalno = $row['total'];
                       ?>
                       <span class="info-box-number"><?php echo $totalno; ?></span>
                     </div>
@@ -100,13 +99,12 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Pending Coordinators Approval</span>
                       <?php
-                      $sql = "SELECT * FROM company WHERE active='2'";
-                      $result = $conn->query($sql);
-                      if ($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
+                      $sql = "SELECT COUNT(*) as total FROM company WHERE active='2'";
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $totalno = $row['total'];
                       ?>
                       <span class="info-box-number"><?php echo $totalno; ?></span>
 
@@ -119,13 +117,12 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Registered Students</span>
                       <?php
-                      $sql = "SELECT * FROM users WHERE active='1'";
-                      $result = $conn->query($sql);
-                      if ($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
+                      $sql = "SELECT COUNT(*) as total FROM users WHERE active='1'";
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $totalno = $row['total'];
                       ?>
                       <span class="info-box-number"><?php echo $totalno; ?></span>
                     </div>
@@ -137,13 +134,12 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Pending Students Confirmation</span>
                       <?php
-                      $sql = "SELECT * FROM users WHERE active='0'";
-                      $result = $conn->query($sql);
-                      if ($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
+                      $sql = "SELECT COUNT(*) as total FROM users WHERE active='0'";
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $totalno = $row['total'];
                       ?>
                       <span class="info-box-number"><?php echo $totalno; ?></span>
                     </div>
@@ -155,13 +151,12 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Total Drive Posts</span>
                       <?php
-                      $sql = "SELECT * FROM job_post";
-                      $result = $conn->query($sql);
-                      if ($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
+                      $sql = "SELECT COUNT(*) as total FROM job_post";
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $totalno = $row['total'];
                       ?>
                       <span class="info-box-number"><?php echo $totalno; ?></span>
                     </div>
@@ -173,13 +168,12 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Total DRIVE Applications</span>
                       <?php
-                      $sql = "SELECT * FROM apply_job_post";
-                      $result = $conn->query($sql);
-                      if ($result->num_rows > 0) {
-                        $totalno = $result->num_rows;
-                      } else {
-                        $totalno = 0;
-                      }
+                      $sql = "SELECT COUNT(*) as total FROM apply_job_post";
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();
+                      $totalno = $row['total'];
                       ?>
                       <span class="info-box-number"><?php echo $totalno; ?></span>
                     </div>

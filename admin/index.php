@@ -141,17 +141,9 @@ if (isset($_SESSION['id_admin'])) {
           <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
           <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
           <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
-
         </ul>
-
-
-
-
       <br>
-
       </div>
-
-
     </footer>
 
   <!-- /.login-box -->

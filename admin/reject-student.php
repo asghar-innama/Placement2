@@ -7,17 +7,26 @@ if (empty($_SESSION['id_admin'])) {
     exit();
 }
 
-
 require_once("../db.php");
 
-if (isset($_GET)) {
+if (isset($_GET['id'])) {
+    $sql = "UPDATE users SET active='0' WHERE id_user=?";
+    $stmt = $conn->prepare($sql);
 
-    //Delete Student using id and redirect
-    $sql = "UPDATE users  SET active='0' WHERE id_user='$_GET[id]'";
-    if ($conn->query($sql)) {
-        header("Location: applications.php");
-        exit();
+    if ($stmt) {
+        $stmt->bind_param("i", $_GET['id']);
+
+        if ($stmt->execute()) {
+            header("Location: applications.php");
+            exit();
+        } else {
+            echo "Error executing statement: " . $stmt->error;
+        }
+        $stmt->close();
     } else {
-        echo "Error";
+        echo "Error preparing statement: " . $conn->error;
     }
+} else {
+    echo "No user ID specified";
 }
+?>
