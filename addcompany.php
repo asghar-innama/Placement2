@@ -1,9 +1,5 @@
 <?php
-
-// To Handle Session Variables on This Page
 session_start();
-
-// Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
 
 // If user clicked register button
@@ -89,7 +85,6 @@ if(isset($_POST)) {
             exit();
         }
 
-        // SQL new registration insert query with prepared statement
         $stmt = $conn->prepare("INSERT INTO company(name, companyname, country, state, city, contactno, website, email, password, aboutme, logo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssssssss", $name, $companyname, $country, $state, $city, $contactno, $website, $email, $password, $aboutme, $file);
 
