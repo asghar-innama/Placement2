@@ -31,13 +31,6 @@ require_once("../db.php");
   <link rel="stylesheet" href="../css/_all-skins.min.css">
   <!-- Custom -->
   <link rel="stylesheet" href="../css/custom.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -94,7 +87,9 @@ require_once("../db.php");
                       <tbody>
                         <?php
                         $sql = "SELECT * FROM users";
-                        $result = $conn->query($sql);
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
 
                         if ($result->num_rows > 0) {
                           while ($row = $result->fetch_assoc()) {
@@ -162,11 +157,6 @@ require_once("../db.php");
     <footer class="main-footer" style="margin-left: 0px;">
       
     </footer>
-
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
 
   </div>
   <!-- ./wrapper -->

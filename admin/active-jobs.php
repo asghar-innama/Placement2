@@ -31,14 +31,7 @@ require_once("../db.php");
   <link rel="stylesheet" href="../css/_all-skins.min.css">
   <!-- Custom -->
   <link rel="stylesheet" href="../css/custom.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 
-  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
@@ -68,7 +61,7 @@ require_once("../db.php");
                     <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Drives</a></li>
                     <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Students Profile</a></li>
                     <!-- <li><a href="companies.php"><i class="fa fa-building"></i> Drives</a></li> -->
-                    <li><a href="companies.php"><i class="fa fa-arrow-circle-o-right"></i> Co - Ordinators</a></li>
+                    <li><a href="companies.php"><i class="fa fa-arrow-circle-o-right"></i> Placement Coordinators</a></li>
                     <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                   </ul>
                 </div>
@@ -83,7 +76,6 @@ require_once("../db.php");
                     <table id="example2" class="table table-hover">
                       <thead>
                         <th>Drive Name</th>
-                        <!-- <th>Company Name</th> -->
                         <th>Date Created</th>
                         <th>View</th>
                         <th>Delete</th>
@@ -91,7 +83,10 @@ require_once("../db.php");
                       <tbody>
                         <?php
                         $sql = "SELECT * FROM job_post";
-                        $result = $conn->query($sql);
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        
                         if ($result->num_rows > 0) {
                           $i = 0;
                           while ($row = $result->fetch_assoc()) {
@@ -119,17 +114,7 @@ require_once("../db.php");
 
 
     </div>
-    <!-- /.content-wrapper -->
-
-
-
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
-
   </div>
-  <!-- ./wrapper -->
 
   <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
