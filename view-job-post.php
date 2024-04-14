@@ -1,11 +1,8 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
-
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -26,21 +23,21 @@ require_once("db.php");
   <link rel="stylesheet" href="css/_all-skins.min.css">
   <!-- Custom -->
   <link rel="stylesheet" href="css/custom.css">
-
-  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
   <style>
-        .heading-text {
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-        }
-        .details{
-            font-size: 20px;
-            font-weight: bold;
-            color:white;
-        }
-    </style>
+    .heading-text {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .details {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+  </style>
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -52,12 +49,14 @@ require_once("db.php");
     <div class="content-wrapper" style="margin-left: 0px;">
 
       <?php
-      $sql = "SELECT * FROM job_post  WHERE id_jobpost='$_GET[id]'";
-      $result = $conn->query($sql);
+      $sql = "SELECT * FROM job_post  WHERE id_jobpost=?";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("i", $_GET['id']);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          //$_SESSION['id_company'] = $row['id_company'];
-
       ?>
 
           <section id="candidates" class="content-header">
@@ -66,7 +65,7 @@ require_once("db.php");
                 <div class="class col-md-2"></div>
                 <div class="col-md-8 bg-white padding-2">
                   <div class="pull-left mx-32">
-                    <h2><b style= "color:white;"><?php echo $row['jobtitle']; ?></b></h2>
+                    <h2><b style="color:white;"><?php echo $row['jobtitle']; ?></b></h2>
                   </div>
                   <div class="pull-right">
                     <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -74,16 +73,16 @@ require_once("db.php");
                   <div class="clearfix"></div>
                   <hr>
                   <div>
-                  <h5 class="details">
-                    <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['role'] . " &nbsp &nbsp &nbsp &nbsp &nbsp"; ?> </span>
-                    <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp &nbsp &nbsp   "; ?></span>
-                    <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br><br>
-                    <span class="heading-text"><i class="fa fa-solid fa-check text-green"></i> Eligibility: </span> <?php echo $row['eligibility']."% aggregate &nbsp &nbsp &nbsp"; ?> </span>
-                    <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span><br><br>
-                    <span class="heading-text"> <i class="fa fa-solid fa-check text-green"></i> Min CGPA Required:</span> <?php echo $row['cgpa']."&nbsp &nbsp"; ?></span>
-                    <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Max Number of Backlogs Allowed:</span> <?php echo $row['backlogs'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span><br><br>
-                    <span class="heading-text" style="font-size:18px;"><i class="fa fa-solid fa-check text-green"> </i> Company URL: <?php echo $row['companyurl']; ?></a></span>
-                </h5>
+                    <h5 class="details">
+                      <span class="heading-text"><i class="fa fa-location-arrow text-green"> </i> Role: <?php echo $row['role'] . " &nbsp &nbsp &nbsp &nbsp &nbsp"; ?> </span>
+                      <span class="heading-text"> <i class="fa fa-money text-green"> </i> CTC:</span> <?php echo "Rs " . $row['minimumsalary'] . " &nbsp &nbsp &nbsp &nbsp   "; ?></span>
+                      <span class="heading-text"><i class="fa fa-calendar text-green"> </i> Drive Date:</span> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></span><br><br>
+                      <span class="heading-text"><i class="fa fa-solid fa-check text-green"></i> Eligibility: </span> <?php echo $row['eligibility'] . "% aggregate &nbsp &nbsp &nbsp"; ?> </span>
+                      <span class="heading-text"><i class="fa fa-graduation-cap text-green"></i> Qualification: </span><?php echo $row['qualification'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span><br><br>
+                      <span class="heading-text"> <i class="fa fa-solid fa-check text-green"></i> Min CGPA Required:</span> <?php echo $row['cgpa'] . "&nbsp &nbsp"; ?></span>
+                      <span class="heading-text"><i class="fa fa-solid fa-check text-green"> </i> Max Number of Backlogs Allowed:</span> <?php echo $row['backlogs'] . "&nbsp &nbsp &nbsp &nbsp"; ?></span><br><br>
+                      <span class="heading-text" style="font-size:18px;"><i class="fa fa-solid fa-check text-green"> </i> Company URL: <?php echo $row['companyurl']; ?></a></span>
+                    </h5>
                   </div>
                   <div>
                     <?php echo stripcslashes($row['description']); ?>
@@ -109,13 +108,6 @@ require_once("db.php");
       }
       ?>
     </div>
-    <!-- /.content-wrapper -->
-
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
-
   </div>
   <!-- ./wrapper -->
 

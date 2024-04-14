@@ -1,27 +1,36 @@
 <?php
-//To Handle Session Variables on This Page
 session_start();
-
-//Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
+
+if(isset($_POST)) {
+    $sql = "SELECT * FROM cities WHERE state_id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $_POST['id']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo '<option value="'.$row["name"].'" data-id="'.$row["id"].'">'.$row["name"].'</option>';
+        }
+    }
+    $stmt->close();
+    $conn->close();
+} 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <title>Home</title>
 <head>
-    <?php 
-    include 'php/head.php'  ?>
+    <?php include 'php/head.php'; ?>
 </head>
 
 <body>
-    <!-- header starts -->
-    <?php 
-    include 'php/header.php'    ?>
-    <!-- header ends -->
+    <?php include 'php/header.php'; ?>
 
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
-    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+        <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
             <img src="img/correct img.png" class="img-fluid animated">
             <h2>Welcome to<br> <span>Christ Placement Cell</span></h2>
             <p>Focus On What's Ahead</p>
@@ -60,7 +69,7 @@ require_once("db.php");
                 </div>
 
             </div>
-        </section><!-- End Call To Action Section -->
+        </section><!-- End-->
 
 
         <!-- ======= Clients Section ======= -->
@@ -81,7 +90,7 @@ require_once("db.php");
                 </div>
 
             </div>
-        </section><!-- End Clients Section -->
+        </section><!-- End-->
 
 
 
@@ -104,7 +113,7 @@ require_once("db.php");
                                     <li><i class="bi bi-check-circle-fill"></i> To provide career guidance about avenues open after graduation.</li>
                                     <li><i class="bi bi-check-circle-fill"></i> Providing resources and training to students to facilitate the career planning process.</li>
                                     <li><i class="bi bi-check-circle-fill"></i> We seek to reduce manual labor, minimize errors, to create a technology-driven platform that benefits both students and placement authorities.
-</li>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -227,6 +236,6 @@ require_once("db.php");
     </main><!-- End #main -->
 
     <!--=============Footer ======= -->
-    <?php    include 'php/footer.php'; ?>
+    <?php include 'php/footer.php'; ?>
 </body>
 </html>

@@ -1,10 +1,5 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
-
-
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
 ?>
 
@@ -17,24 +12,19 @@ require_once("db.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
     include 'php/head.php'
-
     ?>
     <title>Placement Portal</title>
 </head>
 
 <body>
-
     <?php
-
     include 'php/header.php'
     ?>
+
     <section id="faq" class="faq">
         <div class="container-fluid" data-aos="fade-up">
-
             <div class="row gy-4">
-
                 <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
-
                     <div class="content px-xl-5">
                         <h3>Frequently Asked <strong>Questions</strong></h3>
                         <p>Any queries or doubts?<p>
@@ -89,21 +79,15 @@ require_once("db.php");
                         <!-- # Faq item-->
 
                     </div>
-
                 </div>
-
                 <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/faqq.jpg");'>&nbsp;</div>
             </div>
-
         </div>
     </section>
 
     <?php
     include 'php/footer.php'
     ?>
-
-
-
 </body>
 
 </html>

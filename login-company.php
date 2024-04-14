@@ -25,10 +25,8 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/blue.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Font -->
   <style>
     .login-logo,
 .register-logo {
@@ -36,7 +34,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   text-align: center;
   margin-bottom: 25px;
   font-weight: 300;
-  margin-top: 20px; /* Adding a top margin of 20px */
+  margin-top: 20px; 
 }
 .login-logo a,
 .register-logo a {
@@ -56,7 +54,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   width: 360px;
   margin: 7% auto;
   background: #004080;
-  padding-bottom: 10px; /* Adjust the value as needed */
+  padding-bottom: 10px; 
 }
 
 @media (max-width: 768px) {
@@ -70,7 +68,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 .register-box-body {
   background: #fff;
   padding: 20px;
-  border-top: 60px; /* Adjust the value as needed */
+  border-top: 60px; 
   color: #666;
 }
 .login-box-body .form-control-feedback,
@@ -110,11 +108,9 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           <div class="col-xs-8">
             <a href="#">Forgot your password?</a>
           </div>
-          <!-- /.col -->
           <div class="col-xs-4">
             <button type="submit" class="flex mx-auto mt-6 text-white bg-blue-900 border-0 py-2 px-5 focus:outline-none hover:bg-blue-800 rounded">Sign In</button>
           </div>
-          <!-- /.col -->
         </div>
       </form>
 
@@ -122,7 +118,6 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
       <?php
       //If User have successfully registered then show them this success message
-      //Todo: Remove Success Message without reload?
       if (isset($_SESSION['registerCompleted'])) {
       ?>
         <div>
@@ -170,7 +165,6 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
     </div>
     <a class="text-xl text-white font-bold ml-4" style="margin-top: 0.5cm; text-decoration: underline;" href="register-company.php">Create new account</a>
-    <!-- /.login-box-body -->
   </div>
 
   <div style="margin: bottom 0px; " class="  sm:mt-48 ">
@@ -182,13 +176,9 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
           <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
           <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
-
         </ul>
-
       <br>
-
       </div>
-
     </footer>
     
   <!-- jQuery 3 -->
