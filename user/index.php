@@ -60,7 +60,7 @@ require_once("../db.php");
               <div class="box-header with-border">
                 <div style="text-align: center;">
                   <img src="christlogo2.png" alt="Logo" style="width: 200px; float: right;">
-               </div>
+                </div>
               </div>
                 <div class="box-header with-border">
                     <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>

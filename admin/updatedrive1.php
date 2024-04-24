@@ -20,11 +20,25 @@ if (isset($_POST['submit'])) {
     $qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
     $Eligibility = mysqli_real_escape_string($conn, $_POST['Eligibility']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+<<<<<<< Updated upstream
     $cgpa = mysqli_real_escape_string($conn, $_POST['cgpa']);
     $backlogs = mysqli_real_escape_string($conn, $_POST['backlogs']);
 
     if ($stmt->execute()) {
         header("Location: active-jobs.php?success=1");
+=======
+    $url = mysqli_real_escape_string($conn, $_POST['companyurl']);
+    $backlogs = mysqli_real_escape_string($conn, $_POST['backlogs']);
+    $cgpa = mysqli_real_escape_string($conn, $_POST['cgpa']);
+
+
+    $sql = "UPDATE job_post SET jobtitle='$companyname', role='$role', minimumsalary='$CTC', qualification='$qualification', eligibility='$Eligibility',  description='$description', backlogs='$backlogs', cgpa='$cgpa', companyurl='$url' where id_jobpost='$_SESSION[id_jobpost] '";
+
+    if ($conn->query($sql) === TRUE) {
+        // $_SESSION['name'] = $companyname;
+        //If data Updated successfully then redirect to dashboard
+        header("Location: active-jobs.php");
+>>>>>>> Stashed changes
         exit();
     } else {
         header("Location: active-jobs.php?error=" . urlencode($conn->error));
