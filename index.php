@@ -2,13 +2,12 @@
 session_start();
 require_once("db.php");
 
-if(isset($_POST)) {
+if(isset($_POST['id'])) {
     $sql = "SELECT * FROM cities WHERE state_id=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $_POST['id']);
     $stmt->execute();
     $result = $stmt->get_result();
-
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo '<option value="'.$row["name"].'" data-id="'.$row["id"].'">'.$row["name"].'</option>';
@@ -21,14 +20,13 @@ if(isset($_POST)) {
 
 <!DOCTYPE html>
 <html lang="en">
-<title>Home</title>
 <head>
+    <title>Home</title>
     <?php include 'php/head.php'; ?>
 </head>
 
 <body>
     <?php include 'php/header.php'; ?>
-
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
             <img src="img/correct img.png" class="img-fluid animated">
@@ -39,8 +37,8 @@ if(isset($_POST)) {
             </div>
         </div>
     </section>
-    <main id="main">
 
+    <main id="main">
         <!-- ======= Call To Action Section ======= -->
         <section id="cta" class="cta">
             <div class="container" data-aos="zoom-out">
@@ -65,17 +63,13 @@ if(isset($_POST)) {
                             <img src="img/Placement-Cell.jpg" alt="Image 1" class="img-fluid">
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </section><!-- End-->
-
 
         <!-- ======= Clients Section ======= -->
         <section id="clients" class="clients">
             <div class="container" data-aos="zoom-out">
-
                 <div class="clients-slider swiper">
                     <div class="swiper-wrapper align-items-center">
                         <div class="swiper-slide"><img src="assets/img/clients/client-1.svg" class="img-fluid" alt=""></div>
@@ -88,20 +82,13 @@ if(isset($_POST)) {
                         <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
                     </div>
                 </div>
-
             </div>
         </section><!-- End-->
-
-
 
         <!-- ======= Features Section ======= -->
         <section id="objectives" class="features" name="objectives">
             <div class="container" data-aos="fade-up">
-
-
-
                 <div class="tab-content">
-
                     <div class="tab-pane active show" id="tab-1">
                         <div class="row gy-4">
                             <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
