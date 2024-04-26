@@ -1,14 +1,9 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
-
-//If user Not logged in then redirect them back to homepage. 
 if (empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
 }
-
 require_once("../db.php");
 ?>
 <!DOCTYPE html>
@@ -18,41 +13,23 @@ require_once("../db.php");
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Placement Portal</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="../css/AdminLTE.min.css">
   <link rel="stylesheet" href="../css/_all-skins.min.css">
-  <!-- Custom -->
   <link rel="stylesheet" href="../css/custom.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
-
     <?php
-
     include 'header.php';
     ?>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-left: 0px;">
-
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
@@ -86,10 +63,10 @@ require_once("../db.php");
               </div>
 
               <?php
-              $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company='$_SESSION[id_company]'";
-              $result = $conn->query($sql);
-              // echo "$result->num_rows";
-              // $_SESSION[id_company]
+              $stmt = $conn->prepare("SELECT job_post.jobtitle, users.firstname, users.lastname, apply_job_post.createdat, apply_job_post.status FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company=?");
+              $stmt->bind_param("i", $_SESSION['id_company']);
+              $stmt->execute();
+              $result = $stmt->get_result();
               if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
               ?>
@@ -98,7 +75,6 @@ require_once("../db.php");
                     <div class="attachment-text padding-2">
                       <div class="pull-left"><i class="fa fa-calendar"></i> <?php echo $row['createdat']; ?></div>
                       <?php
-
                       if ($row['status'] == 0) {
                         echo '<div class="pull-right"><strong class="text-orange">Placed</strong></div>';
                       } else if ($row['status'] == 1) {
@@ -107,10 +83,8 @@ require_once("../db.php");
                         echo '<div class="pull-right"><strong class="text-green">Applied</strong></div> ';
                       }
                       ?>
-
                     </div>
                   </div>
-
               <?php
                 }
               }
@@ -119,26 +93,12 @@ require_once("../db.php");
             </div>
           </div>
       </section>
-
-
-
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer" style="margin-left: 0px;">
-      
+    <footer class="main-footer" style="margin-left: 0px;">      
     </footer>
-
-
-
   </div>
-  <!-- ./wrapper -->
-
-  <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- AdminLTE App -->
   <script src="../js/adminlte.min.js"></script>
 </body>
-
 </html>

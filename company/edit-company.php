@@ -1,13 +1,9 @@
 <?php
-//To Handle Session Variables on This Page
 session_start();
-
-//If user Not logged in then redirect them back to homepage. 
 if (empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
 }
-
 require_once("../db.php");
 ?>
 <!DOCTYPE html>
@@ -17,27 +13,13 @@ require_once("../db.php");
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Placement Portal</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="../css/AdminLTE.min.css">
   <link rel="stylesheet" href="../css/_all-skins.min.css">
-  <!-- Custom -->
   <link rel="stylesheet" href="../css/custom.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <style>
     body {
@@ -86,26 +68,25 @@ require_once("../db.php");
     }
 
     .profile-form input[type="text"]:focus,
-.profile-form input[type="email"]:focus,
-.profile-form textarea:focus {
-  border-color: #45a049;
-  border-width: 3px; /* Increase border thickness */
-}
+    .profile-form input[type="email"]:focus,
+    .profile-form textarea:focus {
+      border-color: #45a049;
+      border-width: 3px; 
+    }
 
     .profile-form button {
-  width: 25%;
-  margin: 0 auto; /* Center the button horizontally */
-  display: block; /* Ensure the button takes full width */
-  padding: 15px;
-  background-color: #8B0000;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s;
-}
-
+      width: 25%;
+      margin: 0 auto; 
+      display: block; 
+      padding: 15px;
+      background-color: #8B0000;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
 
     .profile-form button:hover {
       background-color: #45a049;
@@ -152,8 +133,11 @@ require_once("../db.php");
                 <div class="row">
                   <form action="update-company.php" method="post" enctype="multipart/form-data">
                     <?php
-                    $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
-                    $result = $conn->query($sql);
+                    $sql = "SELECT * FROM company WHERE id_company=?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("i", $_SESSION['id_company']);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
                     if ($result->num_rows > 0) {
                       while ($row = $result->fetch_assoc()) {
@@ -235,18 +219,10 @@ require_once("../db.php");
     <!-- /.content-wrapper -->
     <footer class="main-footer" style="margin-left: 0px;">
     </footer>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
   </div>
-  <!-- ./wrapper -->
-  <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- AdminLTE App -->
   <script src="../js/adminlte.min.js"></script>
 </body>
-
 </html>

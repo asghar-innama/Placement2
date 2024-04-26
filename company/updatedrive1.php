@@ -1,45 +1,36 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
-
-//If user Not logged in then redirect them back to homepage. 
-//This is required if user tries to manually enter view-job-post.php in URL.
 if (empty($_SESSION['id_jobpost'])) {
     header("Location: ../index.php");
     exit();
 }
-
-//Including Database Connection From db.php file to avoid rewriting in all files  
 require_once("../db.php");
 
 if (isset($_POST['submit'])) {
-    $companyname = mysqli_real_escape_string($conn, $_POST['companyname']);
-    $role = mysqli_real_escape_string($conn, $_POST['role']);
-    $CTC = mysqli_real_escape_string($conn, $_POST['CTC']);
-    $qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
-    $Eligibility = mysqli_real_escape_string($conn, $_POST['Eligibility']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
-    $url =  mysqli_real_escape_string($conn, $_POST['companyurl']);
-    $cgpa =  mysqli_real_escape_string($conn, $_POST['cgpa']);
-    $backlogs =  mysqli_real_escape_string($conn, $_POST['backlogs']);
+    $companyname = $_POST['companyname'];
+    $role = $_POST['role'];
+    $CTC = $_POST['CTC'];
+    $qualification = $_POST['qualification'];
+    $Eligibility = $_POST['Eligibility'];
+    $description = $_POST['description'];
+    $url = $_POST['companyurl'];
+    $cgpa = $_POST['cgpa'];
+    $backlogs = $_POST['backlogs'];
 
+    $stmt = $conn->prepare("UPDATE job_post SET jobtitle=?, role=?, minimumsalary=?, eligibility=?, qualification=?, description=?, companyurl=?, cgpa=?, backlogs=? WHERE id_jobpost=?");
+    $stmt->bind_param("ssisssssii", $companyname, $role, $CTC, $Eligibility, $qualification, $description, $url, $cgpa, $backlogs, $_SESSION['id_jobpost']);
 
-    $sql = "UPDATE job_post SET jobtitle='$companyname', role='$role', minimumsalary='$CTC', eligibility='$Eligibility', qualification='$qualification',   description='$description', companyurl='$url', cgpa='$cgpa', backlogs='$backlogs' where id_jobpost='$_SESSION[id_jobpost] '";
-
-    if ($conn->query($sql) === TRUE) {
-        // $_SESSION['name'] = $companyname;
-        //If data Updated successfully then redirect to dashboard
+    if ($stmt->execute()) {
+        // Redirect to dashboard if data updated successfully
         header("Location: my-job-post.php");
         exit();
     } else {
-        echo "Error ";
-        //Close database connection. Not compulsory but good practice.
-        $conn->close();
+        echo "Error updating record: " . $conn->error;
     }
+    $stmt->close();
+    $conn->close();
 } else {
-    //redirect them back to dashboard page if they didn't click update button
     header("Location: updatedrive.php");
     exit();
-    exit();
 }
+?>

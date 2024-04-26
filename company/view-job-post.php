@@ -5,7 +5,6 @@ if (empty($_SESSION['id_company'])) {
     header("Location: ../index.php");
     exit();
 }
-
 require_once("../db.php");
 ?>
 <!DOCTYPE html>
@@ -30,8 +29,6 @@ require_once("../db.php");
     <link rel="stylesheet" href="../css/_all-skins.min.css">
     <!-- Custom -->
     <link rel="stylesheet" href="../css/custom.css">
-
-    <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
     <style>
@@ -81,8 +78,10 @@ require_once("../db.php");
                             <div class="row margin-top-20">
                                 <div class="col-md-12">
                                     <?php
-                                    $sql = "SELECT * FROM job_post WHERE id_jobpost='$_GET[id]'";
-                                    $result = $conn->query($sql);
+                                    $stmt = $conn->prepare("SELECT * FROM job_post WHERE id_jobpost=?");
+                                    $stmt->bind_param("i", $_GET['id']);
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
 
                                     //If Job Post exists then display details of post
                                     if ($result->num_rows > 0) {
@@ -131,23 +130,12 @@ require_once("../db.php");
                 </div>
             </section>
         </div>
-        <!-- /.content-wrapper -->
-
-        <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
 
     </div>
-    <!-- ./wrapper -->
-
-    <!-- jQuery 3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <!-- AdminLTE App -->
     <script src="../js/adminlte.min.js"></script>
 </body>
 

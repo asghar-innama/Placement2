@@ -1,15 +1,11 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
-
-//If user Not logged in then redirect them back to the homepage. 
 if (empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
 }
-
 require_once("../db.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,18 +14,13 @@ require_once("../db.php");
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Placement Portal</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="../css/AdminLTE.min.css">
   <link rel="stylesheet" href="../css/_all-skins.min.css">
-  <!-- Custom -->
   <link rel="stylesheet" href="../css/custom.css">
 
   <script src="../js/tinymce/tinymce.min.js"></script>
@@ -41,7 +32,6 @@ require_once("../db.php");
     });
   </script>
 
-  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <style>
     body {
@@ -93,13 +83,13 @@ require_once("../db.php");
     .profile-form input[type="email"]:focus,
     .profile-form textarea:focus {
       border-color: #45a049;
-      border-width: 3px; /* Increase border thickness */
+      border-width: 3px; 
     }
 
     .profile-form button {
       width: 25%;
-      margin: 0 auto; /* Center the button horizontally */
-      display: block; /* Ensure the button takes full width */
+      margin: 0 auto; 
+      display: block; 
       padding: 15px;
       background-color: #8B0000;
       color: white;
