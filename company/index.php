@@ -74,15 +74,19 @@ require_once("../db.php");
                     <div class="info-box-content">
                       <span class="info-box-text">Job Posted</span>
                       <?php
-                      $stmt1 = $conn->prepare("SELECT * FROM job_post WHERE id_company=?");
-                      $stmt1->bind_param("i", $_SESSION['id_company']);
-                      $stmt1->execute();
-                      $result1 = $stmt1->get_result();
+                      $stmt1 = $conn->prepare("SELECT * FROM job_post WHERE id_jobpost=?");
+                      if ($stmt1) {
+                        $stmt1->bind_param("i", $_SESSION['id_jobpost']);
+                        $stmt1->execute();
+                        $result1 = $stmt1->get_result();
 
-                      if ($result1->num_rows > 0) {
-                        $total1 = $result1->num_rows;
+                        if ($result1->num_rows > 0) {
+                          $total1 = $result1->num_rows;
+                        } else {
+                          $total1 = 0;
+                        }
                       } else {
-                        $total1 = 0;
+                        echo "Failed to prepare statement 1";
                       }
 
                       ?>
@@ -97,14 +101,18 @@ require_once("../db.php");
                       <span class="info-box-text">Application For Jobs</span>
                       <?php
                       $stmt2 = $conn->prepare("SELECT * FROM apply_job_post WHERE id_company=?");
-                      $stmt2->bind_param("i", $_SESSION['id_company']);
-                      $stmt2->execute();
-                      $result2 = $stmt2->get_result();
+                      if ($stmt2) {
+                        $stmt2->bind_param("i", $_SESSION['id_company']);
+                        $stmt2->execute();
+                        $result2 = $stmt2->get_result();
 
-                      if ($result2->num_rows > 0) {
-                        $total2 = $result2->num_rows;
+                        if ($result2->num_rows > 0) {
+                          $total2 = $result2->num_rows;
+                        } else {
+                          $total2 = 0;
+                        }
                       } else {
-                        $total2 = 0;
+                        echo "Failed to prepare statement 2";
                       }
                       ?>
                       <span class="info-box-number"><?php echo $total2; ?></span>
