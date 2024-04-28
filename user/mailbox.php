@@ -88,39 +88,40 @@ require_once("../db.php");
                                             <!-- /.box-header -->
                                             <div class="box-body no-padding">
                                                 <div class="table-responsive mailbox-messages">
-                                                    <table id="example1" class="table table-hover table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Subject</th>
-                                                                <th>Date</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <?php
-                                                            $sql = "SELECT * FROM mailbox WHERE id_fromuser=? OR id_touser=?";
-                                                            $stmt = $conn->prepare($sql);
-                                                            $stmt->bind_param("ii", $_SESSION['id_user'], $_SESSION['id_user']);
-                                                            $stmt->execute();
-                                                            $result = $stmt->get_result();
-                                                            if ($result->num_rows >  0) {
-                                                                while ($row = $result->fetch_assoc()) {
-                                                            ?>
-                                                                    <tr>
-                                                                        <td class="mailbox-subject"><a href="read-mail.php?id_mail=<?php echo $row['id_mailbox']; ?>"><?php echo $row['subject']; ?></a></td>
-                                                                        <td class="mailbox-date"><?php echo date("d-M-Y h:i a", strtotime($row['createdAt'])); ?></td>
-                                                                    </tr>
-                                                            <?php
-                                                                }
-                                                            }
-                                                            ?>
-                                                        </tbody>
-                                                        <tfoot>
-                                                            <tr>
-                                                                <th>Subject</th>
-                                                                <th>Date</th>
-                                                            </tr>
-                                                        </tfoot>
-                                                    </table>
+                                                    <table id="example1" class="table table-hover table-striped" style="border: 1px solid white;">
+    <thead>
+        <tr>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Subject</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Date</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $sql = "SELECT * FROM mailbox WHERE id_fromuser=? OR id_touser=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $_SESSION['id_user'], $_SESSION['id_user']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows >  0) {
+            while ($row = $result->fetch_assoc()) {
+        ?>
+                <tr style="border: 1px solid white;">
+                    <td class="mailbox-subject"><a href="read-mail.php?id_mail=<?php echo $row['id_mailbox']; ?>"><?php echo $row['subject']; ?></a></td>
+                    <td class="mailbox-date"><?php echo date("d-M-Y h:i a", strtotime($row['createdAt'])); ?></td>
+                </tr>
+        <?php
+            }
+        }
+        ?>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Subject</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Date</b></th>
+        </tr>
+    </tfoot>
+</table>
+
                                                     <!-- /.table -->
                                                 </div>
                                                 <!-- /.mail-box-messages -->

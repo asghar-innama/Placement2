@@ -72,39 +72,47 @@ require_once("../db.php");
                       </div>
                       <div class="box-body no-padding">
                         <div class="table-responsive mailbox-messages">
-                          <table id="example1" class="table table-hover table-striped">
-                            <thead>
-                              <tr>
-                                <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Subject</th>
-                                <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Date</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <?php
-                              $stmt = $conn->prepare("SELECT * FROM mailbox WHERE id_fromuser=? OR id_touser=?");
-                              $stmt->bind_param("ii", $_SESSION['id_company'], $_SESSION['id_company']);
-                              $stmt->execute();
-                              $result = $stmt->get_result();
-                              if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                              ?>
-                                  <tr>
-                                    <td class="mailbox-subject" style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><a href="read-mail.php?id_mail=<?php echo $row['id_mailbox']; ?>"><?php echo $row['subject']; ?></a></td>
-                                    <td class="mailbox-date" style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo date("d-M-Y h:i a", strtotime($row['createdAt'])); ?></td>
-                                  </tr>
-                              <?php
-                                }
-                              }
-                              ?>
-                            </tbody>
+                        <style>
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid white;
+    }
+</style>
 
-                            <tfoot>
-                              <tr>
-                                <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Subject</th>
-                                <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Date</th>
-                              </tr>
-                            </tfoot>
-                          </table>
+<table id="example1" class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Subject</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Date</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $sql = "SELECT * FROM mailbox WHERE id_fromuser=? OR id_touser=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $_SESSION['id_user'], $_SESSION['id_user']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows >  0) {
+            while ($row = $result->fetch_assoc()) {
+        ?>
+                <tr>
+                    <td class="mailbox-subject"><a href="read-mail.php?id_mail=<?php echo $row['id_mailbox']; ?>"><?php echo $row['subject']; ?></a></td>
+                    <td class="mailbox-date"><?php echo date("d-M-Y h:i a", strtotime($row['createdAt'])); ?></td>
+                </tr>
+        <?php
+            }
+        }
+        ?>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Subject</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Date</b></th>
+        </tr>
+    </tfoot>
+</table>
+
                         </div>
                       </div>
                       <div class="box-footer">
