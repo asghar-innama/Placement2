@@ -115,21 +115,11 @@ require_once("../db.php");
 
 
     </div>
-    <!-- /.content-wrapper -->
-
     <footer class="main-footer" style="margin-left: 0px;">
-      
     </footer>
-
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 
   </div>
-  <!-- ./wrapper -->
-
-  <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -146,24 +136,17 @@ require_once("../db.php");
     });
   </script>
 </body>
-
 </html>
 
 <style>
-  /* my css  */
-
   .box {
 
     font-size: medium;
     font-family: sans-serif;
   }
-
-
   li {
     color: aqua;
   }
-
-
   @media only screen and (max-width: 989px) {
     .box {
       margin: auto;

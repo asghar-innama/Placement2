@@ -31,35 +31,27 @@ require_once("../db.php");
         }
 
         h1 {
-        font-size: 30px; /* Increase font size */
-        margin-bottom: 10px; /* Add some bottom margin for spacing */
+        font-size: 30px; 
+        margin-bottom: 10px; 
         color: #8B0000;
         font-family: "Times New Roman", Times, serif;
         font-weight: bold;
-        /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  Add a subtle text-shadow for emphasis */
-        /* You can also add more styling such as color, font-family, etc. */
         }
 
         h3 {
             font-family: "Times New Roman", Times, serif;
             font-weight: bold;
-            text-decoration: underline; /* Add underline */
+            text-decoration: underline; 
             color: black;
             font-size: 20px;
-            /* You can also add more styling such as text-shadow */
             }
 
         label 
         {
             font-family: "Times New Roman", Times, serif;
-            /* font-weight: bold;  Add font-weight for emphasis */
-             /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); Add a subtle text-shadow */
             color: black;
             font-size: 15px;
-            /* You can also add more styling such as color, font-size, etc. */
         }
-
-
         input[type="text"],
         textarea {
             width: 100%;
@@ -84,18 +76,15 @@ require_once("../db.php");
             border-radius: 4px;
             cursor: pointer;
         }
-
         button:hover {
             background-color: #8B0000;
         }
-
         .alert {
             padding: 15px;
             margin-bottom: 20px;
             border: 1px solid transparent;
             border-radius: 4px;
         }
-
         .alert-info {
             background-color: #d9edf7;
             border-color: #bce8f1;
@@ -111,9 +100,7 @@ require_once("../db.php");
 
 <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
-
         <?php include 'header.php'?>
-
         <div class="container" id="cv-form">
             <br>
             <h1 class="text-center my-3">Resume Generator</h1>
