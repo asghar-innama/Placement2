@@ -36,6 +36,7 @@ require_once("../db.php");
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
+            
             <div class="col-md-3">
               <div class="box box-solid">
               <div class="box-header with-border">
@@ -61,6 +62,7 @@ require_once("../db.php");
                 </div>
               </div>
             </div>
+
             <div class="col-md-9 bg-black padding-2" style="background-color: white; font-family: 'Times New Roman', Times, serif; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: black;">
               <div class="alert alert-info alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

@@ -36,14 +36,19 @@ require_once("../db.php");
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
+          <div class="col-md-3">
               <div class="box box-solid">
+              <div class="box-header with-border">
+                <div style="text-align: center;">
+                  <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+               </div>
+              </div>
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                    <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
-                    <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li ><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                     <li><a href="edit-company.php"><i class="fa fa-tv"></i> Update Profile</a></li>
                     <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Post Drive</a></li>
                     <li><a href="my-job-post.php"><i class="fa fa-file-o"></i> Current Drives</a></li>
@@ -53,11 +58,9 @@ require_once("../db.php");
                     <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
                     <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                   </ul>
-                  </ul>
                 </div>
               </div>
             </div>
-
             <div class="col-md-9 bg-white padding-2">
               <h4><i>Account Settings</i></h4>
               <p>In this section you can change your name and account password</p>

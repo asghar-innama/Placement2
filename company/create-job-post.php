@@ -5,7 +5,6 @@ if (empty($_SESSION['id_company'])) {
   exit();
 }
 require_once("../db.php");
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -118,10 +117,16 @@ require_once("../db.php");
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
+
+          <div class="col-md-3">
               <div class="box box-solid">
+              <div class="box-header with-border">
+                <div style="text-align: center;">
+                  <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+               </div>
+              </div>
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                    <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
@@ -138,6 +143,7 @@ require_once("../db.php");
                 </div>
               </div>
             </div>
+
             <div class="col-md-9 bg-white padding-2">
               <div class="profile-form">
                 <h2><i>Post a new Drive</i></h2>

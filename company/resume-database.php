@@ -35,14 +35,20 @@ require_once("../db.php");
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
+
+          <div class="col-md-3">
               <div class="box box-solid">
+              <div class="box-header with-border">
+                <div style="text-align: center;">
+                  <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+               </div>
+              </div>
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                    <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                 </div>
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
-                    <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li ><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                     <li><a href="edit-company.php"><i class="fa fa-tv"></i> Update Profile</a></li>
                     <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Post Drive</a></li>
                     <li><a href="my-job-post.php"><i class="fa fa-file-o"></i> Current Drives</a></li>
@@ -52,58 +58,59 @@ require_once("../db.php");
                     <li class="active"><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
                     <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                   </ul>
-                  </ul>
                 </div>
               </div>
             </div>
+
             <div class="col-md-9 bg-white padding-2">
               <h4><i>Talent Database</i></h4>
               <p>In this section you can download resume of all candidates who applied to your job posts</p>
               <div class="row margin-top-20">
                 <div class="col-md-12">
                   <div class="box-body table-responsive no-padding">
-                    <table id="example2" class="table table-hover">
-                      <thead>
-                        <th>Candidate</th>
-                        <th>Highest Qualification</th>
-                        <th>Skills</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Download Resume</th>
-                      </thead>
-                      <tbody>
-                        <?php
-                        $stmt = $conn->prepare("SELECT users.firstname, users.lastname, users.qualification, users.skills, users.city, users.state, users.resume FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company=? GROUP BY users.id_user");
-                        $stmt->bind_param("i", $_SESSION['id_company']);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
+                  <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Candidate</b></th>
+                            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Highest Qualification</b></th>
+                            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Skills</b></th>
+                            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">City</b></th>
+                            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">State</b></th>
+                            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Download Resume</b></th>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $stmt = $conn->prepare("SELECT users.firstname, users.lastname, users.qualification, users.skills, users.city, users.state, users.resume FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company=? GROUP BY users.id_user");
+                            $stmt->bind_param("i", $_SESSION['id_company']);
+                            $stmt->execute();
+                            $result = $stmt->get_result();
 
-                        if ($result->num_rows > 0) {
-                          while ($row = $result->fetch_assoc()) {
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
 
-                            $skills = $row['skills'];
-                            $skills = explode(',', $skills);
-                        ?>
-                            <tr>
-                              <td><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td>
-                              <td><?php echo $row['qualification']; ?></td>
-                              <td>
-                                <?php
-                                foreach ($skills as $value) {
-                                  echo ' <span class="label label-success">' . $value . '</span>';
+                                    $skills = $row['skills'];
+                                    $skills = explode(',', $skills);
+                            ?>
+                                    <tr>
+                                        <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td>
+                                        <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['qualification']; ?></td>
+                                        <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;">
+                                            <?php
+                                            foreach ($skills as $value) {
+                                                echo ' <span class="label label-success">' . $value . '</span>';
+                                            }
+                                            ?>
+                                        </td>
+                                        <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['city']; ?></td>
+                                        <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['state']; ?></td>
+                                        <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><a href="../uploads/resume/<?php echo $row['resume']; ?> " download="<?php echo $row['firstname'] . ' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
+                                    </tr>
+                            <?php
                                 }
-                                ?>
-                              </td>
-                              <td><?php echo $row['city']; ?></td>
-                              <td><?php echo $row['state']; ?></td>
-                              <td><a href="../uploads/resume/<?php echo $row['resume']; ?> " download="<?php echo $row['firstname'] . ' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
-                            </tr>
-                        <?php
-                          }
-                        }
-                        ?>
-                      </tbody>
+                            }
+                            ?>
+                        </tbody>
                     </table>
+
                   </div>
                 </div>
               </div>

@@ -109,6 +109,12 @@ require_once("../db.php");
             <div class="col-md-3">
               <div class="box box-solid">
                 <div class="box-header with-border">
+                  <div style="text-align: center;">
+                    <!-- Logo image added here -->
+                    <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+                  </div>
+                </div>
+                <div class="box-header with-border">
                   <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                 </div>
                 <div class="box-body no-padding">
@@ -123,10 +129,10 @@ require_once("../db.php");
                     <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
                     <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                   </ul>
-                  </ul>
                 </div>
               </div>
             </div>
+            
             <div class="col-md-9 bg-white padding-2">
               <div class="profile-form">
                 <h2><i>Placement-Official Profile</i></h2>
