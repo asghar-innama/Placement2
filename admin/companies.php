@@ -57,9 +57,16 @@ require_once("../db.php");
           <div class="row">
             <div class="col-md-3">
               <div class="box box-solid">
+
+              <div class="box-header with-border">
+                <div style="text-align: center;">
+                  <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+               </div>
+              </div>
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b>Admin</b></h3>
+                    <h3 class="box-title">Welcome Admin</b></h3>
                 </div>
+
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
                     <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -77,62 +84,70 @@ require_once("../db.php");
               <div class="row margin-top-20">
                 <div class="col-md-12">
                   <div class="box-body table-responsive no-padding">
-                    <table id="example2" class="table table-hover">
-                      <thead>
-                        <!-- <th>Company Name</th> -->
-                        <th>Account Creator Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Country</th>
-                        <th>Status</th>
-                        <th>Delete</th>
-                      </thead>
-                      <tbody>
+                  <style>
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid white;
+    }
+</style>
+
+<table id="example2" class="table table-hover table-bordered">
+    <thead>
+        <!-- <th>Company Name</th> -->
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Account Creator Name</b></th>
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Email</b></th>
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Phone</b></th>
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">City</b></th>
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">State</b></th>
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Country</b></th>
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Status</b></th>
+        <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Delete</b></th>
+    </thead>
+    <tbody>
+        <?php
+        $sql = "SELECT name, email, contactno, city, state, country, active, id_company FROM company";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+        ?>
+                <tr>
+                    <!-- <td> -->
+                    <!-- php echo $row['companyname'];  -->
+                    <!-- </td>  -->
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['name']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['email']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['contactno']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['city']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['state']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['country']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;">
                         <?php
-                        $sql = "SELECT name, email, contactno, city, state, country, active, id_company FROM company";
-                        $stmt = $conn->prepare($sql);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-                        if ($result->num_rows > 0) {
-                          while ($row = $result->fetch_assoc()) {
+                        if ($row['active'] == '1') {
+                            echo "Activated";
+                        } else if ($row['active'] == '2') {
                         ?>
-                            <tr>
-                              <!-- <td> -->
-                              <!-- php echo $row['companyname'];  -->
-                              <!-- </td>  -->
-                              <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['email']; ?></td>
-                              <td><?php echo $row['contactno']; ?></td>
-                              <td><?php echo $row['city']; ?></td>
-                              <td><?php echo $row['state']; ?></td>
-                              <td><?php echo $row['country']; ?></td>
-                              <td>
-                                <?php
-                                if ($row['active'] == '1') {
-                                  echo "Activated";
-                                } else if ($row['active'] == '2') {
-                                ?>
-                                  <a href="reject-company.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a>
-                                <?php
-                                } else if ($row['active'] == '3') {
-                                ?>
-                                  <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
-                                <?php
-                                } else if ($row['active'] == '0') {
-                                  echo "Rejected";
-                                }
-                                ?>
-                              </td>
-                              <td><a href="delete-company.php?id=<?php echo $row['id_company']; ?>">Delete</a></td>
-                            </tr>
+                            <a href="reject-company.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a>
                         <?php
-                          }
+                        } else if ($row['active'] == '3') {
+                        ?>
+                            <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
+                        <?php
+                        } else if ($row['active'] == '0') {
+                            echo "Rejected";
                         }
                         ?>
-                      </tbody>
-                    </table>
+                    </td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><a href="delete-company.php?id=<?php echo $row['id_company']; ?>">Delete</a></td>
+                </tr>
+        <?php
+            }
+        }
+        ?>
+    </tbody>
+</table>
+
                   </div>
                 </div>
               </div>

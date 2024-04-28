@@ -52,9 +52,16 @@ require_once("../db.php");
           <div class="row">
             <div class="col-md-3">
               <div class="box box-solid">
+
+              <div class="box-header with-border">
+                <div style="text-align: center;">
+                  <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+               </div>
+              </div>
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b>Admin</b></h3>
+                    <h3 class="box-title">Welcome Admin</b></h3>
                 </div>
+                
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
                     <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -73,36 +80,46 @@ require_once("../db.php");
               <div class="row margin-top-20">
                 <div class="col-md-12">
                   <div class="box-body table-responsive no-padding">
-                    <table id="example2" class="table table-hover">
-                      <thead>
-                        <th>Drive Name</th>
-                        <th>Date Created</th>
-                        <th>View</th>
-                        <th>Delete</th>
-                      </thead>
-                      <tbody>
-                        <?php
-                        $sql = "SELECT * FROM job_post";
-                        $stmt = $conn->prepare($sql);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-                        
-                        if ($result->num_rows > 0) {
-                          $i = 0;
-                          while ($row = $result->fetch_assoc()) {
-                        ?>
-                            <tr>
-                              <td><?php echo $row['jobtitle']; ?></td>
-                              <td><?php echo date("d-M-Y", strtotime($row['createdat'])); ?></td>
-                              <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
-                              <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
-                            </tr>
-                        <?php
-                          }
-                        }
-                        ?>
-                      </tbody>
-                    </table>
+                  <style>
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid white;
+    }
+</style>
+
+<table id="example2" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Drive Name</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Date Created</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">View</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Delete</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $sql = "SELECT * FROM job_post";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $i = 0;
+            while ($row = $result->fetch_assoc()) {
+        ?>
+                <tr>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['jobtitle']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo date("d-M-Y", strtotime($row['createdat'])); ?></td>
+                    <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
+                    <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
+                </tr>
+        <?php
+            }
+        }
+        ?>
+    </tbody>
+</table>
+
                   </div>
                 </div>
               </div>

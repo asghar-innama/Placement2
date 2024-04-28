@@ -75,11 +75,11 @@ if ($stmt) {
                                 <div class="box-body table-responsive no-padding">
                                     <table id="example2" class="table table-hover">
                                         <tr class="header">
-                                            <th style="width:20%;">Student Name</th>
-                                            <th style="width:30%;">Student Email</th>
-                                            <th style="width:20%;">Company Name</th>
-                                            <th style="width:20%;">Role</th>
-                                            <th style="width:20%;">CTC</th>
+                                            <th style="width:20%;"><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Student Name</th>
+                                            <th style="width:30%;"><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Student Email</th>
+                                            <th style="width:20%;"><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Company Name</th>
+                                            <th style="width:20%;"><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Role</th>
+                                            <th style="width:20%;"><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">CTC</th>
                                         </tr>
                                         <tbody>
                                             <?php
@@ -87,11 +87,11 @@ if ($stmt) {
                                             while ($stmt->fetch()) {
                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $firstname . ' ' . $lastname; ?></td>
-                                                    <td><?php echo $email; ?></td>
-                                                    <td><?php echo $jobtitle; ?></td>
-                                                    <td><?php echo $role; ?></td>
-                                                    <td><?php echo $minimumsalary; ?></td>
+                                                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $firstname . ' ' . $lastname; ?></td>
+                                                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $email; ?></td>
+                                                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $jobtitle; ?></td>
+                                                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $role; ?></td>
+                                                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $minimumsalary; ?></td>
                                                 </tr>
                                             <?php
                                             }

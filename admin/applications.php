@@ -52,9 +52,16 @@ require_once("../db.php");
           <div class="row">
             <div class="col-md-3">
               <div class="box box-solid">
+
+              <div class="box-header with-border">
+                <div style="text-align: center;">
+                  <img src="christlogo2.png" alt="Logo1" style="width: 200px; float: right;">
+               </div>
+              </div>
                 <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b>Admin</b></h3>
+                    <h3 class="box-title">Welcome Admin</b></h3>
                 </div>
+
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
                     <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -73,76 +80,86 @@ require_once("../db.php");
               <div class="row margin-top-20">
                 <div class="col-md-12">
                   <div class="box-body table-responsive no-padding">
-                    <table id="example2" class="table table-hover">
-                      <thead>
-                        <th>Candidate</th>
-                        <th>Highest Qualification</th>
-                        <th>Skills</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Download Resume</th>
-                        <th>Status</th>
-                        <th>Delete</th>
-                      </thead>
-                      <tbody>
+                  <style>
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid white;
+    }
+</style>
+
+<table id="example2" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Candidate</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Highest Qualification</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Skills</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">City</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">State</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Download Resume</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Status</b></th>
+            <th><b style="color:white; font-size: larger; font-weight: bold; font-style: italic;">Delete</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $sql = "SELECT * FROM users";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+
+                $skills = $row['skills'];
+                $skills = explode(',', $skills);
+        ?>
+                <tr>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['qualification']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;">
                         <?php
-                        $sql = "SELECT * FROM users";
-                        $stmt = $conn->prepare($sql);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-
-                        if ($result->num_rows > 0) {
-                          while ($row = $result->fetch_assoc()) {
-
-                            $skills = $row['skills'];
-                            $skills = explode(',', $skills);
-                        ?>
-                            <tr>
-                              <td><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td>
-                              <td><?php echo $row['qualification']; ?></td>
-                              <td>
-                                <?php
-                                foreach ($skills as $value) {
-                                  echo ' <span class="label label-success">' . $value . '</span>';
-                                }
-                                ?>
-                              </td>
-                              <td><?php echo $row['city']; ?></td>
-                              <td><?php echo $row['state']; ?></td>
-                              <?php if ($row['resume'] != '') { ?>
-                                <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'] . ' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
-                              <?php } else { ?>
-                                <td>No Resume Uploaded</td>
-                              <?php } ?>
-                              <td>
-                                <?php
-                                if ($row['active'] == '1') {
-                                  echo "Activated";
-                                } else if ($row['active'] == '2') {
-                                ?>
-                                  <a href="reject-student.php?id=<?php echo $row['id_user']; ?>">Reject</a> <a href="approve-student.php?id=<?php echo $row['id_user']; ?>">Approve</a>
-                                <?php
-                                } else if ($row['active'] == '3') {
-                                ?>
-                                  <a href="approve-student.php?id=<?php echo $row['id_user']; ?>">Reactivate</a>
-                                <?php
-                                } else if ($row['active'] == '0') {
-                                  echo "Rejected";
-                                }
-                                ?>
-                              </td>
-
-                              <td><a href="delete-student.php?id=<?php echo $row['id_user']; ?>">Delete</a></td>
-                            </tr>
-
-                        <?php
-
-                          }
+                        foreach ($skills as $value) {
+                            echo ' <span class="label label-success">' . $value . '</span>';
                         }
                         ?>
+                    </td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['city']; ?></td>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['state']; ?></td>
+                    <?php if ($row['resume'] != '') { ?>
+                        <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'] . ' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
+                    <?php } else { ?>
+                        <td>No Resume Uploaded</td>
+                    <?php } ?>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;">
+                        <?php
+                        if ($row['active'] == '1') {
+                            echo "Activated";
+                        } else if ($row['active'] == '2') {
+                        ?>
+                            <a href="reject-student.php?id=<?php echo $row['id_user']; ?>">Reject</a> <a href="approve-student.php?id=<?php echo $row['id_user']; ?>">Approve</a>
+                        <?php
+                        } else if ($row['active'] == '3') {
+                        ?>
+                            <a href="approve-student.php?id=<?php echo $row['id_user']; ?>">Reactivate</a>
+                        <?php
+                        } else if ($row['active'] == '0') {
+                            echo "Rejected";
+                        }
+                        ?>
+                    </td>
 
-                      </tbody>
-                    </table>
+                    <td style="color: #8B0000; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><a href="delete-student.php?id=<?php echo $row['id_user']; ?>">Delete</a></td>
+                </tr>
+
+        <?php
+
+            }
+        }
+        ?>
+
+    </tbody>
+</table>
+
                   </div>
                 </div>
               </div>
