@@ -63,11 +63,8 @@ require_once("../db.php");
                                                     <tr>
                                                         <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['subject']; ?></td>
                                                         <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['notice']; ?></td>
-                                                        <?php if ($row['resume'] != '') { ?>
-                                                            <td><a href="uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Notice'; ?>"><i class="fa fa-file"></i></a></td>
-                                                        <?php } else { ?>
+                                                        
                                                             <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;">No Resume Uploaded</td>
-                                                        <?php } ?>
                                                         <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['date']; ?></td>
                                                     </tr>
                                             <?php
