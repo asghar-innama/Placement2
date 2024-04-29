@@ -12,16 +12,12 @@ require_once("db.php");
   <title>Placement Portal</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="css/AdminLTE.min.css">
   <link rel="stylesheet" href="css/_all-skins.min.css">
-  <!-- Custom -->
   <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
@@ -90,16 +86,13 @@ require_once("db.php");
                   <?php
                   if (isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
                     <div>
-                      <a onclick="eligiblefunction()" href="user/checkeligibility.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-primary pull-right btn-flat margin-top-50">Check Eligibility</a>
+                      <a href="user/checkeligibility.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-primary pull-right btn-flat margin-top-50">Check Eligibility</a>
                     </div>
                     <div>
-                      <a onclick="reallyfunction()" href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50">Apply</a>
+                      <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50">Apply</a>
                     </div>
                   <?php } ?>
-
-
                 </div>
-
               </div>
             </div>
           </section>
@@ -109,13 +102,8 @@ require_once("db.php");
       ?>
     </div>
   </div>
-  <!-- ./wrapper -->
-
-  <!-- jQuery 3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- AdminLTE App -->
   <script src="js/adminlte.min.js"></script>
 
 </body>
