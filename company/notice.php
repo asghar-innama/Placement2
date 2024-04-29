@@ -46,10 +46,10 @@ require_once("../db.php");
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead class="table">
                                             <tr>
-                                                <th>Subject</th>
-                                                <th>Notice</th>
-                                                <th>Attachment</th>
-                                                <th>Date and Time</th>
+                                                <th><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Subject</th>
+                                                <th><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Notice</th>
+                                                <th><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Attachment</th>
+                                                <th><b style="color:black; font-size: larger; font-weight: bold; font-style: italic;">Date and Time</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -61,14 +61,14 @@ require_once("../db.php");
                                                 while ($row = $result->fetch_assoc()) {
                                                     ?>
                                                     <tr>
-                                                        <td><?php echo $row['subject']; ?></td>
-                                                        <td><?php echo $row['notice']; ?></td>
+                                                        <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['subject']; ?></td>
+                                                        <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['notice']; ?></td>
                                                         <?php if ($row['resume'] != '') { ?>
                                                             <td><a href="uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo 'Notice'; ?>"><i class="fa fa-file"></i></a></td>
                                                         <?php } else { ?>
-                                                            <td>No Resume Uploaded</td>
+                                                            <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;">No Resume Uploaded</td>
                                                         <?php } ?>
-                                                        <td><?php echo $row['date']; ?></td>
+                                                        <td style="color: #8B0000;background: white; font-family: 'Times New Roman', Times, serif; font-weight: normal; font-style: normal;"><?php echo $row['date']; ?></td>
                                                     </tr>
                                             <?php
                                                 }
